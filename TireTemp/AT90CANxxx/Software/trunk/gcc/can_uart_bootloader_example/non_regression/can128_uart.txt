@@ -1,0 +1,33 @@
+
+#---- Setup of the hardware -----
+-device AT90CAN128
+-hardware RS232
+-port COM1
+-baudrate 19200 
+
+-logf "J:\temp\test\can128_test\can128_uart_logfile.txt"
+
+
+#----- Operation --------------
+-operation
+    ONFAIL Ignore
+
+    ECHO "   -- Test=can128_tst_configurations.txt"
+    INCLUDE "J:\temp\test\can128_test\can128_tst_configurations.txt"
+    
+    ECHO "   -- Test=can128_tst_ssb.txt"
+    INCLUDE "J:\temp\test\can128_test\can128_tst_ssb.txt"
+    
+    ECHO "   -- Test=can128_tst_blankcheck_eeprom.txt"
+    INCLUDE "J:\temp\test\can128_test\can128_tst_blankcheck_eeprom.txt"
+    
+    ECHO "   -- Test=can128_tst_blankcheck_flash.txt"
+    INCLUDE "J:\temp\test\can128_test\can128_tst_blankcheck_flash.txt"
+    
+    ECHO "   -- Test=can128_tst_eeprom.txt"
+    INCLUDE "J:\temp\test\can128_test\can128_tst_eeprom.txt"
+    
+    ECHO "   -- Test=can128_tst_flash.txt"
+    INCLUDE "J:\temp\test\can128_test\can128_tst_flash.txt"
+    
+

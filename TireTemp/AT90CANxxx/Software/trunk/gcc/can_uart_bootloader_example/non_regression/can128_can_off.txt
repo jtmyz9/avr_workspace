@@ -1,0 +1,15 @@
+#---- Setup of the hardware -----
+-device AT90CAN128
+-hardware PEAK
+-canbitrate 500 
+
+-logf "can128_can_logfile.txt"
+
+#-debug
+
+
+#----- Operation --------------
+-operation
+    ONFAIL Ignore
+    
+    CANCLOSE 0xFF

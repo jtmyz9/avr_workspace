@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;can.h&apos; to &apos;include&apos;" description="Move &apos;can.h&apos; to &apos;include&apos;" destination="include" element1="can.h" element2="systimer.h" element3="ZOUnet_defs.h" element4="ZOUnet.h" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="4" stamp="1332634862338" updateReferences="true"/>
+</session>

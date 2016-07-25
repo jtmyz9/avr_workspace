@@ -1,0 +1,34 @@
+   1               		.file	"at90can_error_register.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	can_read_error_register
+  18               	can_read_error_register:
+  19               	.LFB17:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 9091 EA00 		lds r25,234
+  25               	.LM3:
+  26 0004 8091 EB00 		lds r24,235
+  27               	/* epilogue start */
+  28               	.LM4:
+  29 0008 0895      		ret
+  30               	.LFE17:
+  56               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 at90can_error_register.c
+C:\Users\SEXPAN~1\AppData\Local\Temp/cc0Pwc44.s:2      *ABS*:0000003f __SREG__
+C:\Users\SEXPAN~1\AppData\Local\Temp/cc0Pwc44.s:3      *ABS*:0000003e __SP_H__
+C:\Users\SEXPAN~1\AppData\Local\Temp/cc0Pwc44.s:4      *ABS*:0000003d __SP_L__
+C:\Users\SEXPAN~1\AppData\Local\Temp/cc0Pwc44.s:5      *ABS*:00000034 __CCP__
+C:\Users\SEXPAN~1\AppData\Local\Temp/cc0Pwc44.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\SEXPAN~1\AppData\Local\Temp/cc0Pwc44.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\SEXPAN~1\AppData\Local\Temp/cc0Pwc44.s:18     .text:00000000 can_read_error_register
+
+NO UNDEFINED SYMBOLS

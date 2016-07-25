@@ -1,0 +1,124 @@
+#---------------------------------------------------------
+# This file contains all test regarding the configuration
+#access and fonctionnality.
+#
+#---------------------------------------------------------
+
+
+    MEMORY 4    
+
+#----- BSB -----   
+    ADDRANGE 0x000 0x000
+        ECHO "   *** Write BSB = 0x55"
+    FILLBUFFER 0x55
+    PROGRAM
+        ECHO "   *** Read BSB"
+    VERIFY
+
+#----- EB -----   
+    ADDRANGE 0x006 0x006
+        ECHO "   *** Write EB = 0x33"
+    FILLBUFFER 0x33
+    PROGRAM
+        ECHO "   *** Read EB"
+    VERIFY
+
+#----- CANBT1 -----   
+    ADDRANGE 0x01C 0x01C
+        ECHO "   *** Write CANBT1 = 0x11"
+    FILLBUFFER 0x11
+    PROGRAM
+        ECHO "   *** Read CANBT1"
+    VERIFY
+
+#----- CANBT2 -----   
+    ADDRANGE 0x01D 0x01D
+        ECHO "   *** Write CANBT2 = 0x22"
+    FILLBUFFER 0x22
+    PROGRAM
+        ECHO "   *** Read CANBT2"
+    VERIFY
+
+#----- CANBT3 -----   
+    ADDRANGE 0x01E 0x01E
+        ECHO "   *** Write CANBT3 = 0x33"
+    FILLBUFFER 0x33
+    PROGRAM
+        ECHO "   *** Read CANBT3"
+    VERIFY
+
+#----- NNB -----   
+    ADDRANGE 0x01F 0x01F
+        ECHO "   *** Write NNB = 0x44"
+    FILLBUFFER 0x44
+    PROGRAM
+        ECHO "   *** Read NNB"
+    VERIFY
+
+#----- CRIS -----   
+    ADDRANGE 0x020 0x020
+        ECHO "   *** Write CRIS = 0x55"
+    FILLBUFFER 0x55
+    PROGRAM
+        ECHO "   *** Read CRIS"
+    VERIFY
+
+#----- SSB -----   
+    ADDRANGE 0x005 0x005
+        ECHO "   *** Write SSB = 0xFC"
+    FILLBUFFER 0xFC
+    PROGRAM
+        ECHO "   *** Read BSB"
+    VERIFY
+
+# full chip erase
+    MEMORY FLASH
+    ERASE F
+    
+    MEMORY 4    
+
+        ECHO "   *** Read BSB"
+    ADDRANGE 0x000 0x000
+    FILLBUFFER 0xFF
+    VERIFY
+
+        ECHO "   *** Read SSB"
+    ADDRANGE 0x005 0x005
+        FILLBUFFER 0xFF
+    VERIFY
+
+    ADDRANGE 0x006 0x006
+        ECHO "   *** Write EB = 0xFF"
+    FILLBUFFER 0xFF
+    PROGRAM
+    VERIFY
+
+    ADDRANGE 0x01C 0x01C
+        ECHO "   *** Write CANBT1 = 0xFF"
+    FILLBUFFER 0xFF
+    PROGRAM
+    VERIFY
+
+    ADDRANGE 0x01D 0x01D
+        ECHO "   *** Write CANBT2 = 0xFF"
+    FILLBUFFER 0xFF
+    PROGRAM
+    VERIFY
+
+    ADDRANGE 0x01E 0x01E
+        ECHO "   *** Write CANBT3 = 0xFF"
+    FILLBUFFER 0xFF
+    PROGRAM
+    VERIFY
+
+    ADDRANGE 0x01F 0x01F
+        ECHO "   *** Write NNB = 0xFF"
+    FILLBUFFER 0xFF
+    PROGRAM
+    VERIFY
+
+    ADDRANGE 0x020 0x020
+        ECHO "   *** Write CRIS = 0xFF"
+    FILLBUFFER 0xFF
+    PROGRAM
+    VERIFY

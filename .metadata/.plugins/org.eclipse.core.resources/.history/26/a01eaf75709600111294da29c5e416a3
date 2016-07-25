@@ -1,0 +1,281 @@
+/*
+ * TCS.c
+ *
+ *  Created on: Jan 5, 2012
+ *      Author: Administrator
+ */
+
+#include <avr/io.h>
+#include "TCS.h"
+#include "util/delay.h"
+#include "systimer.h"
+
+struct
+{
+	uint8_t tc_status;
+	uint8_t lc_status;
+	uint32_t fl;
+	uint32_t fr;
+	uint32_t rl;
+	uint32_t rr;
+	uint16_t last_com;
+	uint32_t slip;
+	uint32_t slip_error;
+}data;
+
+
+FILE uart_str = FDEV_SETUP_STREAM(uart_putchar, uart_getchar, _FDEV_SETUP_RW);
+
+#define UART_BAUD 115200
+
+void handle_10ms_tick(void);
+uint8_t ProcessCanMsg(CAN_packet *pkt);
+
+volatile uint8_t tc = 0;
+volatile uint8_t lc = 0;
+
+int main(void)
+{
+	unsigned  i = 0;
+	unsigned char addr = 0;
+
+	uint16_t val0 = 0;
+	uint16_t val1 = 0;
+
+	DDRA |= _BV(PA7);
+	PORTA &= _BV(PA7);
+
+	DDRE |= _BV(PE2)|_BV(PE6);
+
+	DDRD |=_BV(PD7);
+
+
+
+	//PORTD|=_BV(PD1)|_BV(PD2);
+
+	//initialize UART1
+	stdout = stdin = &uart_str;
+	UCSR1A=_BV(U2X1);
+	UCSR1B=0x98;
+	UCSR1C=0x06;
+	UBRR1 = (F_CPU / (8UL * UART_BAUD)) - 1;
+
+	printf("\n>------| START |------<\n\n");
+
+	//printf("Waiting...\n\n");
+
+	if(!dac_init())
+	{
+		printf("Failed\n");
+		while(1);
+	}
+
+	can_init();
+
+	uint32_t tag = CAN_DATA_TC_TGL;
+	tag = tag << 8;
+	prepare_rx(0,tag,0x00FFFF00,CAN_EXT_MSG,CAN_DATABRDCST);
+	tag = CAN_DATA_LC_TGL;
+	tag = tag << 8;
+	prepare_rx(1,tag,0x00FFFF00,CAN_EXT_MSG,CAN_DATABRDCST);
+
+	CANPAGE = 0;
+
+	//systimer_10ms_restart(0);
+
+	sei();
+
+	printf("\n\n>------| DONE |------<\n\n");
+
+	while(1)
+	{
+		if(tc == 1)
+		{
+			dac_write(DAC0,DAC_FAST,DAC_NORMAL,val0);
+			dac_write(DAC1,DAC_FAST,DAC_NORMAL,val1);
+			val0++;
+			if(val0 > 0x0FFF) val0 = 0;
+			val1++;
+			if(val1 > 0x0FFF) val1 = 0;
+		}
+		if(lc == 1)
+		{
+			PORTA &= ~_BV(PA7);
+		}
+		else
+		{
+			PORTA |= _BV(PA7);
+		}
+
+		_delay_ms(1);
+	}
+}
+
+//! CAN interrupt service routine
+ISR( CANIT_vect)
+{
+	unsigned char i;
+	CAN_packet packet;
+	unsigned char save_canpage;
+	unsigned char mob;
+	unsigned char length;
+
+	/*-------------Device Specific-----------------*/
+	//led_ctrl(LED8,LED_ON,1);
+	PORTD |= _BV(PD7);
+	/*---------------------------------------------*/
+
+	mob=CANHPMOB; // get highest prio mob
+
+	save_canpage = 0xF0 | mob;
+
+    CANPAGE = mob & 0xf0;
+	mob >>= 4; // -> mob number 0..15
+
+	packet.msg_type = msg_type_lu[mob];
+
+	if(packet.msg_type == CAN_TX_MSG)
+	{
+		CANSTMOB = 0;
+		CANCDMOB = 0;
+
+		CANIDT1 = 0;
+		CANIDT2 = 0;
+		CANIDT3 = 0;
+		CANIDT4 = 0;
+
+		for(i = 0;i<8;i++)
+		{
+			CANMSG = 0;
+		}
+
+		msg_type_lu[mob] = 0;
+	}
+	else
+	{
+		if(CANCDMOB & _BV(IDE))
+		{
+			packet.id_type = CAN_EXT_MSG;
+			packet.id = 	(((uint32_t)CANIDT1) << 21)
+						| (((uint32_t)CANIDT2) << 13)
+						| (((uint32_t)CANIDT3) << 5)
+						| (((uint32_t)CANIDT4) >> 3);
+		}
+
+		else
+		{
+			packet.id_type = CAN_STD_MSG;
+			packet.id = (CANIDT2>>5) | (CANIDT1 <<3);
+		}
+
+		length=CANCDMOB & 0x0f;
+		packet.length=length;
+
+		for (i = 0; i <length; ++i)
+		{
+			packet.data[i] = CANMSG;
+		}
+
+		ProcessCanMsg(&packet);
+
+		CANSTMOB=0;		// reset INT reason
+		CANCDMOB &= 0x80|_BV(IDE);	// re-enable RX on this channel
+	}
+
+	CANPAGE=save_canpage;	// restore CANPAGE
+
+	/*-------------Device Specific-----------------*/
+	PORTD &= ~_BV(PD7);
+	//led_ctrl(LED8,LED_OFF,1);
+
+	/*---------------------------------------------*/
+}
+
+uint8_t ProcessCanMsg(CAN_packet *pkt)
+{
+	uint8_t msg_type;
+
+	unsigned char i;
+
+	// Get the Message Type
+	msg_type = pkt->msg_type;
+	// Clear the message type in the lookup table
+
+	uint16_t id = (uint16_t)((uint32_t)(pkt->id)>>8);
+
+	switch(msg_type)
+	{
+		case CAN_MSGTYPE_NONE:
+			return 0;
+		case CAN_DATABRDCST:
+			switch(id)
+			{
+				case CAN_DATA_TC_TGL:
+					if(tc == 0)
+					{
+						data.tc_status = 1;
+						PORTE |= _BV(PE2);
+					}
+					else
+					{
+						data.tc_status = 0;
+						PORTE &= ~_BV(PE2);
+					}
+
+					return(msg_type);
+				case CAN_DATA_LC_TGL:
+					if(lc == 0)
+					{
+						data.lc_status = 1;
+						PORTE |= _BV(PE6);
+					}
+					else
+					{
+						data.lc_status = 0;
+						PORTE &= ~_BV(PE6);
+					}
+					return(msg_type);
+				case CAN_DATA_TC_SET:
+					return(msg_type);
+				case CAN_DATA_LC_SET:
+					return(msg_type);
+				case CAN_DATA_PE1:
+					return(msg_type);
+				case CAN_DATA_PE5:
+					data.fl = (uint32_t)ch2word(pkt->data[1],pkt->data[0]);
+					data.fr = (uint32_t)ch2word(pkt->data[3],pkt->data[2]);
+					data.rl = (uint32_t)ch2word(pkt->data[5],pkt->data[4]);
+					data.rr = (uint32_t)ch2word(pkt->data[7],pkt->data[6]);
+
+					HandleTCS()
+					return(msg_type);
+				default:
+					return(msg_type);
+			}
+			break;
+
+		default:
+			return(0);
+	}
+	return(0);
+}
+
+uint16_t glb_tmr = 0;
+void handle_10ms_tick(void)
+{
+	CAN_packet pkt;
+	glb_tmr++;
+
+	if(glb_tmr%100 == 0)
+	{
+		pkt.id = CAN_DATA_TCS1;
+		pkt.id = pkt.id << 8;
+		pkt.id_type = CAN_EXT_MSG;
+		pkt.msg_type = CAN_TX_MSG;
+		pkt.length = 5;
+		pkt.data[1] = data.tc_status;
+		pkt.data[2] = data.lc_status;
+
+		can_tx(get_open_mob(),&pkt);
+	}
+}

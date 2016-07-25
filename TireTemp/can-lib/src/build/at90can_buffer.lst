@@ -1,0 +1,51 @@
+   1               		.file	"at90can_buffer.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	can_check_message
+  18               	can_check_message:
+  19               	.LFB17:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8091 0000 		lds r24,_messages_waiting
+  25 0004 8111      		cpse r24,__zero_reg__
+  26 0006 81E0      		ldi r24,lo8(1)
+  27               	.L2:
+  28               	.LM3:
+  29 0008 0895      		ret
+  30               	.LFE17:
+  32               	.global	can_check_free_buffer
+  34               	can_check_free_buffer:
+  35               	.LFB18:
+  36               	.LM4:
+  37               	/* prologue: function */
+  38               	/* frame size = 0 */
+  39               	.LM5:
+  40 000a 8091 0000 		lds r24,_free_buffer
+  41 000e 8111      		cpse r24,__zero_reg__
+  42 0010 81E0      		ldi r24,lo8(1)
+  43               	.L5:
+  44               	.LM6:
+  45 0012 0895      		ret
+  46               	.LFE18:
+  80               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 at90can_buffer.c
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccEeZPHu.s:2      *ABS*:0000003f __SREG__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccEeZPHu.s:3      *ABS*:0000003e __SP_H__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccEeZPHu.s:4      *ABS*:0000003d __SP_L__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccEeZPHu.s:5      *ABS*:00000034 __CCP__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccEeZPHu.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccEeZPHu.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccEeZPHu.s:18     .text:00000000 can_check_message
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccEeZPHu.s:34     .text:0000000a can_check_free_buffer
+
+UNDEFINED SYMBOLS
+_messages_waiting
+_free_buffer

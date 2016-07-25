@@ -1,0 +1,20 @@
+#Mon Oct 29 00:09:35 CDT 2012
+avrdudepropertypage/weight_preview_expanded=200
+avrdude/configs/programmerconfig.1/description=Default AVRDude Programmer Configuration. Modify as required for your setup.
+avrdude/configs/programmerconfig.1/programmer=dragon_jtag
+avrpaths//systempath/AVRGCC=C\:\\WinAVR-20100110\\bin
+avrdude/configs/programmerconfig.1/port=usb
+avrdudepropertypage/weight_preview_collapsed=50
+avrpaths//systempath/PDFPATH=C\:\\Program Files (x86)\\Atmel\\AVR Tools\\Partdescriptionfiles
+eclipse.preferences.version=1
+avrdude/configs/programmerconfig.1/ppresetline=
+avrdude/configs/programmerconfig.1/ppvccline=
+avrdude/configs/programmerconfig.1/postAvrdudeDelayMs=
+avrdudepropertypage/previewexpanded=true
+avrdudepropertypage/weight_top_collapsed=950
+avrdudepropertypage/weight_top_expanded=800
+avrpaths//systempath/AVRINCLUDE=C\:\\WinAVR-20100110\\avr\\include
+avrdude/configs/programmerconfig.1/name=AVR Dragon JTAG
+avrdude/configs/programmerconfig.1/baudrate=
+avrpaths//systempath/AVRDUDE=C\:\\WinAVR-20100110\\bin
+avrpaths//systempath/MAKE=C\:\\WinAVR-20100110\\utils\\bin

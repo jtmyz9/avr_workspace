@@ -1,0 +1,66 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../FAT32.c \
+../FAT32_AppIF.c \
+../FAT32_Cache.c \
+../FAT32_Chains.c \
+../FAT32_Directory.c \
+../FAT32_Misc.c \
+../FAT32_System.c \
+../SD.c \
+../audio.c \
+../console.c \
+../fifo.c \
+../main.c \
+../misc.c \
+../settings.c \
+../uart128.c 
+
+OBJS += \
+./FAT32.o \
+./FAT32_AppIF.o \
+./FAT32_Cache.o \
+./FAT32_Chains.o \
+./FAT32_Directory.o \
+./FAT32_Misc.o \
+./FAT32_System.o \
+./SD.o \
+./audio.o \
+./console.o \
+./fifo.o \
+./main.o \
+./misc.o \
+./settings.o \
+./uart128.o 
+
+C_DEPS += \
+./FAT32.d \
+./FAT32_AppIF.d \
+./FAT32_Cache.d \
+./FAT32_Chains.d \
+./FAT32_Directory.d \
+./FAT32_Misc.d \
+./FAT32_System.d \
+./SD.d \
+./audio.d \
+./console.d \
+./fifo.d \
+./main.d \
+./misc.d \
+./settings.d \
+./uart128.d 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+%.o: ../%.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: AVR Compiler'
+	avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=at90can128 -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -c -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+

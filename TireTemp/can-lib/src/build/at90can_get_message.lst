@@ -1,0 +1,283 @@
+   1               		.file	"at90can_get_message.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	at90can_copy_mob_to_message
+  18               	at90can_copy_mob_to_message:
+  19               	.LFB17:
+  20               	.LM1:
+  21               	.LVL0:
+  22 0000 DF93      		push r29
+  23 0002 CF93      		push r28
+  24 0004 00D0      		rcall .
+  25 0006 00D0      		rcall .
+  26 0008 CDB7      		in r28,__SP_L__
+  27 000a DEB7      		in r29,__SP_H__
+  28               	/* prologue: function */
+  29               	/* frame size = 4 */
+  30 000c AC01      		movw r20,r24
+  31               	.LM2:
+  32 000e 9091 EF00 		lds r25,239
+  33               	.LVL1:
+  34               	.LM3:
+  35 0012 892F      		mov r24,r25
+  36               	.LVL2:
+  37 0014 8F70      		andi r24,lo8(15)
+  38 0016 DA01      		movw r26,r20
+  39 0018 1596      		adiw r26,5
+  40 001a 8C93      		st X,r24
+  41 001c 1597      		sbiw r26,5
+  42 001e 1496      		adiw r26,4
+  43 0020 6C91      		ld r22,X
+  44               	.LM4:
+  45 0022 94FF      		sbrs r25,4
+  46 0024 00C0      		rjmp .L2
+  47               	.LBB7:
+  48               	.LM5:
+  49 0026 FE01      		movw r30,r28
+  50               	.LVL3:
+  51 0028 3196      		adiw r30,1
+  52               	.LM6:
+  53 002a 8091 F000 		lds r24,240
+  54 002e 8983      		std Y+1,r24
+  55               	.LM7:
+  56 0030 8091 F100 		lds r24,241
+  57 0034 8183      		std Z+1,r24
+  58               	.LM8:
+  59 0036 8091 F200 		lds r24,242
+  60 003a 8283      		std Z+2,r24
+  61               	.LM9:
+  62 003c 8091 F300 		lds r24,243
+  63 0040 8383      		std Z+3,r24
+  64               	.LM10:
+  65 0042 8981      		ldd r24,Y+1
+  66 0044 9A81      		ldd r25,Y+2
+  67 0046 AB81      		ldd r26,Y+3
+  68 0048 BC81      		ldd r27,Y+4
+  69               	.LVL4:
+  70 004a E3E0      		ldi r30,3
+  71 004c B695      	1:	lsr r27
+  72 004e A795      		ror r26
+  73 0050 9795      		ror r25
+  74 0052 8795      		ror r24
+  75 0054 EA95      		dec r30
+  76 0056 01F4      		brne 1b
+  77               	.LVL5:
+  78 0058 FA01      		movw r30,r20
+  79 005a 8083      		st Z,r24
+  80 005c 9183      		std Z+1,r25
+  81 005e A283      		std Z+2,r26
+  82 0060 B383      		std Z+3,r27
+  83               	.LM11:
+  84 0062 6260      		ori r22,lo8(2)
+  85 0064 00C0      		rjmp .L9
+  86               	.LVL6:
+  87               	.L2:
+  88               	.LBE7:
+  89               	.LBB8:
+  90               	.LM12:
+  91 0066 2091 F200 		lds r18,242
+  92 006a 2295      		swap r18
+  93 006c 2695      		lsr r18
+  94 006e 2770      		andi r18,lo8(7)
+  95 0070 30E0      		ldi r19,lo8(0)
+  96               	.LVL7:
+  97               	.LM13:
+  98 0072 8091 F300 		lds r24,243
+  99               	.LM14:
+ 100 0076 90E0      		ldi r25,lo8(0)
+ 101               	.LVL8:
+ 102 0078 73E0      		ldi r23,3
+ 103 007a 880F      	1:	lsl r24
+ 104 007c 991F      		rol r25
+ 105 007e 7A95      		dec r23
+ 106 0080 01F4      		brne 1b
+ 107 0082 822B      		or r24,r18
+ 108 0084 932B      		or r25,r19
+ 109               	.LVL9:
+ 110 0086 A0E0      		ldi r26,lo8(0)
+ 111 0088 B0E0      		ldi r27,hi8(0)
+ 112 008a FA01      		movw r30,r20
+ 113 008c 8083      		st Z,r24
+ 114 008e 9183      		std Z+1,r25
+ 115 0090 A283      		std Z+2,r26
+ 116 0092 B383      		std Z+3,r27
+ 117               	.LM15:
+ 118 0094 6D7F      		andi r22,lo8(-3)
+ 119               	.LVL10:
+ 120               	.L9:
+ 121 0096 6483      		std Z+4,r22
+ 122               	.LBE8:
+ 123               	.LM16:
+ 124 0098 8091 F000 		lds r24,240
+ 125               	.LVL11:
+ 126 009c DA01      		movw r26,r20
+ 127 009e 1496      		adiw r26,4
+ 128 00a0 6C91      		ld r22,X
+ 129 00a2 1497      		sbiw r26,4
+ 130 00a4 82FF      		sbrs r24,2
+ 131 00a6 00C0      		rjmp .L4
+ 132               	.LM17:
+ 133 00a8 6160      		ori r22,lo8(1)
+ 134 00aa 1496      		adiw r26,4
+ 135 00ac 6C93      		st X,r22
+ 136 00ae 00C0      		rjmp .L8
+ 137               	.L4:
+ 138               	.LBB9:
+ 139               	.LM18:
+ 140 00b0 6E7F      		andi r22,lo8(-2)
+ 141 00b2 FA01      		movw r30,r20
+ 142 00b4 6483      		std Z+4,r22
+ 143               	.LM19:
+ 144 00b6 9A01      		movw r18,r20
+ 145               	.LVL12:
+ 146 00b8 2A5F      		subi r18,lo8(-(6))
+ 147 00ba 3F4F      		sbci r19,hi8(-(6))
+ 148 00bc F901      		movw r30,r18
+ 149 00be 00C0      		rjmp .L6
+ 150               	.LVL13:
+ 151               	.L7:
+ 152               	.LBB10:
+ 153               	.LM20:
+ 154 00c0 8091 FA00 		lds r24,250
+ 155 00c4 8193      		st Z+,r24
+ 156               	.LVL14:
+ 157               	.L6:
+ 158               	.LM21:
+ 159 00c6 9E2F      		mov r25,r30
+ 160               	.LVL15:
+ 161 00c8 921B      		sub r25,r18
+ 162 00ca DA01      		movw r26,r20
+ 163 00cc 1596      		adiw r26,5
+ 164 00ce 8C91      		ld r24,X
+ 165 00d0 9817      		cp r25,r24
+ 166 00d2 00F0      		brlo .L7
+ 167               	.LVL16:
+ 168               	.L8:
+ 169               	/* epilogue start */
+ 170               	.LBE10:
+ 171               	.LBE9:
+ 172               	.LM22:
+ 173 00d4 0F90      		pop __tmp_reg__
+ 174 00d6 0F90      		pop __tmp_reg__
+ 175 00d8 0F90      		pop __tmp_reg__
+ 176 00da 0F90      		pop __tmp_reg__
+ 177 00dc CF91      		pop r28
+ 178 00de DF91      		pop r29
+ 179 00e0 0895      		ret
+ 180               	.LFE17:
+ 182               	.global	can_get_message
+ 184               	can_get_message:
+ 185               	.LFB18:
+ 186               	.LM23:
+ 187               	.LVL17:
+ 188 00e2 0F93      		push r16
+ 189 00e4 1F93      		push r17
+ 190 00e6 CF93      		push r28
+ 191 00e8 DF93      		push r29
+ 192               	/* prologue: function */
+ 193               	/* frame size = 0 */
+ 194 00ea EC01      		movw r28,r24
+ 195               	.LM24:
+ 196 00ec 0E94 0000 		call can_check_message
+ 197               	.LVL18:
+ 198 00f0 8823      		tst r24
+ 199 00f2 01F0      		breq .L11
+ 200 00f4 10E0      		ldi r17,lo8(0)
+ 201               	.LVL19:
+ 202               	.L14:
+ 203               	.LM25:
+ 204 00f6 812F      		mov r24,r17
+ 205 00f8 8295      		swap r24
+ 206 00fa 807F      		andi r24,lo8(-16)
+ 207 00fc 8093 ED00 		sts 237,r24
+ 208               	.LM26:
+ 209 0100 8091 EE00 		lds r24,238
+ 210 0104 012F      		mov r16,r17
+ 211 0106 0F5F      		subi r16,lo8(-(1))
+ 212               	.LVL20:
+ 213 0108 85FF      		sbrs r24,5
+ 214 010a 00C0      		rjmp .L12
+ 215               	.LM27:
+ 216 010c 8091 EE00 		lds r24,238
+ 217 0110 1092 EE00 		sts 238,__zero_reg__
+ 218               	.LM28:
+ 219 0114 CE01      		movw r24,r28
+ 220 0116 0E94 0000 		call at90can_copy_mob_to_message
+ 221               	.LBB11:
+ 222               	.LM29:
+ 223 011a 8FB7      		in r24,__SREG__
+ 224               	.LVL21:
+ 225               	.LBB12:
+ 226               	.LBB13:
+ 227               	.LM30:
+ 228               	/* #APP */
+ 229               	 ;  50 "c:/winavr-20100110/lib/gcc/../../avr/include/util/atomic.h" 1
+ 230 011c F894      		cli
+ 231               	 ;  0 "" 2
+ 232               	/* #NOAPP */
+ 233               	.LBE13:
+ 234               	.LBE12:
+ 235               	.LM31:
+ 236 011e 9091 0000 		lds r25,_messages_waiting
+ 237 0122 9150      		subi r25,lo8(-(-1))
+ 238 0124 9093 0000 		sts _messages_waiting,r25
+ 239               	.LBB14:
+ 240               	.LBB15:
+ 241               	.LM32:
+ 242 0128 8FBF      		out __SREG__,r24
+ 243               	.LM33:
+ 244               	.LBE15:
+ 245               	.LBE14:
+ 246               	.LBE11:
+ 247               	.LM34:
+ 248 012a 812F      		mov r24,r17
+ 249               	.LVL22:
+ 250 012c 0E94 0000 		call _enable_mob_interrupt
+ 251               	.LM35:
+ 252 0130 8091 EF00 		lds r24,239
+ 253 0134 8071      		andi r24,lo8(16)
+ 254 0136 8068      		ori r24,lo8(-128)
+ 255 0138 8093 EF00 		sts 239,r24
+ 256               	.LM36:
+ 257 013c 802F      		mov r24,r16
+ 258 013e 00C0      		rjmp .L13
+ 259               	.LVL23:
+ 260               	.L12:
+ 261               	.LM37:
+ 262 0140 102F      		mov r17,r16
+ 263 0142 0F30      		cpi r16,lo8(15)
+ 264 0144 01F4      		brne .L14
+ 265               	.L11:
+ 266 0146 80E0      		ldi r24,lo8(0)
+ 267               	.L13:
+ 268               	/* epilogue start */
+ 269               	.LM38:
+ 270 0148 DF91      		pop r29
+ 271 014a CF91      		pop r28
+ 272               	.LVL24:
+ 273 014c 1F91      		pop r17
+ 274 014e 0F91      		pop r16
+ 275               	.LVL25:
+ 276 0150 0895      		ret
+ 277               	.LFE18:
+ 311               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 at90can_get_message.c
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccuB1juZ.s:2      *ABS*:0000003f __SREG__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccuB1juZ.s:3      *ABS*:0000003e __SP_H__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccuB1juZ.s:4      *ABS*:0000003d __SP_L__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccuB1juZ.s:5      *ABS*:00000034 __CCP__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccuB1juZ.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccuB1juZ.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccuB1juZ.s:18     .text:00000000 at90can_copy_mob_to_message
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccuB1juZ.s:184    .text:000000e2 can_get_message
+
+UNDEFINED SYMBOLS
+can_check_message
+_messages_waiting
+_enable_mob_interrupt

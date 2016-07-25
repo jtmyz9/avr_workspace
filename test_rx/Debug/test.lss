@@ -1,0 +1,1032 @@
+
+test.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000069c  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000029  00800100  00800100  00000710  2**0
+                  ALLOC
+  2 .stab         00000b10  00000000  00000000  00000710  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000878  00000000  00000000  00001220  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 4a 00 	jmp	0x94	; 0x94 <__ctors_end>
+   4:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+   8:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+   c:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  10:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  14:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  18:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  1c:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  20:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  24:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  28:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  2c:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  30:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  34:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  38:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  3c:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  40:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  44:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  48:	0c 94 6b 00 	jmp	0xd6	; 0xd6 <__vector_18>
+  4c:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  50:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  54:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  58:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  5c:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  60:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  64:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  68:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  6c:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  70:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  74:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  78:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  7c:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  80:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  84:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  88:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  8c:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+  90:	0c 94 69 00 	jmp	0xd2	; 0xd2 <__bad_interrupt>
+
+00000094 <__ctors_end>:
+  94:	11 24       	eor	r1, r1
+  96:	1f be       	out	0x3f, r1	; 63
+  98:	cf ef       	ldi	r28, 0xFF	; 255
+  9a:	d0 e1       	ldi	r29, 0x10	; 16
+  9c:	de bf       	out	0x3e, r29	; 62
+  9e:	cd bf       	out	0x3d, r28	; 61
+
+000000a0 <__do_copy_data>:
+  a0:	11 e0       	ldi	r17, 0x01	; 1
+  a2:	a0 e0       	ldi	r26, 0x00	; 0
+  a4:	b1 e0       	ldi	r27, 0x01	; 1
+  a6:	ec e9       	ldi	r30, 0x9C	; 156
+  a8:	f6 e0       	ldi	r31, 0x06	; 6
+  aa:	00 e0       	ldi	r16, 0x00	; 0
+  ac:	0b bf       	out	0x3b, r16	; 59
+  ae:	02 c0       	rjmp	.+4      	; 0xb4 <__do_copy_data+0x14>
+  b0:	07 90       	elpm	r0, Z+
+  b2:	0d 92       	st	X+, r0
+  b4:	a0 30       	cpi	r26, 0x00	; 0
+  b6:	b1 07       	cpc	r27, r17
+  b8:	d9 f7       	brne	.-10     	; 0xb0 <__do_copy_data+0x10>
+
+000000ba <__do_clear_bss>:
+  ba:	11 e0       	ldi	r17, 0x01	; 1
+  bc:	a0 e0       	ldi	r26, 0x00	; 0
+  be:	b1 e0       	ldi	r27, 0x01	; 1
+  c0:	01 c0       	rjmp	.+2      	; 0xc4 <.do_clear_bss_start>
+
+000000c2 <.do_clear_bss_loop>:
+  c2:	1d 92       	st	X+, r1
+
+000000c4 <.do_clear_bss_start>:
+  c4:	a9 32       	cpi	r26, 0x29	; 41
+  c6:	b1 07       	cpc	r27, r17
+  c8:	e1 f7       	brne	.-8      	; 0xc2 <.do_clear_bss_loop>
+  ca:	0e 94 0a 03 	call	0x614	; 0x614 <main>
+  ce:	0c 94 4c 03 	jmp	0x698	; 0x698 <_exit>
+
+000000d2 <__bad_interrupt>:
+  d2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000d6 <__vector_18>:
+
+//! CAN interrupt service routine
+
+//! presently only used for reception of CAN packets
+ISR( CANIT_vect)
+	{
+  d6:	1f 92       	push	r1
+  d8:	0f 92       	push	r0
+  da:	0f b6       	in	r0, 0x3f	; 63
+  dc:	0f 92       	push	r0
+  de:	00 90 5b 00 	lds	r0, 0x005B
+  e2:	0f 92       	push	r0
+  e4:	11 24       	eor	r1, r1
+  e6:	2f 93       	push	r18
+  e8:	3f 93       	push	r19
+  ea:	4f 93       	push	r20
+  ec:	5f 93       	push	r21
+  ee:	6f 93       	push	r22
+  f0:	7f 93       	push	r23
+  f2:	8f 93       	push	r24
+  f4:	9f 93       	push	r25
+  f6:	af 93       	push	r26
+  f8:	bf 93       	push	r27
+  fa:	ef 93       	push	r30
+  fc:	ff 93       	push	r31
+  fe:	df 93       	push	r29
+ 100:	cf 93       	push	r28
+ 102:	00 d0       	rcall	.+0      	; 0x104 <__vector_18+0x2e>
+ 104:	00 d0       	rcall	.+0      	; 0x106 <__vector_18+0x30>
+ 106:	00 d0       	rcall	.+0      	; 0x108 <__vector_18+0x32>
+ 108:	cd b7       	in	r28, 0x3d	; 61
+ 10a:	de b7       	in	r29, 0x3e	; 62
+	unsigned i;
+	static CAN_packet packet;
+	char save_canpage=CANPAGE;
+ 10c:	ed ee       	ldi	r30, 0xED	; 237
+ 10e:	f0 e0       	ldi	r31, 0x00	; 0
+ 110:	80 81       	ld	r24, Z
+ 112:	8b 83       	std	Y+3, r24	; 0x03
+	
+	unsigned mob=CANHPMOB; // get highest prio mob
+ 114:	ec ee       	ldi	r30, 0xEC	; 236
+ 116:	f0 e0       	ldi	r31, 0x00	; 0
+ 118:	80 81       	ld	r24, Z
+ 11a:	88 2f       	mov	r24, r24
+ 11c:	90 e0       	ldi	r25, 0x00	; 0
+ 11e:	9a 83       	std	Y+2, r25	; 0x02
+ 120:	89 83       	std	Y+1, r24	; 0x01
+    CANPAGE = mob & 0xf0;
+ 122:	ed ee       	ldi	r30, 0xED	; 237
+ 124:	f0 e0       	ldi	r31, 0x00	; 0
+ 126:	89 81       	ldd	r24, Y+1	; 0x01
+ 128:	80 7f       	andi	r24, 0xF0	; 240
+ 12a:	80 83       	st	Z, r24
+	mob >>= 4; // -> mob number 0..15
+ 12c:	89 81       	ldd	r24, Y+1	; 0x01
+ 12e:	9a 81       	ldd	r25, Y+2	; 0x02
+ 130:	92 95       	swap	r25
+ 132:	82 95       	swap	r24
+ 134:	8f 70       	andi	r24, 0x0F	; 15
+ 136:	89 27       	eor	r24, r25
+ 138:	9f 70       	andi	r25, 0x0F	; 15
+ 13a:	89 27       	eor	r24, r25
+ 13c:	9a 83       	std	Y+2, r25	; 0x02
+ 13e:	89 83       	std	Y+1, r24	; 0x01
+	ASSERT( (CANSTMOB & ~0xa0) ==0); // allow only RX ready and DLC warning
+ 140:	ee ee       	ldi	r30, 0xEE	; 238
+ 142:	f0 e0       	ldi	r31, 0x00	; 0
+ 144:	80 81       	ld	r24, Z
+ 146:	88 2f       	mov	r24, r24
+ 148:	90 e0       	ldi	r25, 0x00	; 0
+ 14a:	8f 75       	andi	r24, 0x5F	; 95
+ 14c:	00 97       	sbiw	r24, 0x00	; 0
+ 14e:	09 f0       	breq	.+2      	; 0x152 <__vector_18+0x7c>
+ 150:	98 95       	break
+	register char length;
+	packet.id=(CANIDT2>>5) | (CANIDT1 <<3);
+ 152:	e2 ef       	ldi	r30, 0xF2	; 242
+ 154:	f0 e0       	ldi	r31, 0x00	; 0
+ 156:	80 81       	ld	r24, Z
+ 158:	82 95       	swap	r24
+ 15a:	86 95       	lsr	r24
+ 15c:	87 70       	andi	r24, 0x07	; 7
+ 15e:	28 2f       	mov	r18, r24
+ 160:	30 e0       	ldi	r19, 0x00	; 0
+ 162:	e3 ef       	ldi	r30, 0xF3	; 243
+ 164:	f0 e0       	ldi	r31, 0x00	; 0
+ 166:	80 81       	ld	r24, Z
+ 168:	88 2f       	mov	r24, r24
+ 16a:	90 e0       	ldi	r25, 0x00	; 0
+ 16c:	88 0f       	add	r24, r24
+ 16e:	99 1f       	adc	r25, r25
+ 170:	88 0f       	add	r24, r24
+ 172:	99 1f       	adc	r25, r25
+ 174:	88 0f       	add	r24, r24
+ 176:	99 1f       	adc	r25, r25
+ 178:	82 2b       	or	r24, r18
+ 17a:	93 2b       	or	r25, r19
+ 17c:	90 93 01 01 	sts	0x0101, r25
+ 180:	80 93 00 01 	sts	0x0100, r24
+	length=CANCDMOB & 0x0f;
+ 184:	ef ee       	ldi	r30, 0xEF	; 239
+ 186:	f0 e0       	ldi	r31, 0x00	; 0
+ 188:	80 81       	ld	r24, Z
+ 18a:	98 2f       	mov	r25, r24
+ 18c:	9f 70       	andi	r25, 0x0F	; 15
+ 18e:	9e 83       	std	Y+6, r25	; 0x06
+	packet.length=length;
+ 190:	8e 81       	ldd	r24, Y+6	; 0x06
+ 192:	80 93 02 01 	sts	0x0102, r24
+	for (i = 0; i <length; ++i)
+ 196:	1d 82       	std	Y+5, r1	; 0x05
+ 198:	1c 82       	std	Y+4, r1	; 0x04
+ 19a:	0e c0       	rjmp	.+28     	; 0x1b8 <__vector_18+0xe2>
+		{
+		 packet.data[i] = CANMSG;
+ 19c:	8c 81       	ldd	r24, Y+4	; 0x04
+ 19e:	9d 81       	ldd	r25, Y+5	; 0x05
+ 1a0:	ea ef       	ldi	r30, 0xFA	; 250
+ 1a2:	f0 e0       	ldi	r31, 0x00	; 0
+ 1a4:	20 81       	ld	r18, Z
+ 1a6:	fc 01       	movw	r30, r24
+ 1a8:	ed 5f       	subi	r30, 0xFD	; 253
+ 1aa:	fe 4f       	sbci	r31, 0xFE	; 254
+ 1ac:	20 83       	st	Z, r18
+	ASSERT( (CANSTMOB & ~0xa0) ==0); // allow only RX ready and DLC warning
+	register char length;
+	packet.id=(CANIDT2>>5) | (CANIDT1 <<3);
+	length=CANCDMOB & 0x0f;
+	packet.length=length;
+	for (i = 0; i <length; ++i)
+ 1ae:	8c 81       	ldd	r24, Y+4	; 0x04
+ 1b0:	9d 81       	ldd	r25, Y+5	; 0x05
+ 1b2:	01 96       	adiw	r24, 0x01	; 1
+ 1b4:	9d 83       	std	Y+5, r25	; 0x05
+ 1b6:	8c 83       	std	Y+4, r24	; 0x04
+ 1b8:	9e 81       	ldd	r25, Y+6	; 0x06
+ 1ba:	29 2f       	mov	r18, r25
+ 1bc:	30 e0       	ldi	r19, 0x00	; 0
+ 1be:	8c 81       	ldd	r24, Y+4	; 0x04
+ 1c0:	9d 81       	ldd	r25, Y+5	; 0x05
+ 1c2:	82 17       	cp	r24, r18
+ 1c4:	93 07       	cpc	r25, r19
+ 1c6:	50 f3       	brcs	.-44     	; 0x19c <__vector_18+0xc6>
+		{
+		 packet.data[i] = CANMSG;
+		}
+	CANSTMOB=0;		// reset INT reason
+ 1c8:	ee ee       	ldi	r30, 0xEE	; 238
+ 1ca:	f0 e0       	ldi	r31, 0x00	; 0
+ 1cc:	10 82       	st	Z, r1
+	CANCDMOB=0x80;	// re-enable RX on this channel
+ 1ce:	ef ee       	ldi	r30, 0xEF	; 239
+ 1d0:	f0 e0       	ldi	r31, 0x00	; 0
+ 1d2:	80 e8       	ldi	r24, 0x80	; 128
+ 1d4:	80 83       	st	Z, r24
+	canlist[ mob]( &packet, mob);
+ 1d6:	89 81       	ldd	r24, Y+1	; 0x01
+ 1d8:	9a 81       	ldd	r25, Y+2	; 0x02
+ 1da:	88 0f       	add	r24, r24
+ 1dc:	99 1f       	adc	r25, r25
+ 1de:	fc 01       	movw	r30, r24
+ 1e0:	e5 5f       	subi	r30, 0xF5	; 245
+ 1e2:	fe 4f       	sbci	r31, 0xFE	; 254
+ 1e4:	01 90       	ld	r0, Z+
+ 1e6:	f0 81       	ld	r31, Z
+ 1e8:	e0 2d       	mov	r30, r0
+ 1ea:	29 81       	ldd	r18, Y+1	; 0x01
+ 1ec:	80 e0       	ldi	r24, 0x00	; 0
+ 1ee:	91 e0       	ldi	r25, 0x01	; 1
+ 1f0:	62 2f       	mov	r22, r18
+ 1f2:	09 95       	icall
+	CANPAGE=save_canpage;	// restore CANPAGE
+ 1f4:	ed ee       	ldi	r30, 0xED	; 237
+ 1f6:	f0 e0       	ldi	r31, 0x00	; 0
+ 1f8:	8b 81       	ldd	r24, Y+3	; 0x03
+ 1fa:	80 83       	st	Z, r24
+	}
+ 1fc:	26 96       	adiw	r28, 0x06	; 6
+ 1fe:	de bf       	out	0x3e, r29	; 62
+ 200:	cd bf       	out	0x3d, r28	; 61
+ 202:	cf 91       	pop	r28
+ 204:	df 91       	pop	r29
+ 206:	ff 91       	pop	r31
+ 208:	ef 91       	pop	r30
+ 20a:	bf 91       	pop	r27
+ 20c:	af 91       	pop	r26
+ 20e:	9f 91       	pop	r25
+ 210:	8f 91       	pop	r24
+ 212:	7f 91       	pop	r23
+ 214:	6f 91       	pop	r22
+ 216:	5f 91       	pop	r21
+ 218:	4f 91       	pop	r20
+ 21a:	3f 91       	pop	r19
+ 21c:	2f 91       	pop	r18
+ 21e:	0f 90       	pop	r0
+ 220:	00 92 5b 00 	sts	0x005B, r0
+ 224:	0f 90       	pop	r0
+ 226:	0f be       	out	0x3f, r0	; 63
+ 228:	0f 90       	pop	r0
+ 22a:	1f 90       	pop	r1
+ 22c:	18 95       	reti
+
+0000022e <can_tx>:
+
+BOOL can_tx( char mob, 	CAN_packet *packet)
+	{
+ 22e:	df 93       	push	r29
+ 230:	cf 93       	push	r28
+ 232:	00 d0       	rcall	.+0      	; 0x234 <can_tx+0x6>
+ 234:	00 d0       	rcall	.+0      	; 0x236 <can_tx+0x8>
+ 236:	00 d0       	rcall	.+0      	; 0x238 <can_tx+0xa>
+ 238:	cd b7       	in	r28, 0x3d	; 61
+ 23a:	de b7       	in	r29, 0x3e	; 62
+ 23c:	8b 83       	std	Y+3, r24	; 0x03
+ 23e:	7d 83       	std	Y+5, r23	; 0x05
+ 240:	6c 83       	std	Y+4, r22	; 0x04
+	unsigned cnt;
+	ASSERT( packet->id <= 0x7ff);
+ 242:	ec 81       	ldd	r30, Y+4	; 0x04
+ 244:	fd 81       	ldd	r31, Y+5	; 0x05
+ 246:	80 81       	ld	r24, Z
+ 248:	91 81       	ldd	r25, Z+1	; 0x01
+ 24a:	28 e0       	ldi	r18, 0x08	; 8
+ 24c:	80 30       	cpi	r24, 0x00	; 0
+ 24e:	92 07       	cpc	r25, r18
+ 250:	08 f0       	brcs	.+2      	; 0x254 <can_tx+0x26>
+ 252:	98 95       	break
+	ASSERT( packet->length <=8);
+ 254:	ec 81       	ldd	r30, Y+4	; 0x04
+ 256:	fd 81       	ldd	r31, Y+5	; 0x05
+ 258:	82 81       	ldd	r24, Z+2	; 0x02
+ 25a:	89 30       	cpi	r24, 0x09	; 9
+ 25c:	08 f0       	brcs	.+2      	; 0x260 <can_tx+0x32>
+ 25e:	98 95       	break
+	ASSERT( mob <=14);
+ 260:	8b 81       	ldd	r24, Y+3	; 0x03
+ 262:	8f 30       	cpi	r24, 0x0F	; 15
+ 264:	08 f0       	brcs	.+2      	; 0x268 <can_tx+0x3a>
+ 266:	98 95       	break
+    CANPAGE = mob << 4;
+ 268:	ed ee       	ldi	r30, 0xED	; 237
+ 26a:	f0 e0       	ldi	r31, 0x00	; 0
+ 26c:	8b 81       	ldd	r24, Y+3	; 0x03
+ 26e:	82 95       	swap	r24
+ 270:	80 7f       	andi	r24, 0xF0	; 240
+ 272:	80 83       	st	Z, r24
+	if(
+ 274:	ef ee       	ldi	r30, 0xEF	; 239
+ 276:	f0 e0       	ldi	r31, 0x00	; 0
+ 278:	80 81       	ld	r24, Z
+ 27a:	88 2f       	mov	r24, r24
+ 27c:	90 e0       	ldi	r25, 0x00	; 0
+ 27e:	80 7c       	andi	r24, 0xC0	; 192
+ 280:	90 70       	andi	r25, 0x00	; 0
+ 282:	00 97       	sbiw	r24, 0x00	; 0
+ 284:	59 f0       	breq	.+22     	; 0x29c <can_tx+0x6e>
+ 286:	ee ee       	ldi	r30, 0xEE	; 238
+ 288:	f0 e0       	ldi	r31, 0x00	; 0
+ 28a:	80 81       	ld	r24, Z
+ 28c:	88 2f       	mov	r24, r24
+ 28e:	90 e0       	ldi	r25, 0x00	; 0
+ 290:	80 74       	andi	r24, 0x40	; 64
+ 292:	90 70       	andi	r25, 0x00	; 0
+ 294:	00 97       	sbiw	r24, 0x00	; 0
+ 296:	11 f4       	brne	.+4      	; 0x29c <can_tx+0x6e>
+		(  CANCDMOB & 0b11000000) // if MOB in use
+		&& 
+	  	( (CANSTMOB & 0x40) ==0)   // TX not ready
+	  )
+		return FALSE;
+ 298:	1e 82       	std	Y+6, r1	; 0x06
+ 29a:	83 c0       	rjmp	.+262    	; 0x3a2 <can_tx+0x174>
+	CANSTMOB = 0x00;    	// cancel pending operation 
+ 29c:	ee ee       	ldi	r30, 0xEE	; 238
+ 29e:	f0 e0       	ldi	r31, 0x00	; 0
+ 2a0:	10 82       	st	Z, r1
+	CANCDMOB = 0x00;		
+ 2a2:	ef ee       	ldi	r30, 0xEF	; 239
+ 2a4:	f0 e0       	ldi	r31, 0x00	; 0
+ 2a6:	10 82       	st	Z, r1
+	if( packet->length!=RTR)
+ 2a8:	ec 81       	ldd	r30, Y+4	; 0x04
+ 2aa:	fd 81       	ldd	r31, Y+5	; 0x05
+ 2ac:	82 81       	ldd	r24, Z+2	; 0x02
+ 2ae:	8f 3f       	cpi	r24, 0xFF	; 255
+ 2b0:	09 f4       	brne	.+2      	; 0x2b4 <can_tx+0x86>
+ 2b2:	46 c0       	rjmp	.+140    	; 0x340 <can_tx+0x112>
+		{
+		CANIDT1=packet->id >>3;
+ 2b4:	a3 ef       	ldi	r26, 0xF3	; 243
+ 2b6:	b0 e0       	ldi	r27, 0x00	; 0
+ 2b8:	ec 81       	ldd	r30, Y+4	; 0x04
+ 2ba:	fd 81       	ldd	r31, Y+5	; 0x05
+ 2bc:	80 81       	ld	r24, Z
+ 2be:	91 81       	ldd	r25, Z+1	; 0x01
+ 2c0:	96 95       	lsr	r25
+ 2c2:	87 95       	ror	r24
+ 2c4:	96 95       	lsr	r25
+ 2c6:	87 95       	ror	r24
+ 2c8:	96 95       	lsr	r25
+ 2ca:	87 95       	ror	r24
+ 2cc:	8c 93       	st	X, r24
+		CANIDT2=packet->id <<5;
+ 2ce:	a2 ef       	ldi	r26, 0xF2	; 242
+ 2d0:	b0 e0       	ldi	r27, 0x00	; 0
+ 2d2:	ec 81       	ldd	r30, Y+4	; 0x04
+ 2d4:	fd 81       	ldd	r31, Y+5	; 0x05
+ 2d6:	80 81       	ld	r24, Z
+ 2d8:	91 81       	ldd	r25, Z+1	; 0x01
+ 2da:	82 95       	swap	r24
+ 2dc:	88 0f       	add	r24, r24
+ 2de:	80 7e       	andi	r24, 0xE0	; 224
+ 2e0:	8c 93       	st	X, r24
+        CANIDT3 = 0;
+ 2e2:	e1 ef       	ldi	r30, 0xF1	; 241
+ 2e4:	f0 e0       	ldi	r31, 0x00	; 0
+ 2e6:	10 82       	st	Z, r1
+        CANIDT4 = 0;
+ 2e8:	e0 ef       	ldi	r30, 0xF0	; 240
+ 2ea:	f0 e0       	ldi	r31, 0x00	; 0
+ 2ec:	10 82       	st	Z, r1
+		for (cnt=0; cnt < packet->length; ++cnt) 
+ 2ee:	1a 82       	std	Y+2, r1	; 0x02
+ 2f0:	19 82       	std	Y+1, r1	; 0x01
+ 2f2:	11 c0       	rjmp	.+34     	; 0x316 <can_tx+0xe8>
+			CANMSG = packet->data[cnt];         
+ 2f4:	aa ef       	ldi	r26, 0xFA	; 250
+ 2f6:	b0 e0       	ldi	r27, 0x00	; 0
+ 2f8:	29 81       	ldd	r18, Y+1	; 0x01
+ 2fa:	3a 81       	ldd	r19, Y+2	; 0x02
+ 2fc:	8c 81       	ldd	r24, Y+4	; 0x04
+ 2fe:	9d 81       	ldd	r25, Y+5	; 0x05
+ 300:	82 0f       	add	r24, r18
+ 302:	93 1f       	adc	r25, r19
+ 304:	fc 01       	movw	r30, r24
+ 306:	33 96       	adiw	r30, 0x03	; 3
+ 308:	80 81       	ld	r24, Z
+ 30a:	8c 93       	st	X, r24
+		{
+		CANIDT1=packet->id >>3;
+		CANIDT2=packet->id <<5;
+        CANIDT3 = 0;
+        CANIDT4 = 0;
+		for (cnt=0; cnt < packet->length; ++cnt) 
+ 30c:	89 81       	ldd	r24, Y+1	; 0x01
+ 30e:	9a 81       	ldd	r25, Y+2	; 0x02
+ 310:	01 96       	adiw	r24, 0x01	; 1
+ 312:	9a 83       	std	Y+2, r25	; 0x02
+ 314:	89 83       	std	Y+1, r24	; 0x01
+ 316:	ec 81       	ldd	r30, Y+4	; 0x04
+ 318:	fd 81       	ldd	r31, Y+5	; 0x05
+ 31a:	82 81       	ldd	r24, Z+2	; 0x02
+ 31c:	28 2f       	mov	r18, r24
+ 31e:	30 e0       	ldi	r19, 0x00	; 0
+ 320:	89 81       	ldd	r24, Y+1	; 0x01
+ 322:	9a 81       	ldd	r25, Y+2	; 0x02
+ 324:	82 17       	cp	r24, r18
+ 326:	93 07       	cpc	r25, r19
+ 328:	28 f3       	brcs	.-54     	; 0x2f4 <can_tx+0xc6>
+			CANMSG = packet->data[cnt];         
+    	CANCDMOB|=packet->length;
+ 32a:	af ee       	ldi	r26, 0xEF	; 239
+ 32c:	b0 e0       	ldi	r27, 0x00	; 0
+ 32e:	ef ee       	ldi	r30, 0xEF	; 239
+ 330:	f0 e0       	ldi	r31, 0x00	; 0
+ 332:	90 81       	ld	r25, Z
+ 334:	ec 81       	ldd	r30, Y+4	; 0x04
+ 336:	fd 81       	ldd	r31, Y+5	; 0x05
+ 338:	82 81       	ldd	r24, Z+2	; 0x02
+ 33a:	89 2b       	or	r24, r25
+ 33c:	8c 93       	st	X, r24
+ 33e:	28 c0       	rjmp	.+80     	; 0x390 <can_tx+0x162>
+		}
+	else
+		{
+		CANIDT1=packet->id >>3;
+ 340:	a3 ef       	ldi	r26, 0xF3	; 243
+ 342:	b0 e0       	ldi	r27, 0x00	; 0
+ 344:	ec 81       	ldd	r30, Y+4	; 0x04
+ 346:	fd 81       	ldd	r31, Y+5	; 0x05
+ 348:	80 81       	ld	r24, Z
+ 34a:	91 81       	ldd	r25, Z+1	; 0x01
+ 34c:	96 95       	lsr	r25
+ 34e:	87 95       	ror	r24
+ 350:	96 95       	lsr	r25
+ 352:	87 95       	ror	r24
+ 354:	96 95       	lsr	r25
+ 356:	87 95       	ror	r24
+ 358:	8c 93       	st	X, r24
+		CANIDT2=packet->id <<5;
+ 35a:	a2 ef       	ldi	r26, 0xF2	; 242
+ 35c:	b0 e0       	ldi	r27, 0x00	; 0
+ 35e:	ec 81       	ldd	r30, Y+4	; 0x04
+ 360:	fd 81       	ldd	r31, Y+5	; 0x05
+ 362:	80 81       	ld	r24, Z
+ 364:	91 81       	ldd	r25, Z+1	; 0x01
+ 366:	82 95       	swap	r24
+ 368:	88 0f       	add	r24, r24
+ 36a:	80 7e       	andi	r24, 0xE0	; 224
+ 36c:	8c 93       	st	X, r24
+        CANIDT3 = 0;
+ 36e:	e1 ef       	ldi	r30, 0xF1	; 241
+ 370:	f0 e0       	ldi	r31, 0x00	; 0
+ 372:	10 82       	st	Z, r1
+        CANIDT4 = 1<<RTRTAG;
+ 374:	e0 ef       	ldi	r30, 0xF0	; 240
+ 376:	f0 e0       	ldi	r31, 0x00	; 0
+ 378:	84 e0       	ldi	r24, 0x04	; 4
+ 37a:	80 83       	st	Z, r24
+		CANCDMOB|=packet->length;
+ 37c:	af ee       	ldi	r26, 0xEF	; 239
+ 37e:	b0 e0       	ldi	r27, 0x00	; 0
+ 380:	ef ee       	ldi	r30, 0xEF	; 239
+ 382:	f0 e0       	ldi	r31, 0x00	; 0
+ 384:	90 81       	ld	r25, Z
+ 386:	ec 81       	ldd	r30, Y+4	; 0x04
+ 388:	fd 81       	ldd	r31, Y+5	; 0x05
+ 38a:	82 81       	ldd	r24, Z+2	; 0x02
+ 38c:	89 2b       	or	r24, r25
+ 38e:	8c 93       	st	X, r24
+		}
+    CANCDMOB|=0x40; //enable TX
+ 390:	af ee       	ldi	r26, 0xEF	; 239
+ 392:	b0 e0       	ldi	r27, 0x00	; 0
+ 394:	ef ee       	ldi	r30, 0xEF	; 239
+ 396:	f0 e0       	ldi	r31, 0x00	; 0
+ 398:	80 81       	ld	r24, Z
+ 39a:	80 64       	ori	r24, 0x40	; 64
+ 39c:	8c 93       	st	X, r24
+	return TRUE;
+ 39e:	81 e0       	ldi	r24, 0x01	; 1
+ 3a0:	8e 83       	std	Y+6, r24	; 0x06
+ 3a2:	8e 81       	ldd	r24, Y+6	; 0x06
+	}
+ 3a4:	26 96       	adiw	r28, 0x06	; 6
+ 3a6:	0f b6       	in	r0, 0x3f	; 63
+ 3a8:	f8 94       	cli
+ 3aa:	de bf       	out	0x3e, r29	; 62
+ 3ac:	0f be       	out	0x3f, r0	; 63
+ 3ae:	cd bf       	out	0x3d, r28	; 61
+ 3b0:	cf 91       	pop	r28
+ 3b2:	df 91       	pop	r29
+ 3b4:	08 95       	ret
+
+000003b6 <prepare_rx>:
+
+BOOL prepare_rx( char mob, unsigned id, unsigned idmask, CAN_cbf callback)
+	{
+ 3b6:	df 93       	push	r29
+ 3b8:	cf 93       	push	r28
+ 3ba:	cd b7       	in	r28, 0x3d	; 61
+ 3bc:	de b7       	in	r29, 0x3e	; 62
+ 3be:	2c 97       	sbiw	r28, 0x0c	; 12
+ 3c0:	0f b6       	in	r0, 0x3f	; 63
+ 3c2:	f8 94       	cli
+ 3c4:	de bf       	out	0x3e, r29	; 62
+ 3c6:	0f be       	out	0x3f, r0	; 63
+ 3c8:	cd bf       	out	0x3d, r28	; 61
+ 3ca:	8d 83       	std	Y+5, r24	; 0x05
+ 3cc:	7f 83       	std	Y+7, r23	; 0x07
+ 3ce:	6e 83       	std	Y+6, r22	; 0x06
+ 3d0:	59 87       	std	Y+9, r21	; 0x09
+ 3d2:	48 87       	std	Y+8, r20	; 0x08
+ 3d4:	3b 87       	std	Y+11, r19	; 0x0b
+ 3d6:	2a 87       	std	Y+10, r18	; 0x0a
+	if( mob >= 15) 				// illegal MOB number
+ 3d8:	8d 81       	ldd	r24, Y+5	; 0x05
+ 3da:	8f 30       	cpi	r24, 0x0F	; 15
+ 3dc:	18 f0       	brcs	.+6      	; 0x3e4 <prepare_rx+0x2e>
+		return TRUE;
+ 3de:	81 e0       	ldi	r24, 0x01	; 1
+ 3e0:	8c 87       	std	Y+12, r24	; 0x0c
+ 3e2:	a2 c0       	rjmp	.+324    	; 0x528 <prepare_rx+0x172>
+	canlist[ (unsigned)mob]=callback;
+ 3e4:	8d 81       	ldd	r24, Y+5	; 0x05
+ 3e6:	88 2f       	mov	r24, r24
+ 3e8:	90 e0       	ldi	r25, 0x00	; 0
+ 3ea:	88 0f       	add	r24, r24
+ 3ec:	99 1f       	adc	r25, r25
+ 3ee:	fc 01       	movw	r30, r24
+ 3f0:	e5 5f       	subi	r30, 0xF5	; 245
+ 3f2:	fe 4f       	sbci	r31, 0xFE	; 254
+ 3f4:	8a 85       	ldd	r24, Y+10	; 0x0a
+ 3f6:	9b 85       	ldd	r25, Y+11	; 0x0b
+ 3f8:	91 83       	std	Z+1, r25	; 0x01
+ 3fa:	80 83       	st	Z, r24
+    CANPAGE = mob << 4;
+ 3fc:	ed ee       	ldi	r30, 0xED	; 237
+ 3fe:	f0 e0       	ldi	r31, 0x00	; 0
+ 400:	8d 81       	ldd	r24, Y+5	; 0x05
+ 402:	82 95       	swap	r24
+ 404:	80 7f       	andi	r24, 0xF0	; 240
+ 406:	80 83       	st	Z, r24
+	if( callback==0)			// release this MOB 
+ 408:	8a 85       	ldd	r24, Y+10	; 0x0a
+ 40a:	9b 85       	ldd	r25, Y+11	; 0x0b
+ 40c:	00 97       	sbiw	r24, 0x00	; 0
+ 40e:	49 f5       	brne	.+82     	; 0x462 <prepare_rx+0xac>
+		{
+		CANSTMOB = 0x00;    	// cancel pending operation 
+ 410:	ee ee       	ldi	r30, 0xEE	; 238
+ 412:	f0 e0       	ldi	r31, 0x00	; 0
+ 414:	10 82       	st	Z, r1
+		CANCDMOB = 0x00;		
+ 416:	ef ee       	ldi	r30, 0xEF	; 239
+ 418:	f0 e0       	ldi	r31, 0x00	; 0
+ 41a:	10 82       	st	Z, r1
+		unsigned mask=1<<mob;
+ 41c:	8d 81       	ldd	r24, Y+5	; 0x05
+ 41e:	28 2f       	mov	r18, r24
+ 420:	30 e0       	ldi	r19, 0x00	; 0
+ 422:	81 e0       	ldi	r24, 0x01	; 1
+ 424:	90 e0       	ldi	r25, 0x00	; 0
+ 426:	02 c0       	rjmp	.+4      	; 0x42c <prepare_rx+0x76>
+ 428:	88 0f       	add	r24, r24
+ 42a:	99 1f       	adc	r25, r25
+ 42c:	2a 95       	dec	r18
+ 42e:	e2 f7       	brpl	.-8      	; 0x428 <prepare_rx+0x72>
+ 430:	9a 83       	std	Y+2, r25	; 0x02
+ 432:	89 83       	std	Y+1, r24	; 0x01
+		CANIE2 &=  ~mask;
+ 434:	ae ed       	ldi	r26, 0xDE	; 222
+ 436:	b0 e0       	ldi	r27, 0x00	; 0
+ 438:	ee ed       	ldi	r30, 0xDE	; 222
+ 43a:	f0 e0       	ldi	r31, 0x00	; 0
+ 43c:	90 81       	ld	r25, Z
+ 43e:	89 81       	ldd	r24, Y+1	; 0x01
+ 440:	80 95       	com	r24
+ 442:	89 23       	and	r24, r25
+ 444:	8c 93       	st	X, r24
+		CANIE1 &= ~(mask>>8);
+ 446:	af ed       	ldi	r26, 0xDF	; 223
+ 448:	b0 e0       	ldi	r27, 0x00	; 0
+ 44a:	ef ed       	ldi	r30, 0xDF	; 223
+ 44c:	f0 e0       	ldi	r31, 0x00	; 0
+ 44e:	20 81       	ld	r18, Z
+ 450:	89 81       	ldd	r24, Y+1	; 0x01
+ 452:	9a 81       	ldd	r25, Y+2	; 0x02
+ 454:	89 2f       	mov	r24, r25
+ 456:	99 27       	eor	r25, r25
+ 458:	80 95       	com	r24
+ 45a:	82 23       	and	r24, r18
+ 45c:	8c 93       	st	X, r24
+		return FALSE;
+ 45e:	1c 86       	std	Y+12, r1	; 0x0c
+ 460:	63 c0       	rjmp	.+198    	; 0x528 <prepare_rx+0x172>
+		}
+	if( CANCDMOB & 0b11000000) 	// if MOB already in use
+ 462:	ef ee       	ldi	r30, 0xEF	; 239
+ 464:	f0 e0       	ldi	r31, 0x00	; 0
+ 466:	80 81       	ld	r24, Z
+ 468:	88 2f       	mov	r24, r24
+ 46a:	90 e0       	ldi	r25, 0x00	; 0
+ 46c:	80 7c       	andi	r24, 0xC0	; 192
+ 46e:	90 70       	andi	r25, 0x00	; 0
+ 470:	00 97       	sbiw	r24, 0x00	; 0
+ 472:	19 f0       	breq	.+6      	; 0x47a <prepare_rx+0xc4>
+		return TRUE;			// no vacancy ...
+ 474:	81 e0       	ldi	r24, 0x01	; 1
+ 476:	8c 87       	std	Y+12, r24	; 0x0c
+ 478:	57 c0       	rjmp	.+174    	; 0x528 <prepare_rx+0x172>
+	CANSTMOB = 0x00;    	// cancel pending operation 
+ 47a:	ee ee       	ldi	r30, 0xEE	; 238
+ 47c:	f0 e0       	ldi	r31, 0x00	; 0
+ 47e:	10 82       	st	Z, r1
+	CANCDMOB = 0x00;		
+ 480:	ef ee       	ldi	r30, 0xEF	; 239
+ 482:	f0 e0       	ldi	r31, 0x00	; 0
+ 484:	10 82       	st	Z, r1
+	CANHPMOB = 0x00;		// enable direct mob indexing, see docu
+ 486:	ec ee       	ldi	r30, 0xEC	; 236
+ 488:	f0 e0       	ldi	r31, 0x00	; 0
+ 48a:	10 82       	st	Z, r1
+	CANIDT1=id >>3;
+ 48c:	e3 ef       	ldi	r30, 0xF3	; 243
+ 48e:	f0 e0       	ldi	r31, 0x00	; 0
+ 490:	8e 81       	ldd	r24, Y+6	; 0x06
+ 492:	9f 81       	ldd	r25, Y+7	; 0x07
+ 494:	96 95       	lsr	r25
+ 496:	87 95       	ror	r24
+ 498:	96 95       	lsr	r25
+ 49a:	87 95       	ror	r24
+ 49c:	96 95       	lsr	r25
+ 49e:	87 95       	ror	r24
+ 4a0:	80 83       	st	Z, r24
+	CANIDT2=id <<5;
+ 4a2:	e2 ef       	ldi	r30, 0xF2	; 242
+ 4a4:	f0 e0       	ldi	r31, 0x00	; 0
+ 4a6:	8e 81       	ldd	r24, Y+6	; 0x06
+ 4a8:	82 95       	swap	r24
+ 4aa:	88 0f       	add	r24, r24
+ 4ac:	80 7e       	andi	r24, 0xE0	; 224
+ 4ae:	80 83       	st	Z, r24
+	CANIDM1=idmask >>3;
+ 4b0:	e7 ef       	ldi	r30, 0xF7	; 247
+ 4b2:	f0 e0       	ldi	r31, 0x00	; 0
+ 4b4:	88 85       	ldd	r24, Y+8	; 0x08
+ 4b6:	99 85       	ldd	r25, Y+9	; 0x09
+ 4b8:	96 95       	lsr	r25
+ 4ba:	87 95       	ror	r24
+ 4bc:	96 95       	lsr	r25
+ 4be:	87 95       	ror	r24
+ 4c0:	96 95       	lsr	r25
+ 4c2:	87 95       	ror	r24
+ 4c4:	80 83       	st	Z, r24
+	CANIDM2=idmask <<5;
+ 4c6:	e6 ef       	ldi	r30, 0xF6	; 246
+ 4c8:	f0 e0       	ldi	r31, 0x00	; 0
+ 4ca:	88 85       	ldd	r24, Y+8	; 0x08
+ 4cc:	82 95       	swap	r24
+ 4ce:	88 0f       	add	r24, r24
+ 4d0:	80 7e       	andi	r24, 0xE0	; 224
+ 4d2:	80 83       	st	Z, r24
+	CANIDM3=0;
+ 4d4:	e5 ef       	ldi	r30, 0xF5	; 245
+ 4d6:	f0 e0       	ldi	r31, 0x00	; 0
+ 4d8:	10 82       	st	Z, r1
+	CANIDM4=0;
+ 4da:	e4 ef       	ldi	r30, 0xF4	; 244
+ 4dc:	f0 e0       	ldi	r31, 0x00	; 0
+ 4de:	10 82       	st	Z, r1
+	CANCDMOB=0x80; // enable RX
+ 4e0:	ef ee       	ldi	r30, 0xEF	; 239
+ 4e2:	f0 e0       	ldi	r31, 0x00	; 0
+ 4e4:	80 e8       	ldi	r24, 0x80	; 128
+ 4e6:	80 83       	st	Z, r24
+	unsigned mask=1<<mob;
+ 4e8:	8d 81       	ldd	r24, Y+5	; 0x05
+ 4ea:	28 2f       	mov	r18, r24
+ 4ec:	30 e0       	ldi	r19, 0x00	; 0
+ 4ee:	81 e0       	ldi	r24, 0x01	; 1
+ 4f0:	90 e0       	ldi	r25, 0x00	; 0
+ 4f2:	02 c0       	rjmp	.+4      	; 0x4f8 <prepare_rx+0x142>
+ 4f4:	88 0f       	add	r24, r24
+ 4f6:	99 1f       	adc	r25, r25
+ 4f8:	2a 95       	dec	r18
+ 4fa:	e2 f7       	brpl	.-8      	; 0x4f4 <prepare_rx+0x13e>
+ 4fc:	9c 83       	std	Y+4, r25	; 0x04
+ 4fe:	8b 83       	std	Y+3, r24	; 0x03
+	CANIE2 |=  mask;
+ 500:	ae ed       	ldi	r26, 0xDE	; 222
+ 502:	b0 e0       	ldi	r27, 0x00	; 0
+ 504:	ee ed       	ldi	r30, 0xDE	; 222
+ 506:	f0 e0       	ldi	r31, 0x00	; 0
+ 508:	90 81       	ld	r25, Z
+ 50a:	8b 81       	ldd	r24, Y+3	; 0x03
+ 50c:	89 2b       	or	r24, r25
+ 50e:	8c 93       	st	X, r24
+	CANIE1 |= (mask>>8);
+ 510:	af ed       	ldi	r26, 0xDF	; 223
+ 512:	b0 e0       	ldi	r27, 0x00	; 0
+ 514:	ef ed       	ldi	r30, 0xDF	; 223
+ 516:	f0 e0       	ldi	r31, 0x00	; 0
+ 518:	20 81       	ld	r18, Z
+ 51a:	8b 81       	ldd	r24, Y+3	; 0x03
+ 51c:	9c 81       	ldd	r25, Y+4	; 0x04
+ 51e:	89 2f       	mov	r24, r25
+ 520:	99 27       	eor	r25, r25
+ 522:	82 2b       	or	r24, r18
+ 524:	8c 93       	st	X, r24
+	return FALSE;
+ 526:	1c 86       	std	Y+12, r1	; 0x0c
+ 528:	8c 85       	ldd	r24, Y+12	; 0x0c
+	}
+ 52a:	2c 96       	adiw	r28, 0x0c	; 12
+ 52c:	0f b6       	in	r0, 0x3f	; 63
+ 52e:	f8 94       	cli
+ 530:	de bf       	out	0x3e, r29	; 62
+ 532:	0f be       	out	0x3f, r0	; 63
+ 534:	cd bf       	out	0x3d, r28	; 61
+ 536:	cf 91       	pop	r28
+ 538:	df 91       	pop	r29
+ 53a:	08 95       	ret
+
+0000053c <can_init>:
+
+
+void can_init( void)
+	{
+ 53c:	df 93       	push	r29
+ 53e:	cf 93       	push	r28
+ 540:	00 d0       	rcall	.+0      	; 0x542 <can_init+0x6>
+ 542:	cd b7       	in	r28, 0x3d	; 61
+ 544:	de b7       	in	r29, 0x3e	; 62
+#if configCPU_CLOCK_HZ==8000000l
+	CANBT1=0x06;	// 8MHz, 100kbit/s
+	CANBT2=0x0c;
+	CANBT3=0x5a;
+#else
+	CANBT1=0x26;	// 16 MHz, 100kbit/s
+ 546:	e2 ee       	ldi	r30, 0xE2	; 226
+ 548:	f0 e0       	ldi	r31, 0x00	; 0
+ 54a:	86 e2       	ldi	r24, 0x26	; 38
+ 54c:	80 83       	st	Z, r24
+	CANBT2=0x04;
+ 54e:	e3 ee       	ldi	r30, 0xE3	; 227
+ 550:	f0 e0       	ldi	r31, 0x00	; 0
+ 552:	84 e0       	ldi	r24, 0x04	; 4
+ 554:	80 83       	st	Z, r24
+	CANBT3=0x13;
+ 556:	e4 ee       	ldi	r30, 0xE4	; 228
+ 558:	f0 e0       	ldi	r31, 0x00	; 0
+ 55a:	83 e1       	ldi	r24, 0x13	; 19
+ 55c:	80 83       	st	Z, r24
+#endif
+	
+	for (mob = 0; mob < NO_MOBS; mob++)
+ 55e:	1a 82       	std	Y+2, r1	; 0x02
+ 560:	19 82       	std	Y+1, r1	; 0x01
+ 562:	11 c0       	rjmp	.+34     	; 0x586 <can_init+0x4a>
+		{
+		CANPAGE  = (mob << 4);
+ 564:	ed ee       	ldi	r30, 0xED	; 237
+ 566:	f0 e0       	ldi	r31, 0x00	; 0
+ 568:	89 81       	ldd	r24, Y+1	; 0x01
+ 56a:	82 95       	swap	r24
+ 56c:	80 7f       	andi	r24, 0xF0	; 240
+ 56e:	80 83       	st	Z, r24
+		CANSTMOB = 0;
+ 570:	ee ee       	ldi	r30, 0xEE	; 238
+ 572:	f0 e0       	ldi	r31, 0x00	; 0
+ 574:	10 82       	st	Z, r1
+		CANCDMOB = 0;
+ 576:	ef ee       	ldi	r30, 0xEF	; 239
+ 578:	f0 e0       	ldi	r31, 0x00	; 0
+ 57a:	10 82       	st	Z, r1
+	CANBT1=0x26;	// 16 MHz, 100kbit/s
+	CANBT2=0x04;
+	CANBT3=0x13;
+#endif
+	
+	for (mob = 0; mob < NO_MOBS; mob++)
+ 57c:	89 81       	ldd	r24, Y+1	; 0x01
+ 57e:	9a 81       	ldd	r25, Y+2	; 0x02
+ 580:	01 96       	adiw	r24, 0x01	; 1
+ 582:	9a 83       	std	Y+2, r25	; 0x02
+ 584:	89 83       	std	Y+1, r24	; 0x01
+ 586:	89 81       	ldd	r24, Y+1	; 0x01
+ 588:	9a 81       	ldd	r25, Y+2	; 0x02
+ 58a:	8f 30       	cpi	r24, 0x0F	; 15
+ 58c:	91 05       	cpc	r25, r1
+ 58e:	50 f3       	brcs	.-44     	; 0x564 <can_init+0x28>
+		{
+		CANPAGE  = (mob << 4);
+		CANSTMOB = 0;
+		CANCDMOB = 0;
+		}
+	CANGCON |= 0x02;
+ 590:	a8 ed       	ldi	r26, 0xD8	; 216
+ 592:	b0 e0       	ldi	r27, 0x00	; 0
+ 594:	e8 ed       	ldi	r30, 0xD8	; 216
+ 596:	f0 e0       	ldi	r31, 0x00	; 0
+ 598:	80 81       	ld	r24, Z
+ 59a:	82 60       	ori	r24, 0x02	; 2
+ 59c:	8c 93       	st	X, r24
+	CANGIE=(1<<ENIT) | (1<< ENRX);
+ 59e:	eb ed       	ldi	r30, 0xDB	; 219
+ 5a0:	f0 e0       	ldi	r31, 0x00	; 0
+ 5a2:	80 ea       	ldi	r24, 0xA0	; 160
+ 5a4:	80 83       	st	Z, r24
+	}
+ 5a6:	0f 90       	pop	r0
+ 5a8:	0f 90       	pop	r0
+ 5aa:	cf 91       	pop	r28
+ 5ac:	df 91       	pop	r29
+ 5ae:	08 95       	ret
+
+000005b0 <receive150>:
+#include "assert.h"
+#include "can.h"
+
+//! interrupt callback function for CAN receiver interrupt.
+void receive150( CAN_packet *p, unsigned char mob) // interrupt callback
+{
+ 5b0:	df 93       	push	r29
+ 5b2:	cf 93       	push	r28
+ 5b4:	00 d0       	rcall	.+0      	; 0x5b6 <receive150+0x6>
+ 5b6:	0f 92       	push	r0
+ 5b8:	cd b7       	in	r28, 0x3d	; 61
+ 5ba:	de b7       	in	r29, 0x3e	; 62
+ 5bc:	9a 83       	std	Y+2, r25	; 0x02
+ 5be:	89 83       	std	Y+1, r24	; 0x01
+ 5c0:	6b 83       	std	Y+3, r22	; 0x03
+	(void)mob;
+	PORTE^=_BV(PE6);
+ 5c2:	ae e2       	ldi	r26, 0x2E	; 46
+ 5c4:	b0 e0       	ldi	r27, 0x00	; 0
+ 5c6:	ee e2       	ldi	r30, 0x2E	; 46
+ 5c8:	f0 e0       	ldi	r31, 0x00	; 0
+ 5ca:	90 81       	ld	r25, Z
+ 5cc:	80 e4       	ldi	r24, 0x40	; 64
+ 5ce:	89 27       	eor	r24, r25
+ 5d0:	8c 93       	st	X, r24
+}
+ 5d2:	0f 90       	pop	r0
+ 5d4:	0f 90       	pop	r0
+ 5d6:	0f 90       	pop	r0
+ 5d8:	cf 91       	pop	r28
+ 5da:	df 91       	pop	r29
+ 5dc:	08 95       	ret
+
+000005de <receive151>:
+
+//! interrupt callback function for CAN receiver interrupt.
+void receive151( CAN_packet *p, unsigned char mob) // interrupt callback
+{
+ 5de:	df 93       	push	r29
+ 5e0:	cf 93       	push	r28
+ 5e2:	00 d0       	rcall	.+0      	; 0x5e4 <receive151+0x6>
+ 5e4:	0f 92       	push	r0
+ 5e6:	cd b7       	in	r28, 0x3d	; 61
+ 5e8:	de b7       	in	r29, 0x3e	; 62
+ 5ea:	9a 83       	std	Y+2, r25	; 0x02
+ 5ec:	89 83       	std	Y+1, r24	; 0x01
+ 5ee:	6b 83       	std	Y+3, r22	; 0x03
+	(void)mob;
+	p->id=0x152;
+ 5f0:	e9 81       	ldd	r30, Y+1	; 0x01
+ 5f2:	fa 81       	ldd	r31, Y+2	; 0x02
+ 5f4:	82 e5       	ldi	r24, 0x52	; 82
+ 5f6:	91 e0       	ldi	r25, 0x01	; 1
+ 5f8:	91 83       	std	Z+1, r25	; 0x01
+ 5fa:	80 83       	st	Z, r24
+	can_tx( 14, p);
+ 5fc:	29 81       	ldd	r18, Y+1	; 0x01
+ 5fe:	3a 81       	ldd	r19, Y+2	; 0x02
+ 600:	8e e0       	ldi	r24, 0x0E	; 14
+ 602:	b9 01       	movw	r22, r18
+ 604:	0e 94 17 01 	call	0x22e	; 0x22e <can_tx>
+}
+ 608:	0f 90       	pop	r0
+ 60a:	0f 90       	pop	r0
+ 60c:	0f 90       	pop	r0
+ 60e:	cf 91       	pop	r28
+ 610:	df 91       	pop	r29
+ 612:	08 95       	ret
+
+00000614 <main>:
+
+//! used to test and demonstrate the CAN rx+tx functionality \n
+//! uncomment main() to use this version (without FreeRTOS)
+int main (void)
+//int main (void)
+{
+ 614:	df 93       	push	r29
+ 616:	cf 93       	push	r28
+ 618:	0f 92       	push	r0
+ 61a:	cd b7       	in	r28, 0x3d	; 61
+ 61c:	de b7       	in	r29, 0x3e	; 62
+	DDRE|=_BV(PE6);
+ 61e:	ad e2       	ldi	r26, 0x2D	; 45
+ 620:	b0 e0       	ldi	r27, 0x00	; 0
+ 622:	ed e2       	ldi	r30, 0x2D	; 45
+ 624:	f0 e0       	ldi	r31, 0x00	; 0
+ 626:	80 81       	ld	r24, Z
+ 628:	80 64       	ori	r24, 0x40	; 64
+ 62a:	8c 93       	st	X, r24
+	DDRD|=_BV(PD7);
+ 62c:	aa e2       	ldi	r26, 0x2A	; 42
+ 62e:	b0 e0       	ldi	r27, 0x00	; 0
+ 630:	ea e2       	ldi	r30, 0x2A	; 42
+ 632:	f0 e0       	ldi	r31, 0x00	; 0
+ 634:	80 81       	ld	r24, Z
+ 636:	80 68       	ori	r24, 0x80	; 128
+ 638:	8c 93       	st	X, r24
+	
+	BOOL ret;	
+
+	can_init();
+ 63a:	0e 94 9e 02 	call	0x53c	; 0x53c <can_init>
+
+	ret=prepare_rx( 0, 0x150, 0x7ff, receive150);
+ 63e:	28 ed       	ldi	r18, 0xD8	; 216
+ 640:	32 e0       	ldi	r19, 0x02	; 2
+ 642:	80 e0       	ldi	r24, 0x00	; 0
+ 644:	60 e5       	ldi	r22, 0x50	; 80
+ 646:	71 e0       	ldi	r23, 0x01	; 1
+ 648:	4f ef       	ldi	r20, 0xFF	; 255
+ 64a:	57 e0       	ldi	r21, 0x07	; 7
+ 64c:	0e 94 db 01 	call	0x3b6	; 0x3b6 <prepare_rx>
+ 650:	89 83       	std	Y+1, r24	; 0x01
+	PORTD|=_BV(PD7);
+ 652:	ab e2       	ldi	r26, 0x2B	; 43
+ 654:	b0 e0       	ldi	r27, 0x00	; 0
+ 656:	eb e2       	ldi	r30, 0x2B	; 43
+ 658:	f0 e0       	ldi	r31, 0x00	; 0
+ 65a:	80 81       	ld	r24, Z
+ 65c:	80 68       	ori	r24, 0x80	; 128
+ 65e:	8c 93       	st	X, r24
+	ASSERT( ret==0);
+ 660:	89 81       	ldd	r24, Y+1	; 0x01
+ 662:	88 23       	and	r24, r24
+ 664:	09 f0       	breq	.+2      	; 0x668 <main+0x54>
+ 666:	98 95       	break
+
+
+	ret=prepare_rx( 1, 0x151, 0x7ff, receive151);
+ 668:	2f ee       	ldi	r18, 0xEF	; 239
+ 66a:	32 e0       	ldi	r19, 0x02	; 2
+ 66c:	81 e0       	ldi	r24, 0x01	; 1
+ 66e:	61 e5       	ldi	r22, 0x51	; 81
+ 670:	71 e0       	ldi	r23, 0x01	; 1
+ 672:	4f ef       	ldi	r20, 0xFF	; 255
+ 674:	57 e0       	ldi	r21, 0x07	; 7
+ 676:	0e 94 db 01 	call	0x3b6	; 0x3b6 <prepare_rx>
+ 67a:	89 83       	std	Y+1, r24	; 0x01
+	PORTD|=_BV(PD7);
+ 67c:	ab e2       	ldi	r26, 0x2B	; 43
+ 67e:	b0 e0       	ldi	r27, 0x00	; 0
+ 680:	eb e2       	ldi	r30, 0x2B	; 43
+ 682:	f0 e0       	ldi	r31, 0x00	; 0
+ 684:	80 81       	ld	r24, Z
+ 686:	80 68       	ori	r24, 0x80	; 128
+ 688:	8c 93       	st	X, r24
+	ASSERT( ret==0);
+ 68a:	89 81       	ldd	r24, Y+1	; 0x01
+ 68c:	88 23       	and	r24, r24
+ 68e:	09 f0       	breq	.+2      	; 0x692 <main+0x7e>
+ 690:	98 95       	break
+
+	sei();	// CAN RX is interrupt driven, switch interrupts ON
+ 692:	78 94       	sei
+	
+	for(;;)
+		asm("sleep");;
+ 694:	88 95       	sleep
+ 696:	fe cf       	rjmp	.-4      	; 0x694 <main+0x80>
+
+00000698 <_exit>:
+ 698:	f8 94       	cli
+
+0000069a <__stop_program>:
+ 69a:	ff cf       	rjmp	.-2      	; 0x69a <__stop_program>

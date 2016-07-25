@@ -1,0 +1,147 @@
+   1               		.file	"at90can_disable_dyn_filter.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	can_disable_filter
+  18               	can_disable_filter:
+  19               	.LFB17:
+  20               	.LM1:
+  21               	.LVL0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24 0000 982F      		mov r25,r24
+  25               	.LM2:
+  26 0002 8F30      		cpi r24,lo8(15)
+  27 0004 00F0      		brlo .L2
+  28               	.LM3:
+  29 0006 8F3F      		cpi r24,lo8(-1)
+  30 0008 01F0      		breq .L3
+  31 000a 80E0      		ldi r24,lo8(0)
+  32               	.LVL1:
+  33 000c 0895      		ret
+  34               	.LVL2:
+  35               	.L3:
+  36               	.LM4:
+  37 000e 1092 DF00 		sts 223,__zero_reg__
+  38               	.LM5:
+  39 0012 1092 DE00 		sts 222,__zero_reg__
+  40 0016 90E0      		ldi r25,lo8(0)
+  41               	.LVL3:
+  42               	.L5:
+  43               	.LBB8:
+  44               	.LM6:
+  45 0018 892F      		mov r24,r25
+  46               	.LVL4:
+  47 001a 8295      		swap r24
+  48 001c 807F      		andi r24,lo8(-16)
+  49 001e 8093 ED00 		sts 237,r24
+  50               	.LM7:
+  51 0022 8091 EF00 		lds r24,239
+  52 0026 1092 EF00 		sts 239,__zero_reg__
+  53               	.LM8:
+  54 002a 8091 EE00 		lds r24,238
+  55 002e 1092 EE00 		sts 238,__zero_reg__
+  56               	.LM9:
+  57 0032 9F5F      		subi r25,lo8(-(1))
+  58 0034 9F30      		cpi r25,lo8(15)
+  59 0036 01F4      		brne .L5
+  60               	.LBE8:
+  61               	.LM10:
+  62 0038 1092 0000 		sts _messages_waiting,__zero_reg__
+  63               	.LM11:
+  64 003c 9093 0000 		sts _free_buffer,r25
+  65 0040 81E0      		ldi r24,lo8(1)
+  66 0042 0895      		ret
+  67               	.LVL5:
+  68               	.L2:
+  69               	.LBB9:
+  70               	.LBB10:
+  71               	.LM12:
+  72 0044 80E8      		ldi r24,lo8(-128)
+  73               	.LVL6:
+  74 0046 8093 D800 		sts 216,r24
+  75               	.L6:
+  76               	.LM13:
+  77 004a 8091 D900 		lds r24,217
+  78 004e 83FD      		sbrc r24,3
+  79 0050 00C0      		rjmp .L6
+  80               	.LM14:
+  81 0052 1092 D800 		sts 216,__zero_reg__
+  82               	.L7:
+  83               	.LM15:
+  84 0056 8091 D900 		lds r24,217
+  85 005a 82FD      		sbrc r24,2
+  86 005c 00C0      		rjmp .L7
+  87               	.LBE10:
+  88               	.LBE9:
+  89               	.LM16:
+  90 005e 892F      		mov r24,r25
+  91 0060 8295      		swap r24
+  92 0062 807F      		andi r24,lo8(-16)
+  93 0064 8093 ED00 		sts 237,r24
+  94               	.LM17:
+  95 0068 8091 EE00 		lds r24,238
+  96 006c 1092 EE00 		sts 238,__zero_reg__
+  97               	.LM18:
+  98 0070 1092 EF00 		sts 239,__zero_reg__
+  99               	.LM19:
+ 100 0074 892F      		mov r24,r25
+ 101 0076 0E94 0000 		call _disable_mob_interrupt
+ 102               	.LVL7:
+ 103               	.LBB11:
+ 104               	.LBB12:
+ 105               	.LM20:
+ 106 007a 2091 ED00 		lds r18,237
+ 107               	.LVL8:
+ 108 007e 90E0      		ldi r25,lo8(0)
+ 109               	.LVL9:
+ 110               	.L8:
+ 111               	.LBB13:
+ 112               	.LM21:
+ 113 0080 892F      		mov r24,r25
+ 114 0082 8295      		swap r24
+ 115 0084 807F      		andi r24,lo8(-16)
+ 116 0086 8093 ED00 		sts 237,r24
+ 117               	.LM22:
+ 118 008a 8091 EF00 		lds r24,239
+ 119 008e 8093 EF00 		sts 239,r24
+ 120               	.LM23:
+ 121 0092 9F5F      		subi r25,lo8(-(1))
+ 122 0094 9F30      		cpi r25,lo8(15)
+ 123 0096 01F4      		brne .L8
+ 124               	.LBE13:
+ 125               	.LM24:
+ 126 0098 2093 ED00 		sts 237,r18
+ 127               	.LM25:
+ 128 009c 82E0      		ldi r24,lo8(2)
+ 129 009e 8093 D800 		sts 216,r24
+ 130               	.L9:
+ 131               	.LM26:
+ 132 00a2 8091 D900 		lds r24,217
+ 133 00a6 82FF      		sbrs r24,2
+ 134 00a8 00C0      		rjmp .L9
+ 135 00aa 81E0      		ldi r24,lo8(1)
+ 136               	.LBE12:
+ 137               	.LBE11:
+ 138               	.LM27:
+ 139 00ac 0895      		ret
+ 140               	.LFE17:
+ 166               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 at90can_disable_dyn_filter.c
+C:\Users\SEXPAN~1\AppData\Local\Temp/cc28UbiB.s:2      *ABS*:0000003f __SREG__
+C:\Users\SEXPAN~1\AppData\Local\Temp/cc28UbiB.s:3      *ABS*:0000003e __SP_H__
+C:\Users\SEXPAN~1\AppData\Local\Temp/cc28UbiB.s:4      *ABS*:0000003d __SP_L__
+C:\Users\SEXPAN~1\AppData\Local\Temp/cc28UbiB.s:5      *ABS*:00000034 __CCP__
+C:\Users\SEXPAN~1\AppData\Local\Temp/cc28UbiB.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\SEXPAN~1\AppData\Local\Temp/cc28UbiB.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\SEXPAN~1\AppData\Local\Temp/cc28UbiB.s:18     .text:00000000 can_disable_filter
+
+UNDEFINED SYMBOLS
+_messages_waiting
+_free_buffer
+_disable_mob_interrupt

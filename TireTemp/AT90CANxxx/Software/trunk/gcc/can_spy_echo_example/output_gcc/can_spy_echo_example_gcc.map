@@ -1,0 +1,547 @@
+Archive member included because of file (symbol)
+
+d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodhi4.o)
+                              uart_lib.o (__udivmodhi4)
+d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_divmodhi4.o)
+                              uart_lib.o (__divmodhi4)
+d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodsi4.o)
+                              uart_lib.o (__udivmodsi4)
+d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_divmodsi4.o)
+                              uart_lib.o (__divmodsi4)
+d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+                              d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtcan128.o (exit)
+d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
+                              main_can_spy_echo_example.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+rtc_minutes         0x1               rtc_drv.o
+rtc_days            0x1               rtc_drv.o
+uart_selected       0x1               uart_drv.o
+rtc_milliseconds    0x2               rtc_drv.o
+rtc_tics            0x4               rtc_drv.o
+rtc_hours           0x1               rtc_drv.o
+rtc_seconds         0x1               rtc_drv.o
+
+Discarded input sections
+
+ .stabstr       0x00000000        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtcan128.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtcan128.o
+LOAD main_can_spy_echo_example.o
+LOAD uart_drv.o
+LOAD uart_lib.o
+LOAD can_drv.o
+LOAD can_lib.o
+LOAD rtc_drv.o
+LOAD led_drv.o
+LOAD key_drv.o
+LOAD d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a
+LOAD d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a
+LOAD d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x2180
+ *(.vectors)
+ .vectors       0x00000000       0x94 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtcan128.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x00000094                . = ALIGN (0x2)
+                0x00000094                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000094        0x0 linker stubs
+ *(.trampolines*)
+                0x00000094                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000094                __ctors_start = .
+ *(.ctors)
+                0x00000094                __ctors_end = .
+                0x00000094                __dtors_start = .
+ *(.dtors)
+                0x00000094                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000094        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtcan128.o
+                0x00000094                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000094        0xc d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtcan128.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x000000a0       0x1a d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtcan128.o
+                0x000000a0                __do_copy_data
+ .init4         0x000000ba       0x10 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
+                0x000000ba                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x000000ca        0x8 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtcan128.o
+ *(.init9)
+ *(.text)
+ .text          0x000000d2        0x4 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtcan128.o
+                0x000000d2                __vector_22
+                0x000000d2                __vector_28
+                0x000000d2                __vector_1
+                0x000000d2                __vector_32
+                0x000000d2                __vector_34
+                0x000000d2                __vector_24
+                0x000000d2                __vector_12
+                0x000000d2                __bad_interrupt
+                0x000000d2                __vector_6
+                0x000000d2                __vector_31
+                0x000000d2                __vector_35
+                0x000000d2                __vector_3
+                0x000000d2                __vector_23
+                0x000000d2                __vector_30
+                0x000000d2                __vector_25
+                0x000000d2                __vector_11
+                0x000000d2                __vector_13
+                0x000000d2                __vector_17
+                0x000000d2                __vector_19
+                0x000000d2                __vector_7
+                0x000000d2                __vector_27
+                0x000000d2                __vector_5
+                0x000000d2                __vector_33
+                0x000000d2                __vector_4
+                0x000000d2                __vector_2
+                0x000000d2                __vector_21
+                0x000000d2                __vector_15
+                0x000000d2                __vector_36
+                0x000000d2                __vector_29
+                0x000000d2                __vector_8
+                0x000000d2                __vector_26
+                0x000000d2                __vector_14
+                0x000000d2                __vector_10
+                0x000000d2                __vector_16
+                0x000000d2                __vector_18
+                0x000000d2                __vector_20
+ .text          0x000000d6      0x5fc main_can_spy_echo_example.o
+                0x00000430                main
+                0x000000d6                spy_printing
+                0x0000030c                can_error_mode
+ .text          0x000006d2       0x68 uart_drv.o
+                0x000006d2                uart_rx_get_3_data
+                0x00000710                uart_rx_get_data
+ .text          0x0000073a      0x752 uart_lib.o
+                0x00000a10                uart_mini_printf
+                0x0000089c                uart_getchar
+                0x0000073a                uart_init
+                0x000008f8                uart_get_editedline
+                0x000008de                uart_put_string
+                0x0000084a                uart_test_hit
+                0x00000866                uart_putchar
+ .text          0x00000e8c      0x3ea can_drv.o
+                0x00000eb2                can_get_mob_free
+                0x00000eea                can_get_mob_status
+                0x00000f20                can_get_data
+                0x00000e8c                can_clear_all_mob
+                0x00000f4e                can_auto_baudrate
+                0x0000125e                can_fixed_baudrate
+ .text          0x00001276      0xb36 can_lib.o
+                0x00001d8a                can_init
+                0x00001276                can_get_status
+                0x000013a0                can_cmd
+ .text          0x00001dac      0x1dc rtc_drv.o
+                0x00001e24                rtc_int_init
+                0x00001dac                wait_for
+                0x00001ec6                __vector_9
+ .text          0x00001f88       0x66 led_drv.o
+                0x00001f94                swap_nibble_led
+                0x00001f90                write_led
+                0x00001fa6                toggle_led
+                0x00001f88                led_init
+                0x00001fac                write_led_number
+ .text          0x00001fee       0xc8 key_drv.o
+                0x00001fee                key_init
+                0x00002016                get_key_code
+                0x00002004                get_key
+ .text          0x000020b6        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodhi4.o)
+ .text          0x000020b6        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_divmodhi4.o)
+ .text          0x000020b6        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodsi4.o)
+ .text          0x000020b6        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_divmodsi4.o)
+ .text          0x000020b6        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+ .text          0x000020b6        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
+                0x000020b6                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x000020b6       0x28 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodhi4.o)
+                0x000020b6                __udivmodhi4
+ .text.libgcc   0x000020de       0x26 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_divmodhi4.o)
+                0x000020de                __divmodhi4
+                0x000020de                _div
+ .text.libgcc   0x00002104       0x44 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodsi4.o)
+                0x00002104                __udivmodsi4
+ .text.libgcc   0x00002148       0x36 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_divmodsi4.o)
+                0x00002148                __divmodsi4
+ .text.libgcc   0x0000217e        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x0000217e        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
+                0x0000217e                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x0000217e        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+                0x0000217e                exit
+                0x0000217e                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x0000217e        0x2 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00002180                _etext = .
+
+.data           0x00800100      0x484 load address 0x00002180
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800100        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtcan128.o
+ .data          0x00800100      0x2ab main_can_spy_echo_example.o
+ .data          0x008003ab        0x0 uart_drv.o
+ .data          0x008003ab      0x1d9 uart_lib.o
+                0x0080055b                txt_small_logo_atmel
+                0x008003ab                txt_logo_atmel
+ .data          0x00800584        0x0 can_drv.o
+ .data          0x00800584        0x0 can_lib.o
+ .data          0x00800584        0x0 rtc_drv.o
+ .data          0x00800584        0x0 led_drv.o
+ .data          0x00800584        0x0 key_drv.o
+ .data          0x00800584        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodhi4.o)
+ .data          0x00800584        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_divmodhi4.o)
+ .data          0x00800584        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x00800584        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_divmodsi4.o)
+ .data          0x00800584        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+ .data          0x00800584        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800584                . = ALIGN (0x2)
+                0x00800584                _edata = .
+                0x00800584                PROVIDE (__data_end, .)
+
+.bss            0x00800584        0xc
+                0x00800584                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800584        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtcan128.o
+ .bss           0x00800584        0x0 main_can_spy_echo_example.o
+ .bss           0x00800584        0x0 uart_drv.o
+ .bss           0x00800584        0x0 uart_lib.o
+ .bss           0x00800584        0x0 can_drv.o
+ .bss           0x00800584        0x0 can_lib.o
+ .bss           0x00800584        0x1 rtc_drv.o
+                0x00800584                rtc_running
+ .bss           0x00800585        0x0 led_drv.o
+ .bss           0x00800585        0x0 key_drv.o
+ .bss           0x00800585        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodhi4.o)
+ .bss           0x00800585        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_divmodhi4.o)
+ .bss           0x00800585        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x00800585        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_divmodsi4.o)
+ .bss           0x00800585        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+ .bss           0x00800585        0x0 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x00800585        0x1 uart_drv.o
+                0x00800585                uart_selected
+ COMMON         0x00800586        0xa rtc_drv.o
+                0x00800586                rtc_minutes
+                0x00800587                rtc_days
+                0x00800588                rtc_milliseconds
+                0x0080058a                rtc_tics
+                0x0080058e                rtc_hours
+                0x0080058f                rtc_seconds
+                0x00800590                PROVIDE (__bss_end, .)
+                0x00002180                __data_load_start = LOADADDR (.data)
+                0x00002604                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800590        0x0
+                0x00800590                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800590                PROVIDE (__noinit_end, .)
+                0x00800590                _end = .
+                0x00800590                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.stab           0x00000000      0x414
+ *(.stab)
+ .stab          0x00000000      0x414 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtcan128.o
+
+.stabstr        0x00000000       0x71
+ *(.stabstr)
+ .stabstr       0x00000000       0x71 d:/my_pgm/winavr/winavr20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtcan128.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x100
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 main_can_spy_echo_example.o
+ .debug_aranges
+                0x00000020       0x20 uart_drv.o
+ .debug_aranges
+                0x00000040       0x20 uart_lib.o
+ .debug_aranges
+                0x00000060       0x20 can_drv.o
+ .debug_aranges
+                0x00000080       0x20 can_lib.o
+ .debug_aranges
+                0x000000a0       0x20 rtc_drv.o
+ .debug_aranges
+                0x000000c0       0x20 led_drv.o
+ .debug_aranges
+                0x000000e0       0x20 key_drv.o
+
+.debug_pubnames
+                0x00000000      0x36d
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x3f main_can_spy_echo_example.o
+ .debug_pubnames
+                0x0000003f       0x50 uart_drv.o
+ .debug_pubnames
+                0x0000008f       0xc1 uart_lib.o
+ .debug_pubnames
+                0x00000150       0x92 can_drv.o
+ .debug_pubnames
+                0x000001e2       0x3e can_lib.o
+ .debug_pubnames
+                0x00000220       0xac rtc_drv.o
+ .debug_pubnames
+                0x000002cc       0x65 led_drv.o
+ .debug_pubnames
+                0x00000331       0x3c key_drv.o
+
+.debug_info     0x00000000     0x1165
+ *(.debug_info)
+ .debug_info    0x00000000      0x35a main_can_spy_echo_example.o
+ .debug_info    0x0000035a       0xf5 uart_drv.o
+ .debug_info    0x0000044f      0x38e uart_lib.o
+ .debug_info    0x000007dd      0x2c4 can_drv.o
+ .debug_info    0x00000aa1      0x2e5 can_lib.o
+ .debug_info    0x00000d86      0x1bc rtc_drv.o
+ .debug_info    0x00000f42      0x12e led_drv.o
+ .debug_info    0x00001070       0xf5 key_drv.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x7cd
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x18b main_can_spy_echo_example.o
+ .debug_abbrev  0x0000018b       0x96 uart_drv.o
+ .debug_abbrev  0x00000221      0x188 uart_lib.o
+ .debug_abbrev  0x000003a9       0xef can_drv.o
+ .debug_abbrev  0x00000498      0x136 can_lib.o
+ .debug_abbrev  0x000005ce       0xb3 rtc_drv.o
+ .debug_abbrev  0x00000681       0xb4 led_drv.o
+ .debug_abbrev  0x00000735       0x98 key_drv.o
+
+.debug_line     0x00000000     0x1bc1
+ *(.debug_line)
+ .debug_line    0x00000000      0x556 main_can_spy_echo_example.o
+ .debug_line    0x00000556      0x18b uart_drv.o
+ .debug_line    0x000006e1      0x64d uart_lib.o
+ .debug_line    0x00000d2e      0x3c2 can_drv.o
+ .debug_line    0x000010f0      0x479 can_lib.o
+ .debug_line    0x00001569      0x288 rtc_drv.o
+ .debug_line    0x000017f1      0x1a8 led_drv.o
+ .debug_line    0x00001999      0x228 key_drv.o
+
+.debug_frame    0x00000000      0x280
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x40 main_can_spy_echo_example.o
+ .debug_frame   0x00000040       0x30 uart_drv.o
+ .debug_frame   0x00000070       0x80 uart_lib.o
+ .debug_frame   0x000000f0       0x70 can_drv.o
+ .debug_frame   0x00000160       0x40 can_lib.o
+ .debug_frame   0x000001a0       0x40 rtc_drv.o
+ .debug_frame   0x000001e0       0x60 led_drv.o
+ .debug_frame   0x00000240       0x40 key_drv.o
+
+.debug_str      0x00000000      0x6f3
+ *(.debug_str)
+ .debug_str     0x00000000      0x250 main_can_spy_echo_example.o
+                                0x297 (size before relaxing)
+ .debug_str     0x00000250       0x4c uart_drv.o
+                                0x15e (size before relaxing)
+ .debug_str     0x0000029c      0x12e uart_lib.o
+                                0x270 (size before relaxing)
+ .debug_str     0x000003ca      0x140 can_drv.o
+                                0x247 (size before relaxing)
+ .debug_str     0x0000050a       0x6b can_lib.o
+                                0x259 (size before relaxing)
+ .debug_str     0x00000575       0xa3 rtc_drv.o
+                                0x1a4 (size before relaxing)
+ .debug_str     0x00000618       0x89 led_drv.o
+                                0x190 (size before relaxing)
+ .debug_str     0x000006a1       0x52 key_drv.o
+                                0x149 (size before relaxing)
+
+.debug_loc      0x00000000      0xf8f
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x55 main_can_spy_echo_example.o
+ .debug_loc     0x00000055       0x52 uart_drv.o
+ .debug_loc     0x000000a7      0x870 uart_lib.o
+ .debug_loc     0x00000917      0x2f4 can_drv.o
+ .debug_loc     0x00000c0b      0x2f4 can_lib.o
+ .debug_loc     0x00000eff       0x28 rtc_drv.o
+ .debug_loc     0x00000f27       0x68 led_drv.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(can_spy_echo_example_gcc.elf elf32-avr)
+LOAD linker stubs

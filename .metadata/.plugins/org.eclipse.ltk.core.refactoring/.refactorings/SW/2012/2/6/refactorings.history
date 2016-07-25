@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SW/ZOUnet/IMCP.h&apos; to &apos;ZOUnet_defs.h&apos;" description="Rename resource &apos;IMCP.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="ZOUnet/IMCP.h" name="ZOUnet_defs.h" stamp="1328962767657" updateReferences="true"/>
+</session>

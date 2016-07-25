@@ -1,0 +1,271 @@
+/*
+ * IMU.c
+ *
+ *  Created on: Feb 4, 2012
+ *      Author: Administrator
+ */
+
+
+#include "IMU.h"
+#include <avr/power.h>
+
+FILE uart_str = FDEV_SETUP_STREAM(uart_putchar, uart_getchar, _FDEV_SETUP_RW);
+
+uint8_t ProcessCanMsg(CAN_packet *pkt);
+void led_ctrl(uint8_t led,uint8_t state,uint16_t tmr);
+
+uint8_t ProcessCanMsg(CAN_packet *pkt)
+{
+	return 0;
+}
+
+void handle_10ms_tick(void);
+void handle_1ms_tick(void);
+
+void handle_10ms_tick(void)
+{
+	return;
+}
+
+void handle_1ms_tick(void)
+{
+	return;
+}
+
+void led_ctrl(uint8_t led,uint8_t state,uint16_t tmr)
+{
+	return;
+}
+
+#define UART_BAUD 115200
+
+#define DAC0_RD 0xC1
+#define DAC0_WR 0xC0
+#define DAC1_RD 0xC3
+#define DAC1_WR 0xC2
+
+#define GYR_RD	0b11010001
+#define GYR_WR	0b11010000
+#define ACL_RD	0xA7
+#define ACL_WR	0xA6
+//#define ACL_RD GYR_RD
+//#define ACL_WR GYR_RD
+
+int16_t x = 0;
+int16_t y = 0;
+int16_t z = 0;
+
+int main()
+{
+	unsigned char resp = 0;
+
+	unsigned char x1 = 0;
+	unsigned char x2 = 0;
+	unsigned char y1 = 0;
+	unsigned char y2 = 0;
+	unsigned char z1 = 0;
+	unsigned char z2 = 0;
+
+	int16_t data = 0;
+
+	CAN_packet msg;
+
+	//clock_prescale_set(clock_div_2);
+
+	_delay_ms(500);
+
+	DDRD|=_BV(PD7);
+	DDRE|=_BV(PE6);
+	PORTD|=_BV(PD7);
+
+	//initialize UART1
+	stdout = stdin = &uart_str;
+	UCSR1A=_BV(U2X1);
+	UCSR1B=0x98;
+	UCSR1C=0x06;
+	UBRR1 = (F_CPU / (8UL * UART_BAUD)) - 1;
+
+	can_init();
+
+	printf("\n>------| START |------<\n\n");
+
+	/*
+	printf("Initializing I2C...");
+	i2c_init();
+
+	printf("DONE\n");
+
+	printf("Testing Read...");
+
+	i2c_stop();
+
+	resp = i2c_start();
+		if(resp)
+		{
+			printf("Start 0 Failed\n");
+			i2c_stop();
+			while(1);
+		}
+
+		resp = i2c_sendAddress(ACL_WR);
+		if(resp)
+		{
+			printf("Write Address 0 Failed\n");
+			i2c_stop();
+			while(1);
+		}
+
+		resp = i2c_sendData(ACL_BW_RATE);
+		if(resp)
+		{
+			printf("Send Register Failed\n");
+			i2c_stop();
+			while(1);
+		}
+
+		resp = i2c_sendData(0x0C);
+		if(resp)
+		{
+			printf("Send Config Failed\n");
+			i2c_stop();
+			while(1);
+		}
+
+	resp = i2c_repeatStart();
+	if(resp)
+	{
+		printf("Start 1 Failed\n");
+		i2c_stop();
+		while(1);
+	}
+
+	resp = i2c_sendAddress(ACL_WR);
+	if(resp)
+	{
+		printf("Write Address 1 Failed\n");
+		i2c_stop();
+		while(1);
+	}
+
+	resp = i2c_sendData(ACL_DATA_FORMAT);
+	if(resp)
+	{
+		printf("Send Register Failed\n");
+		i2c_stop();
+		while(1);
+	}
+
+	resp = i2c_sendData(0x00);
+	if(resp)
+	{
+		printf("Send Config Failed\n");
+		i2c_stop();
+		while(1);
+	}
+
+	resp = i2c_repeatStart();
+	if(resp)
+	{
+		printf("Rep Start 2 Failed\n");
+		i2c_stop();
+		while(1);
+	}
+
+	resp = i2c_sendAddress(ACL_WR);
+	if(resp)
+	{
+		printf("Write Address 2 Failed\n");
+		i2c_stop();
+		while(1);
+	}
+
+	resp = i2c_sendData(ACL_POWER_CTL);
+	if(resp)
+	{
+		printf("Send Register Failed\n");
+		i2c_stop();
+		while(1);
+	}
+
+	resp = i2c_sendData(0x08);
+	if(resp)
+	{
+		printf("Send Config Failed\n");
+		i2c_stop();
+		while(1);
+	}
+	i2c_stop();
+	*/
+
+	_delay_ms(500);
+	while(1)
+	{
+		PORTE |= _BV(PE6);
+
+
+		resp = i2c_start();
+		resp = i2c_sendAddress(ACL_WR);
+		resp = i2c_sendData(ACL_DATAX0);
+		resp = i2c_repeatStart();
+		resp = i2c_sendAddress(ACL_RD);
+		resp = 0;
+
+		x1 = i2c_receiveData_ACK();
+		x2 = i2c_receiveData_ACK();
+
+		y1 = i2c_receiveData_ACK();
+		y2 = i2c_receiveData_ACK();
+
+		z1 = i2c_receiveData_ACK();
+		z2 = i2c_receiveData_NACK();
+		i2c_stop();
+
+		x = ((((int16_t)x2) << 8) + (int16_t)x1);
+		y = ((((int16_t)y2) << 8) + (int16_t)y1);
+		z = ((((int16_t)z2) << 8) + (int16_t)z1);
+
+		if(x > 0)	x = (int16_t)(((int32_t)x*1000)/220);
+		if(x < 0)	x = (int16_t)(((int32_t)x*1000)/315);
+		if(y > 0)	y = (int16_t)(((int32_t)y*1000)/256);
+		if(y < 0)	y = (int16_t)(((int32_t)y*1000)/315);
+		if(z > 0)	z = (int16_t)(((int32_t)z*1000)/195);
+		if(z < 0)	z = (int16_t)(((int32_t)z*1000)/315);
+
+		printf("%04i,%04i,%04i\n",x,y,z);
+
+
+
+		x+=1;
+		y+=1;
+		z+=1;
+
+		uint32_t id = CAN_DATA_IMU2;
+		id = id<<8;
+
+		msg.id = id;
+		msg.data[0] = 0x00FF & (x>>8);
+		msg.data[1] = 0x00FF & x;
+		msg.data[2] = 0x00FF & (y>>8);
+		msg.data[3] = 0x00FF & z;
+		msg.data[4] = 0x00FF & (z>>8);
+		msg.data[5] = 0x00FF & z;
+
+		msg.length = 6;
+
+		msg.id_type = CAN_EXT_MSG;
+
+		can_tx(0,&msg);
+
+		while(!(CANSTMOB & _BV(TXOK)))
+		{
+			printf("CANSTMOB: 0x%02X\n",CANSTMOB);
+			_delay_ms(500);
+		}
+
+		//PORTE&=~_BV(PE6);
+		_delay_ms(500);
+
+	}
+
+	while(1);
+}

@@ -1,0 +1,58 @@
+#------------------------------------------
+# This file contains all test regarding the 
+# blankcheck.
+#----------------------------------------
+
+	MEMORY EEPROM
+
+	TIMEOUT 60
+	ERASE F
+            ECHO "   *** Full EEPROM Erase Checking"
+
+	BLANKCHECK
+
+	ADDRANGE 0x000 0x000
+            ECHO "   *** Full EEPROM Erase Checking after 1st byte written"
+	FILLBUFFER 0x11
+	PROGRAM
+	ASSERT FAIL
+	BLANKCHECK
+	ASSERT PASS
+	TIMEOUT 60
+	ERASE F
+	BLANKCHECK
+	
+
+	ADDRANGE 0x0FF 0x0FF
+            ECHO "   *** Full EEPROM Erase Checking after byte 0x0FF written"
+	FILLBUFFER 0x22
+	PROGRAM
+	ASSERT FAIL
+	BLANKCHECK
+	ASSERT PASS
+	TIMEOUT 60
+	ERASE F
+	BLANKCHECK
+
+	ADDRANGE 0x100 0x100
+            ECHO "   *** Full EEPROM Erase Checking after byte 0x100 written"
+	FILLBUFFER 0x33
+	PROGRAM
+	ASSERT FAIL
+	BLANKCHECK
+	ASSERT PASS
+	TIMEOUT 60
+	ERASE F
+	BLANKCHECK
+
+	ADDRANGE 0x7FF 0x7FF
+            ECHO "   *** Full EEPROM Erase Checking after last byte written"
+	FILLBUFFER 0x44
+	PROGRAM
+	ASSERT FAIL
+	BLANKCHECK
+	ASSERT PASS
+	TIMEOUT 60
+	ERASE F
+	BLANKCHECK
+

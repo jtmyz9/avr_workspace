@@ -1,0 +1,15 @@
+#Thu Jan 05 01:56:22 CST 2012
+avrtarget/ClockFrequency=16000000
+avrtarget/ExtRAMSize=0
+avrtarget/ExtendedRAM=false
+avrtarget/MCUType=at90can128
+avrtarget/UseEEPROM=false
+avrtarget/UseExtendedRAMforHeap=true
+avrtarget/de.innot.avreclipse.configuration.app.debug.849702062/ClockFrequency=16000000
+avrtarget/de.innot.avreclipse.configuration.app.debug.849702062/ExtRAMSize=0
+avrtarget/de.innot.avreclipse.configuration.app.debug.849702062/ExtendedRAM=false
+avrtarget/de.innot.avreclipse.configuration.app.debug.849702062/MCUType=at90can128
+avrtarget/de.innot.avreclipse.configuration.app.debug.849702062/UseEEPROM=false
+avrtarget/de.innot.avreclipse.configuration.app.debug.849702062/UseExtendedRAMforHeap=true
+avrtarget/perConfig=true
+eclipse.preferences.version=1

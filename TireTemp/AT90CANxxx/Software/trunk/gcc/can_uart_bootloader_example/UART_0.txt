@@ -1,0 +1,106 @@
+Build started 16.4.2007 at 15:03:40
+avr-gcc.exe -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\." -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_s
+pace\can_uart_bootloader_example\..\libraries\lib_board" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\can" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\li
+braries\lib_mcu\eeprom" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\flash" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\timer" -I"D:\Wo
+rk_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\uart" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_module\isp"  -mmcu=at90can128 -Wall -gdwarf-2  -Os -
+fsigned-char -MD -MP -MT main_can_uart_bootloader_example.o -MF dep/main_can_uart_bootloader_example.o.d  -c  ../main_can_uart_bootloader_example.c
+
+avr-gcc.exe -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\." -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_s
+pace\can_uart_bootloader_example\..\libraries\lib_board" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\can" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\li
+braries\lib_mcu\eeprom" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\flash" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\timer" -I"D:\Wo
+rk_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\uart" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_module\isp"  -mmcu=at90can128 -Wall -gdwarf-2  -Os -
+fsigned-char -MD -MP -MT can_isp_protocol.o -MF dep/can_isp_protocol.o.d  -c  ../../libraries/lib_mcu/can/can_isp_protocol.c
+
+avr-gcc.exe -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\." -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_s
+pace\can_uart_bootloader_example\..\libraries\lib_board" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\can" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\li
+braries\lib_mcu\eeprom" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\flash" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\timer" -I"D:\Wo
+rk_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\uart" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_module\isp"  -mmcu=at90can128 -Wall -gdwarf-2  -Os -
+fsigned-char -MD -MP -MT reduced_can_lib.o -MF dep/reduced_can_lib.o.d  -c  ../../libraries/lib_mcu/can/reduced_can_lib.c
+
+avr-gcc.exe -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\." -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_s
+pace\can_uart_bootloader_example\..\libraries\lib_board" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\can" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\li
+braries\lib_mcu\eeprom" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\flash" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\timer" -I"D:\Wo
+rk_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\uart" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_module\isp"  -mmcu=at90can128 -Wall -gdwarf-2  -Os -
+fsigned-char -MD -MP -MT can_drv.o -MF dep/can_drv.o.d  -c  ../../libraries/lib_mcu/can/can_drv.c
+
+avr-gcc.exe -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\." -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_s
+pace\can_uart_bootloader_example\..\libraries\lib_board" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\can" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\li
+braries\lib_mcu\eeprom" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\flash" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\timer" -I"D:\Wo
+rk_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\uart" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_module\isp"  -mmcu=at90can128 -Wall -gdwarf-2  -Os -
+fsigned-char -MD -MP -MT eeprom_lib.o -MF dep/eeprom_lib.o.d  -c  ../../libraries/lib_mcu/eeprom/eeprom_lib.c
+
+avr-gcc.exe -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\." -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_s
+pace\can_uart_bootloader_example\..\libraries\lib_board" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\can" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\li
+braries\lib_mcu\eeprom" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\flash" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\timer" -I"D:\Wo
+rk_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\uart" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_module\isp"  -mmcu=at90can128 -Wall -gdwarf-2  -Os -
+fsigned-char -MD -MP -MT flash_api_lib.o -MF dep/flash_api_lib.o.d  -c  ../../libraries/lib_mcu/flash/flash_api_lib.c
+
+avr-gcc.exe -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\." -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_s
+pace\can_uart_bootloader_example\..\libraries\lib_board" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\can" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\li
+braries\lib_mcu\eeprom" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\flash" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\timer" -I"D:\Wo
+rk_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\uart" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_module\isp"  -mmcu=at90can128 -Wall -gdwarf-2  -Os -
+fsigned-char -MD -MP -MT flash_boot_drv.o -MF dep/flash_boot_drv.o.d  -c  ../../libraries/lib_mcu/flash/flash_boot_drv.c
+
+avr-gcc.exe -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\." -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_s
+pace\can_uart_bootloader_example\..\libraries\lib_board" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\can" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\li
+braries\lib_mcu\eeprom" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\flash" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\timer" -I"D:\Wo
+rk_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\uart" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_module\isp"  -mmcu=at90can128 -Wall -gdwarf-2  -Os -
+fsigned-char -MD -MP -MT flash_boot_lib.o -MF dep/flash_boot_lib.o.d  -c  ../../libraries/lib_mcu/flash/flash_boot_lib.c
+
+avr-gcc.exe -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\." -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_s
+pace\can_uart_bootloader_example\..\libraries\lib_board" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\can" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\li
+braries\lib_mcu\eeprom" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\flash" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\timer" -I"D:\Wo
+rk_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\uart" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_module\isp"  -mmcu=at90can128 -Wall -gdwarf-2  -Os -
+fsigned-char -MD -MP -MT uart_lib.o -MF dep/uart_lib.o.d  -c  ../../libraries/lib_mcu/uart/uart_lib.c
+
+avr-gcc.exe -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\." -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_s
+pace\can_uart_bootloader_example\..\libraries\lib_board" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\can" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\li
+braries\lib_mcu\eeprom" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\flash" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\timer" -I"D:\Wo
+rk_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\uart" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_module\isp"  -mmcu=at90can128 -Wall -gdwarf-2  -Os -
+fsigned-char -MD -MP -MT uart_drv.o -MF dep/uart_drv.o.d  -c  ../../libraries/lib_mcu/uart/uart_drv.c
+
+avr-gcc.exe -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\." -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_s
+pace\can_uart_bootloader_example\..\libraries\lib_board" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\can" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\li
+braries\lib_mcu\eeprom" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\flash" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\timer" -I"D:\Wo
+rk_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\uart" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_module\isp"  -mmcu=at90can128 -Wall -gdwarf-2  -Os -
+fsigned-char -MD -MP -MT uart_isp_protocol.o -MF dep/uart_isp_protocol.o.d  -c  ../../libraries/lib_mcu/uart/uart_isp_protocol.c
+
+avr-gcc.exe -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\." -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_s
+pace\can_uart_bootloader_example\..\libraries\lib_board" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\can" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\li
+braries\lib_mcu\eeprom" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\flash" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\timer" -I"D:\Wo
+rk_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_mcu\uart" -I"D:\Work_space\01-Avr8\03-work_jacq_WinAVR\work_space\can_uart_bootloader_example\..\libraries\lib_module\isp"  -mmcu=at90can128 -Wall -gdwarf-2  -Os -
+fsigned-char -MD -MP -MT isp_lib.o -MF dep/isp_lib.o.d  -c  ../../libraries/lib_module/isp/isp_lib.c
+
+avr-gcc.exe -mmcu=at90can128 -Wl,-Map=can_uart_bootloader_example_gcc.map -Wl,-section-start=.bootconf=0x1ff00 -Wl,-section-start=.flashapi=0x1fffa main_can_uart_bootloader_example.o can_isp_protocol.o reduced_can_lib.o can_drv.o eeprom_lib.o flash_api_lib
+.o flash_boot_drv.o flash_boot_lib.o uart_lib.o uart_drv.o uart_isp_protocol.o isp_lib.o     -o can_uart_bootloader_example_gcc.elf
+
+avr-objcopy -O ihex -R .eeprom  can_uart_bootloader_example_gcc.elf can_uart_bootloader_example_gcc.hex
+avr-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" --change-section-lma .eeprom=0 --no-change-warnings -O ihex can_uart_bootloader_example_gcc.elf can_uart_bootloader_example_gcc.eep || exit 0
+d:\My_PGM\WinAVR\WinAVR20070122\bin\avr-objcopy.exe: there are no sections to be copied!
+avr-objdump -h -S can_uart_bootloader_example_gcc.elf > can_uart_bootloader_example_gcc.lss
+
+AVR Memory Usage
+----------------
+Device: at90can128
+
+Program:    7702 bytes (5.9% Full)
+(.text + .data + .bootloader)
+
+Data:        349 bytes (8.5% Full)
+(.data + .bss + .noinit)
+
+
+   text       data        bss        dec        hex    filename
+    264          0          0        264        108    main_can_uart_bootloader_example.o
+   1330          0          0       1330        532    can_isp_protocol.o
+    522          0          0        522        20a    reduced_can_lib.o
+   1002          0          0       1002        3ea    can_drv.o
+    168          0          0        168         a8    eeprom_lib.o
+      6          0          0          6          6    flash_api_lib.o
+     76          0          0         76         4c    flash_boot_drv.o
+    714          0          0        714        2ca    flash_boot_lib.o
+    202          0          0        202         ca    uart_lib.o
+    492          0          0        492        1ec    uart_drv.o
+   1184          0          0       1184        4a0    uart_isp_protocol.o
+   1460         20          0       1480        5c8    isp_lib.o
+Build succeeded with 0 Warnings...

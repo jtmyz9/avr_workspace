@@ -1,0 +1,340 @@
+   1               		.file	"at90can_get_dyn_filter.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	can_get_filter
+  18               	can_get_filter:
+  19               	.LFB17:
+  20               	.LM1:
+  21               	.LVL0:
+  22 0000 6F92      		push r6
+  23 0002 7F92      		push r7
+  24 0004 8F92      		push r8
+  25 0006 9F92      		push r9
+  26 0008 AF92      		push r10
+  27 000a BF92      		push r11
+  28 000c CF92      		push r12
+  29 000e DF92      		push r13
+  30 0010 EF92      		push r14
+  31 0012 FF92      		push r15
+  32 0014 0F93      		push r16
+  33 0016 1F93      		push r17
+  34               	/* prologue: function */
+  35               	/* frame size = 0 */
+  36 0018 FB01      		movw r30,r22
+  37               	.LM2:
+  38 001a 8F30      		cpi r24,lo8(15)
+  39 001c 00F0      		brlo .L2
+  40               	.LVL1:
+  41 001e 80E0      		ldi r24,lo8(0)
+  42               	.LVL2:
+  43 0020 00C0      		rjmp .L3
+  44               	.LVL3:
+  45               	.L2:
+  46               	.LM3:
+  47 0022 8295      		swap r24
+  48               	.LVL4:
+  49 0024 807F      		andi r24,lo8(-16)
+  50 0026 8093 ED00 		sts 237,r24
+  51               	.LM4:
+  52 002a 8091 EF00 		lds r24,239
+  53               	.LVL5:
+  54 002e 807C      		andi r24,lo8(-64)
+  55 0030 01F4      		brne .L4
+  56 0032 82E0      		ldi r24,lo8(2)
+  57 0034 00C0      		rjmp .L3
+  58               	.L4:
+  59               	.LM5:
+  60 0036 8091 EF00 		lds r24,239
+  61 003a 807C      		andi r24,lo8(-64)
+  62 003c 8038      		cpi r24,lo8(-128)
+  63 003e 01F0      		breq .L5
+  64 0040 8FEF      		ldi r24,lo8(-1)
+  65 0042 00C0      		rjmp .L3
+  66               	.L5:
+  67               	.LM6:
+  68 0044 8091 F400 		lds r24,244
+  69 0048 82FF      		sbrs r24,2
+  70 004a 00C0      		rjmp .L6
+  71               	.LM7:
+  72 004c 8091 F000 		lds r24,240
+  73 0050 9085      		ldd r25,Z+8
+  74 0052 82FF      		sbrs r24,2
+  75 0054 00C0      		rjmp .L7
+  76               	.LM8:
+  77 0056 9360      		ori r25,lo8(3)
+  78 0058 00C0      		rjmp .L13
+  79               	.L7:
+  80               	.LM9:
+  81 005a 9C7F      		andi r25,lo8(-4)
+  82 005c 9260      		ori r25,lo8(2)
+  83               	.L13:
+  84 005e 9087      		std Z+8,r25
+  85 0060 00C0      		rjmp .L8
+  86               	.L6:
+  87               	.LM10:
+  88 0062 8085      		ldd r24,Z+8
+  89 0064 8C7F      		andi r24,lo8(-4)
+  90 0066 8087      		std Z+8,r24
+  91               	.L8:
+  92               	.LM11:
+  93 0068 8091 F400 		lds r24,244
+  94 006c 80FF      		sbrs r24,0
+  95 006e 00C0      		rjmp .L9
+  96 0070 8091 EF00 		lds r24,239
+  97 0074 84FF      		sbrs r24,4
+  98 0076 00C0      		rjmp .L9
+  99               	.LBB2:
+ 100               	.LM12:
+ 101 0078 8085      		ldd r24,Z+8
+ 102 007a 8C60      		ori r24,lo8(12)
+ 103 007c 8087      		std Z+8,r24
+ 104               	.LM13:
+ 105 007e E090 F400 		lds r14,244
+ 106 0082 E694      		lsr r14
+ 107 0084 E694      		lsr r14
+ 108 0086 E694      		lsr r14
+ 109 0088 FF24      		clr r15
+ 110               	.LVL6:
+ 111 008a 00E0      		ldi r16,lo8(0)
+ 112 008c 10E0      		ldi r17,hi8(0)
+ 113               	.LVL7:
+ 114               	.LM14:
+ 115 008e 8091 F500 		lds r24,245
+ 116               	.LM15:
+ 117 0092 6090 F600 		lds r6,246
+ 118               	.LM16:
+ 119 0096 2091 F700 		lds r18,247
+ 120               	.LM17:
+ 121 009a 7724      		clr r7
+ 122               	.LVL8:
+ 123 009c 8824      		clr r8
+ 124 009e 9924      		clr r9
+ 125               	.LVL9:
+ 126 00a0 7DE0      		ldi r23,13
+ 127 00a2 660C      	1:	lsl r6
+ 128 00a4 771C      		rol r7
+ 129 00a6 881C      		rol r8
+ 130 00a8 991C      		rol r9
+ 131 00aa 7A95      		dec r23
+ 132 00ac 01F4      		brne 1b
+ 133               	.LVL10:
+ 134 00ae 6E28      		or r6,r14
+ 135 00b0 7F28      		or r7,r15
+ 136 00b2 802A      		or r8,r16
+ 137 00b4 912A      		or r9,r17
+ 138               	.LM18:
+ 139 00b6 30E0      		ldi r19,lo8(0)
+ 140 00b8 40E0      		ldi r20,lo8(0)
+ 141 00ba 50E0      		ldi r21,hi8(0)
+ 142 00bc 65E1      		ldi r22,21
+ 143 00be 220F      	1:	lsl r18
+ 144 00c0 331F      		rol r19
+ 145 00c2 441F      		rol r20
+ 146 00c4 551F      		rol r21
+ 147 00c6 6A95      		dec r22
+ 148 00c8 01F4      		brne 1b
+ 149 00ca 622A      		or r6,r18
+ 150 00cc 732A      		or r7,r19
+ 151 00ce 842A      		or r8,r20
+ 152 00d0 952A      		or r9,r21
+ 153               	.LM19:
+ 154 00d2 90E0      		ldi r25,lo8(0)
+ 155 00d4 55E0      		ldi r21,5
+ 156 00d6 880F      	1:	lsl r24
+ 157 00d8 991F      		rol r25
+ 158 00da 5A95      		dec r21
+ 159 00dc 01F4      		brne 1b
+ 160 00de A0E0      		ldi r26,lo8(0)
+ 161 00e0 B0E0      		ldi r27,hi8(0)
+ 162 00e2 682A      		or r6,r24
+ 163 00e4 792A      		or r7,r25
+ 164 00e6 8A2A      		or r8,r26
+ 165 00e8 9B2A      		or r9,r27
+ 166               	.LM20:
+ 167 00ea 6482      		std Z+4,r6
+ 168 00ec 7582      		std Z+5,r7
+ 169 00ee 8682      		std Z+6,r8
+ 170 00f0 9782      		std Z+7,r9
+ 171               	.LM21:
+ 172 00f2 A090 F000 		lds r10,240
+ 173 00f6 A694      		lsr r10
+ 174 00f8 A694      		lsr r10
+ 175 00fa A694      		lsr r10
+ 176 00fc BB24      		clr r11
+ 177               	.LVL11:
+ 178 00fe CC24      		clr r12
+ 179 0100 DD24      		clr r13
+ 180               	.LVL12:
+ 181               	.LM22:
+ 182 0102 2091 F100 		lds r18,241
+ 183               	.LM23:
+ 184 0106 8091 F200 		lds r24,242
+ 185               	.LM24:
+ 186 010a E090 F300 		lds r14,243
+ 187               	.LM25:
+ 188 010e 90E0      		ldi r25,lo8(0)
+ 189 0110 A0E0      		ldi r26,lo8(0)
+ 190 0112 B0E0      		ldi r27,hi8(0)
+ 191 0114 4DE0      		ldi r20,13
+ 192 0116 880F      	1:	lsl r24
+ 193 0118 991F      		rol r25
+ 194 011a AA1F      		rol r26
+ 195 011c BB1F      		rol r27
+ 196 011e 4A95      		dec r20
+ 197 0120 01F4      		brne 1b
+ 198 0122 8A29      		or r24,r10
+ 199 0124 9B29      		or r25,r11
+ 200 0126 AC29      		or r26,r12
+ 201 0128 BD29      		or r27,r13
+ 202               	.LVL13:
+ 203               	.LM26:
+ 204 012a FF24      		clr r15
+ 205 012c 00E0      		ldi r16,lo8(0)
+ 206 012e 10E0      		ldi r17,hi8(0)
+ 207 0130 35E1      		ldi r19,21
+ 208 0132 EE0C      	1:	lsl r14
+ 209 0134 FF1C      		rol r15
+ 210 0136 001F      		rol r16
+ 211 0138 111F      		rol r17
+ 212 013a 3A95      		dec r19
+ 213 013c 01F4      		brne 1b
+ 214 013e 8E29      		or r24,r14
+ 215 0140 9F29      		or r25,r15
+ 216 0142 A02B      		or r26,r16
+ 217 0144 B12B      		or r27,r17
+ 218               	.LM27:
+ 219 0146 30E0      		ldi r19,lo8(0)
+ 220 0148 15E0      		ldi r17,5
+ 221 014a 220F      	1:	lsl r18
+ 222 014c 331F      		rol r19
+ 223 014e 1A95      		dec r17
+ 224 0150 01F4      		brne 1b
+ 225 0152 40E0      		ldi r20,lo8(0)
+ 226 0154 50E0      		ldi r21,hi8(0)
+ 227 0156 822B      		or r24,r18
+ 228 0158 932B      		or r25,r19
+ 229 015a A42B      		or r26,r20
+ 230 015c B52B      		or r27,r21
+ 231 015e 8621      		and r24,r6
+ 232 0160 9721      		and r25,r7
+ 233 0162 A821      		and r26,r8
+ 234 0164 B921      		and r27,r9
+ 235 0166 00C0      		rjmp .L15
+ 236               	.LVL14:
+ 237               	.L9:
+ 238               	.LBE2:
+ 239               	.LBB3:
+ 240               	.LM28:
+ 241 0168 8091 F400 		lds r24,244
+ 242 016c 9085      		ldd r25,Z+8
+ 243 016e 80FF      		sbrs r24,0
+ 244 0170 00C0      		rjmp .L10
+ 245               	.LM29:
+ 246 0172 937F      		andi r25,lo8(-13)
+ 247 0174 9860      		ori r25,lo8(8)
+ 248 0176 00C0      		rjmp .L14
+ 249               	.L10:
+ 250               	.LM30:
+ 251 0178 937F      		andi r25,lo8(-13)
+ 252               	.L14:
+ 253 017a 9087      		std Z+8,r25
+ 254               	.LM31:
+ 255 017c 8091 F600 		lds r24,246
+ 256 0180 8295      		swap r24
+ 257 0182 8695      		lsr r24
+ 258 0184 8770      		andi r24,lo8(7)
+ 259 0186 90E0      		ldi r25,lo8(0)
+ 260               	.LVL15:
+ 261               	.LM32:
+ 262 0188 2091 F700 		lds r18,247
+ 263 018c 30E0      		ldi r19,lo8(0)
+ 264               	.LVL16:
+ 265 018e 73E0      		ldi r23,3
+ 266 0190 220F      	1:	lsl r18
+ 267 0192 331F      		rol r19
+ 268 0194 7A95      		dec r23
+ 269 0196 01F4      		brne 1b
+ 270               	.LVL17:
+ 271 0198 282B      		or r18,r24
+ 272 019a 392B      		or r19,r25
+ 273               	.LM33:
+ 274 019c C901      		movw r24,r18
+ 275 019e A0E0      		ldi r26,lo8(0)
+ 276 01a0 B0E0      		ldi r27,hi8(0)
+ 277               	.LVL18:
+ 278 01a2 8483      		std Z+4,r24
+ 279 01a4 9583      		std Z+5,r25
+ 280 01a6 A683      		std Z+6,r26
+ 281 01a8 B783      		std Z+7,r27
+ 282               	.LM34:
+ 283 01aa 4091 F200 		lds r20,242
+ 284 01ae 4295      		swap r20
+ 285 01b0 4695      		lsr r20
+ 286 01b2 4770      		andi r20,lo8(7)
+ 287 01b4 50E0      		ldi r21,lo8(0)
+ 288               	.LVL19:
+ 289               	.LM35:
+ 290 01b6 8091 F300 		lds r24,243
+ 291               	.LM36:
+ 292 01ba 90E0      		ldi r25,lo8(0)
+ 293 01bc 63E0      		ldi r22,3
+ 294 01be 880F      	1:	lsl r24
+ 295 01c0 991F      		rol r25
+ 296 01c2 6A95      		dec r22
+ 297 01c4 01F4      		brne 1b
+ 298 01c6 842B      		or r24,r20
+ 299 01c8 952B      		or r25,r21
+ 300               	.LVL20:
+ 301 01ca 8223      		and r24,r18
+ 302 01cc 9323      		and r25,r19
+ 303 01ce A0E0      		ldi r26,lo8(0)
+ 304 01d0 B0E0      		ldi r27,hi8(0)
+ 305               	.LVL21:
+ 306               	.L15:
+ 307 01d2 8083      		st Z,r24
+ 308 01d4 9183      		std Z+1,r25
+ 309 01d6 A283      		std Z+2,r26
+ 310 01d8 B383      		std Z+3,r27
+ 311 01da 81E0      		ldi r24,lo8(1)
+ 312               	.LVL22:
+ 313               	.L3:
+ 314               	/* epilogue start */
+ 315               	.LBE3:
+ 316               	.LM37:
+ 317 01dc 1F91      		pop r17
+ 318 01de 0F91      		pop r16
+ 319 01e0 FF90      		pop r15
+ 320 01e2 EF90      		pop r14
+ 321 01e4 DF90      		pop r13
+ 322 01e6 CF90      		pop r12
+ 323               	.LVL23:
+ 324 01e8 BF90      		pop r11
+ 325               	.LVL24:
+ 326 01ea AF90      		pop r10
+ 327               	.LVL25:
+ 328 01ec 9F90      		pop r9
+ 329 01ee 8F90      		pop r8
+ 330               	.LVL26:
+ 331 01f0 7F90      		pop r7
+ 332               	.LVL27:
+ 333 01f2 6F90      		pop r6
+ 334               	.LVL28:
+ 335 01f4 0895      		ret
+ 336               	.LFE17:
+ 362               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 at90can_get_dyn_filter.c
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccA4Vu6G.s:2      *ABS*:0000003f __SREG__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccA4Vu6G.s:3      *ABS*:0000003e __SP_H__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccA4Vu6G.s:4      *ABS*:0000003d __SP_L__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccA4Vu6G.s:5      *ABS*:00000034 __CCP__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccA4Vu6G.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccA4Vu6G.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccA4Vu6G.s:18     .text:00000000 can_get_filter
+
+NO UNDEFINED SYMBOLS

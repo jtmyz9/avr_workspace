@@ -1,0 +1,126 @@
+/*
+ * datalogger.h
+ *
+ *  Created on: Jan 7, 2012
+ *      Author: Administrator
+ */
+
+#ifndef DATALOGGER_H_
+#define DATALOGGER_H_
+
+#include <avr/io.h>
+#include <util/delay.h>
+#include <stdio.h>
+#include "fat/include/uart.h"
+#include "fat/include/fat.h"
+#include "fat/include/fat_config.h"
+#include "fat/include/partition.h"
+#include "fat/include/sd_raw.h"
+#include "fat/include/sd_raw_config.h"
+
+volatile struct
+{
+	unsigned char PE3_status;
+	unsigned int rpm;
+	signed int tps;
+	signed int fuel_open_time;
+	signed int ign_angle;
+	signed int barometer;
+	signed int map;
+	signed int lambda;
+	signed int pe3_a1;
+	signed int pe3_a2;
+	signed int pe3_a3;
+	signed int pe3_a4;
+	signed int pe3_a5;
+	signed int pe3_a6;
+	signed int pe3_a7;
+	signed int pe3_a8;
+	signed int freq1;
+	signed int freq2;
+	signed int freq3;
+	signed int freq4;
+	signed int batt_volt;
+	signed int air_temp;
+	signed int wtr_temp;
+	signed int therm5;
+	signed int therm6;
+	unsigned char ver_mjr;
+	unsigned char ver_min;
+	unsigned char ver_bld;
+	// TCS
+	unsigned char TCS_status;
+	unsigned char trac_status;
+	unsigned char lnc_status;
+	unsigned short lnc_dsb_spd;
+	signed short fuel_slip_err;
+	unsigned short fuel_comp;
+	signed short timing_err;
+	unsigned short timing_comp;
+	unsigned short tcs_a0;
+	unsigned short tcs_a1;
+	unsigned short tcs_a2;
+	unsigned short tcs_a3;
+	unsigned short fuel_kp;
+	unsigned short fuel_kd;
+	unsigned short fuel_ki;
+	unsigned short timing_kp;
+	unsigned short timing_kd;
+	unsigned short timing_ki;
+	// IMU
+	unsigned char IMU_status;
+	signed short x_comp;
+	signed short y_comp;
+	signed short z_comp;
+	signed short acl_x;
+	signed short acl_y;
+	signed short acl_z;
+	signed short gyro_x;
+	signed short gyro_y;
+	signed short gyro_z;
+	signed short mag_x;
+	signed short mag_y;
+	signed short mag_z;
+	signed short mag_heading;
+	// STS
+	unsigned short STS_status;
+	unsigned short ttemp_inr_fl;
+	unsigned short ttemp_mdl_fl;
+	unsigned short ttemp_otr_fl;
+	unsigned short ttemp_inr_fr;
+	unsigned short ttemp_mdl_fr;
+	unsigned short ttemp_otr_fr;
+	unsigned short ttemp_inr_rl;
+	unsigned short ttemp_mdl_rl;
+	unsigned short ttemp_otr_rl;
+	unsigned short ttemp_inr_rr;
+	unsigned short ttemp_mdl_rr;
+	unsigned short ttemp_otr_rr;
+
+	unsigned short susp_trvl_fl;
+	unsigned short susp_trvl_fr;
+	unsigned short susp_trvl_rl;
+	unsigned short susp_trvl_rr;
+	// DLG
+	unsigned char DLG_status;
+	unsigned char hmsphr;
+	unsigned char pos_dil;
+	unsigned char time_dil;
+	unsigned char date;
+	unsigned long lat;
+	unsigned long lng;
+	unsigned short heading;
+	unsigned char speed;
+	unsigned long time;
+	unsigned char log_status;
+	char log_name[8];
+
+	// STW
+	unsigned char STW_status;
+
+	// WRL
+	unsigned char WRL_status;
+
+}data[2];
+
+#endif /* DATALOGGER_H_ */

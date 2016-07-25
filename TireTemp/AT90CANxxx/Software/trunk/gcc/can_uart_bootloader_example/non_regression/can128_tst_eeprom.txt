@@ -1,0 +1,41 @@
+#------------------------------------------
+# This file contains all test regarding the eeprom
+#access.
+#
+#----------------------------------------
+
+
+    MEMORY EEPROM   
+    TIMEOUT 60
+    ERASE F
+   
+        ECHO "   *** 1byte; address 0x000"
+    ADDRANGE 0x000 0x000
+    FILLBUFFER 0x11
+    PROGRAM
+    VERIFY
+    ADDRANGE 0x000 0xFFF
+    ASSERT FAIL
+    BLANKCHECK
+    ASSERT PASS  
+    TIMEOUT 60
+    ERASE F
+    BLANKCHECK
+    
+        ECHO "   *** 1byte; address 0x001"
+    ADDRANGE 0x001 0x001
+    FILLBUFFER 0x22
+    PROGRAM
+    VERIFY
+
+        ECHO "   *** 1byte; address 0x002"
+    ADDRANGE 0x002 0x002
+    FILLBUFFER 0x33
+    PROGRAM
+    VERIFY
+
+        ECHO "   *** address 0x00-0xFFF"
+    ADDRANGE 0x000 0xFFF
+    FILLBUFFER 0xAA
+    PROGRAM
+    VERIFY

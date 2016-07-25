@@ -1,0 +1,21 @@
+#---- Setup of the hardware -----
+-device AT90CAN128
+-hardware PEAK
+-canbitrate 500 
+
+-logf "can128_can_logfile.txt"
+
+#-debug
+
+
+#----- Operation --------------
+-operation
+    ONFAIL Ignore
+    CANOPEN 0xFF
+    
+    ECHO "   -1- Test=can128_tst_configurations.txt"
+    INCLUDE "can128_tst-1_configurations.txt"
+    
+    CANCLOSE 0xFF
+    ECHO " "
+    ECHO "   --- End of Test--- "

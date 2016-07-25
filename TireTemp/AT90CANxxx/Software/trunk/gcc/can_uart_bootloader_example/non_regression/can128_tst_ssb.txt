@@ -1,0 +1,179 @@
+#------------------------------------------
+# This file contains all test regarding the 
+# Software Security Byte.
+#
+#----------------------------------------
+
+
+    MEMORY FLASH
+    ERASE F
+        ECHO "   *** 1byte; address 0x002"
+        ADDRANGE 0x002 0x002
+        FILLBUFFER 0x33
+    PROGRAM
+    VERIFY
+    ERASE F
+
+    MEMORY EEPROM
+    TIMEOUT 60
+    ERASE F
+        ECHO "   *** 1byte; address 0x002"
+        ADDRANGE 0x002 0x002
+        FILLBUFFER 0x44
+    PROGRAM
+    VERIFY
+    TIMEOUT 60
+    ERASE F
+
+    MEMORY 4
+        ECHO "   *** EB = 0xFF"
+        ADDRANGE 0x006 0x006
+    FILLBUFFER 0xFF
+    PROGRAM
+    VERIFY
+
+
+
+# SSB : Write protected
+#-----------------------
+        ECHO "   *** Set SSB: Write protected"
+    ADDRANGE 0x05 0x05
+    FILLBUFFER 0xFE
+    PROGRAM
+    VERIFY
+
+        #----- FLASH access --------------
+    MEMORY FLASH
+    ADDRANGE 0 0x1DFFF
+    BLANKCHECK
+        ECHO "   *** 1byte; address 0x001"
+        ADDRANGE 0x001 0x001
+        FILLBUFFER 0x11
+    ASSERT FAIL
+    PROGRAM
+    ASSERT PASS
+        FILLBUFFER 0xFF
+    VERIFY
+
+        #----- EEPROM access --------------
+    MEMORY EEPROM
+    ADDRANGE 0 0xFFF
+        BLANKCHECK
+        ECHO "   *** 1byte; address 0x001"
+        ADDRANGE 0x001 0x001
+        FILLBUFFER 0x11
+    ASSERT FAIL
+    PROGRAM
+    ASSERT PASS
+        FILLBUFFER 0xFF
+    VERIFY
+
+        #----- Signature access --------------
+    MEMORY 6
+        ECHO "   *** Manufacturer code"
+        ADDRANGE 0x30 0x30
+        READ
+
+        #----- Information access --------------
+    MEMORY 3
+        ECHO "   *** Bootloader version"
+        ADDRANGE 0x00 0x00
+        READ
+
+        #----- Configuration access --------------
+    MEMORY 4
+        ECHO "   *** EB = 0x55"
+        ADDRANGE 0x006 0x006
+    FILLBUFFER 0x55
+    ASSERT FAIL
+    PROGRAM
+    ASSERT PASS
+    FILLBUFFER 0xFF
+    VERIFY
+
+
+
+# SSB : Read Write protected
+#---------------------------
+        ECHO "   *** SSB=Read_Write protection"
+    MEMORY 4
+        ADDRANGE 0x005 0x005
+    FILLBUFFER 0xFC
+    PROGRAM
+        
+        #----- FLASH access --------------
+    MEMORY FLASH
+    ADDRANGE 0 0x1DFFF
+    BLANKCHECK
+        ECHO "   *** 1byte; address 0x001"
+        ADDRANGE 0x001 0x001
+        FILLBUFFER 0x11
+    ASSERT FAIL
+    PROGRAM
+    READ
+    ASSERT PASS
+
+        #----- EEPROM access --------------
+    MEMORY EEPROM
+    ADDRANGE 0 0xFFF
+        BLANKCHECK
+        ECHO "   *** 1byte; address 0x001"
+        ADDRANGE 0x001 0x001
+        FILLBUFFER 0x11
+    ASSERT FAIL
+    PROGRAM
+    READ
+    ASSERT PASS
+
+        #----- Signature access --------------
+    MEMORY 6
+        ECHO "   *** Manufacturer code"
+        ADDRANGE 0x30 0x30
+        READ
+
+        #----- Information access --------------
+    MEMORY 3
+        ECHO "   *** Bootloader version"
+        ADDRANGE 0x00 0x00
+        READ
+
+        #----- Configuration access --------------
+    MEMORY 4
+        ECHO "   *** EB = 0x55"
+        ADDRANGE 0x006 0x006
+        READ
+    FILLBUFFER 0x55
+    ASSERT FAIL
+    PROGRAM
+    ASSERT PASS
+    FILLBUFFER 0xFF
+    VERIFY
+
+        ECHO "   *** SSB = No-security"
+        ADDRANGE 0x005 0x005
+        READ
+    FILLBUFFER 0xFC
+    ASSERT FAIL
+    PROGRAM
+    ASSERT PASS
+    VERIFY
+
+        #----- FLASH access --------------
+    MEMORY FLASH
+    ERASE F
+    ADDRANGE 0 0x1DFFF
+    BLANKCHECK
+
+        #----- Configuration access --------------
+    MEMORY 4
+        ADDRANGE 0x05 0x005
+    FILLBUFFER 0xFF
+    VERIFY
+
+        #----- Check invalid SSB value --------------
+#   FILLBUFFER 0x00
+#   ASSERT FAIL
+#   PROGRAM
+#   VERIFY
+    ASSERT PASS
+

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;test_rx/main_without_RTOS.c&apos; to &apos;test_rx.c&apos;" description="Rename resource &apos;main_without_RTOS.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="main_without_RTOS.c" name="test_rx.c" stamp="1327169833689" updateReferences="true"/>
+</session>

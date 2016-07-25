@@ -1,0 +1,37 @@
+
+#---- Hardware Setup -----
+
+#-- Device default for AT90CAN64 = AT90CAN128
+-device AT90CAN128
+-hardware PEAK
+-canbitrate 250 
+
+-logf "J:\temp\test\can64_test\can64_can_logfile.txt"
+
+#-debug
+
+
+#----- Operation --------------
+-operation
+    ONFAIL Ignore
+    CANOPEN 0xFF
+    
+    ECHO "   -- Test=can64_tst_configurations.txt"
+    INCLUDE "J:\temp\test\can64_test\can64_tst_configurations.txt"
+    
+    ECHO "   -- Test=can64_tst_ssb.txt"
+    INCLUDE "J:\temp\test\can64_test\can64_tst_ssb.txt"
+    
+    ECHO "   -- Test=can64_tst_blankcheck_eeprom.txt"
+    INCLUDE "J:\temp\test\can64_test\can64_tst_blankcheck_eeprom.txt"
+    
+    ECHO "   -- Test=can64_tst_blankcheck_flash.txt"
+    INCLUDE "J:\temp\test\can64_test\can64_tst_blankcheck_flash.txt"
+    
+    ECHO "   -- Test=can64_tst_eeprom.txt"
+    INCLUDE "J:\temp\test\can64_test\can64_tst_eeprom.txt"
+    
+    ECHO "   -- Test=can64_tst_flash.txt"
+    INCLUDE "J:\temp\test\can64_test\can64_tst_flash.txt"
+    
+    CANCLOSE 0xFF

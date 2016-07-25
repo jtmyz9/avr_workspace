@@ -1,0 +1,412 @@
+   1               		.file	"at90can.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	_find_free_mob
+  18               	_find_free_mob:
+  19               	.LFB17:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8091 0000 		lds r24,_free_buffer
+  25 0004 8823      		tst r24
+  26 0006 01F0      		breq .L2
+  27 0008 90E0      		ldi r25,lo8(0)
+  28               	.LVL0:
+  29               	.L4:
+  30               	.LM3:
+  31 000a 892F      		mov r24,r25
+  32 000c 8295      		swap r24
+  33 000e 807F      		andi r24,lo8(-16)
+  34 0010 8093 ED00 		sts 237,r24
+  35               	.LM4:
+  36 0014 8091 EF00 		lds r24,239
+  37 0018 807C      		andi r24,lo8(-64)
+  38 001a 01F0      		breq .L3
+  39               	.LM5:
+  40 001c 9F5F      		subi r25,lo8(-(1))
+  41 001e 9F30      		cpi r25,lo8(15)
+  42 0020 01F4      		brne .L4
+  43               	.L2:
+  44 0022 9FEF      		ldi r25,lo8(-1)
+  45               	.L3:
+  46               	.LM6:
+  47 0024 892F      		mov r24,r25
+  48               	/* epilogue start */
+  49 0026 0895      		ret
+  50               	.LFE17:
+  52               	.global	_disable_mob_interrupt
+  54               	_disable_mob_interrupt:
+  55               	.LFB18:
+  56               	.LM7:
+  57               	.LVL1:
+  58               	/* prologue: function */
+  59               	/* frame size = 0 */
+  60 0028 382F      		mov r19,r24
+  61               	.LM8:
+  62 002a 8830      		cpi r24,lo8(8)
+  63 002c 00F4      		brsh .L8
+  64               	.LM9:
+  65 002e 2091 DE00 		lds r18,222
+  66 0032 81E0      		ldi r24,lo8(1)
+  67 0034 90E0      		ldi r25,hi8(1)
+  68               	.LVL2:
+  69 0036 00C0      		rjmp 2f
+  70 0038 880F      	1:	lsl r24
+  71 003a 991F      		rol r25
+  72 003c 3A95      	2:	dec r19
+  73 003e 02F4      		brpl 1b
+  74 0040 8095      		com r24
+  75 0042 8223      		and r24,r18
+  76 0044 8093 DE00 		sts 222,r24
+  77 0048 0895      		ret
+  78               	.LVL3:
+  79               	.L8:
+  80               	.LM10:
+  81 004a 4091 DF00 		lds r20,223
+  82 004e 282F      		mov r18,r24
+  83 0050 30E0      		ldi r19,lo8(0)
+  84               	.LVL4:
+  85 0052 2850      		subi r18,lo8(-(-8))
+  86 0054 3040      		sbci r19,hi8(-(-8))
+  87               	.LVL5:
+  88 0056 81E0      		ldi r24,lo8(1)
+  89 0058 90E0      		ldi r25,hi8(1)
+  90 005a 00C0      		rjmp 2f
+  91 005c 880F      	1:	lsl r24
+  92 005e 991F      		rol r25
+  93 0060 2A95      	2:	dec r18
+  94 0062 02F4      		brpl 1b
+  95 0064 8095      		com r24
+  96 0066 8423      		and r24,r20
+  97 0068 8093 DF00 		sts 223,r24
+  98 006c 0895      		ret
+  99               	.LFE18:
+ 101               	.global	_enable_mob_interrupt
+ 103               	_enable_mob_interrupt:
+ 104               	.LFB19:
+ 105               	.LM11:
+ 106               	.LVL6:
+ 107               	/* prologue: function */
+ 108               	/* frame size = 0 */
+ 109 006e 382F      		mov r19,r24
+ 110               	.LM12:
+ 111 0070 8830      		cpi r24,lo8(8)
+ 112 0072 00F4      		brsh .L12
+ 113               	.LM13:
+ 114 0074 2091 DE00 		lds r18,222
+ 115 0078 81E0      		ldi r24,lo8(1)
+ 116 007a 90E0      		ldi r25,hi8(1)
+ 117               	.LVL7:
+ 118 007c 00C0      		rjmp 2f
+ 119 007e 880F      	1:	lsl r24
+ 120 0080 991F      		rol r25
+ 121 0082 3A95      	2:	dec r19
+ 122 0084 02F4      		brpl 1b
+ 123 0086 282B      		or r18,r24
+ 124 0088 2093 DE00 		sts 222,r18
+ 125 008c 0895      		ret
+ 126               	.LVL8:
+ 127               	.L12:
+ 128               	.LM14:
+ 129 008e 4091 DF00 		lds r20,223
+ 130 0092 282F      		mov r18,r24
+ 131 0094 30E0      		ldi r19,lo8(0)
+ 132               	.LVL9:
+ 133 0096 2850      		subi r18,lo8(-(-8))
+ 134 0098 3040      		sbci r19,hi8(-(-8))
+ 135               	.LVL10:
+ 136 009a 81E0      		ldi r24,lo8(1)
+ 137 009c 90E0      		ldi r25,hi8(1)
+ 138 009e 00C0      		rjmp 2f
+ 139 00a0 880F      	1:	lsl r24
+ 140 00a2 991F      		rol r25
+ 141 00a4 2A95      	2:	dec r18
+ 142 00a6 02F4      		brpl 1b
+ 143 00a8 482B      		or r20,r24
+ 144 00aa 4093 DF00 		sts 223,r20
+ 145 00ae 0895      		ret
+ 146               	.LFE19:
+ 148               	.global	__vector_18
+ 150               	__vector_18:
+ 151               	.LFB21:
+ 152               	.LM15:
+ 153 00b0 1F92      		push __zero_reg__
+ 154 00b2 0F92      		push r0
+ 155 00b4 0FB6      		in r0,__SREG__
+ 156 00b6 0F92      		push r0
+ 157 00b8 1124      		clr __zero_reg__
+ 158 00ba 2F93      		push r18
+ 159 00bc 3F93      		push r19
+ 160 00be 4F93      		push r20
+ 161 00c0 5F93      		push r21
+ 162 00c2 8F93      		push r24
+ 163 00c4 9F93      		push r25
+ 164               	/* prologue: Signal */
+ 165               	/* frame size = 0 */
+ 166               	.LM16:
+ 167 00c6 8091 EC00 		lds r24,236
+ 168 00ca 807F      		andi r24,lo8(-16)
+ 169 00cc 803F      		cpi r24,lo8(-16)
+ 170 00ce 01F4      		brne .+2
+ 171 00d0 00C0      		rjmp .L16
+ 172               	.LM17:
+ 173 00d2 5091 ED00 		lds r21,237
+ 174               	.LVL11:
+ 175               	.LM18:
+ 176 00d6 8091 EC00 		lds r24,236
+ 177 00da 807F      		andi r24,lo8(-16)
+ 178 00dc 8093 ED00 		sts 237,r24
+ 179               	.LM19:
+ 180 00e0 3091 EC00 		lds r19,236
+ 181               	.LVL12:
+ 182 00e4 3295      		swap r19
+ 183 00e6 3F70      		andi r19,lo8(15)
+ 184               	.LM20:
+ 185 00e8 8091 EE00 		lds r24,238
+ 186 00ec 86FF      		sbrs r24,6
+ 187 00ee 00C0      		rjmp .L17
+ 188               	.LM21:
+ 189 00f0 8091 EE00 		lds r24,238
+ 190 00f4 1092 EE00 		sts 238,__zero_reg__
+ 191               	.LM22:
+ 192 00f8 1092 EF00 		sts 239,__zero_reg__
+ 193               	.LM23:
+ 194 00fc 8091 0000 		lds r24,_free_buffer
+ 195 0100 8F5F      		subi r24,lo8(-(1))
+ 196 0102 8093 0000 		sts _free_buffer,r24
+ 197 0106 00C0      		rjmp .L25
+ 198               	.L17:
+ 199               	.LM24:
+ 200 0108 8091 0000 		lds r24,_messages_waiting
+ 201 010c 8F5F      		subi r24,lo8(-(1))
+ 202 010e 8093 0000 		sts _messages_waiting,r24
+ 203               	.L25:
+ 204               	.LM25:
+ 205 0112 3830      		cpi r19,lo8(8)
+ 206 0114 00F4      		brsh .L20
+ 207               	.LM26:
+ 208 0116 2091 DE00 		lds r18,222
+ 209 011a 81E0      		ldi r24,lo8(1)
+ 210 011c 90E0      		ldi r25,hi8(1)
+ 211 011e 00C0      		rjmp 2f
+ 212 0120 880F      	1:	lsl r24
+ 213 0122 991F      		rol r25
+ 214 0124 3A95      	2:	dec r19
+ 215 0126 02F4      		brpl 1b
+ 216 0128 8095      		com r24
+ 217 012a 8223      		and r24,r18
+ 218 012c 8093 DE00 		sts 222,r24
+ 219 0130 00C0      		rjmp .L19
+ 220               	.L20:
+ 221               	.LM27:
+ 222 0132 4091 DF00 		lds r20,223
+ 223 0136 232F      		mov r18,r19
+ 224 0138 30E0      		ldi r19,lo8(0)
+ 225               	.LVL13:
+ 226 013a 2850      		subi r18,lo8(-(-8))
+ 227 013c 3040      		sbci r19,hi8(-(-8))
+ 228               	.LVL14:
+ 229 013e 81E0      		ldi r24,lo8(1)
+ 230 0140 90E0      		ldi r25,hi8(1)
+ 231 0142 00C0      		rjmp 2f
+ 232 0144 880F      	1:	lsl r24
+ 233 0146 991F      		rol r25
+ 234 0148 2A95      	2:	dec r18
+ 235 014a 02F4      		brpl 1b
+ 236 014c 8095      		com r24
+ 237 014e 8423      		and r24,r20
+ 238 0150 8093 DF00 		sts 223,r24
+ 239               	.LVL15:
+ 240               	.L19:
+ 241               	.LM28:
+ 242 0154 5093 ED00 		sts 237,r21
+ 243 0158 00C0      		rjmp .L22
+ 244               	.LVL16:
+ 245               	.L16:
+ 246               	.LM29:
+ 247 015a 8091 DA00 		lds r24,218
+ 248 015e 8093 DA00 		sts 218,r24
+ 249               	.LVL17:
+ 250               	.L22:
+ 251               	/* epilogue start */
+ 252               	.LM30:
+ 253 0162 9F91      		pop r25
+ 254 0164 8F91      		pop r24
+ 255 0166 5F91      		pop r21
+ 256               	.LVL18:
+ 257 0168 4F91      		pop r20
+ 258 016a 3F91      		pop r19
+ 259               	.LVL19:
+ 260 016c 2F91      		pop r18
+ 261               	.LVL20:
+ 262 016e 0F90      		pop r0
+ 263 0170 0FBE      		out __SREG__,r0
+ 264 0172 0F90      		pop r0
+ 265 0174 1F90      		pop __zero_reg__
+ 266 0176 1895      		reti
+ 267               	.LFE21:
+ 269               	.global	__vector_19
+ 271               	__vector_19:
+ 272               	.LFB22:
+ 273               	.LM31:
+ 274 0178 1F92      		push __zero_reg__
+ 275 017a 0F92      		push r0
+ 276 017c 0FB6      		in r0,__SREG__
+ 277 017e 0F92      		push r0
+ 278 0180 1124      		clr __zero_reg__
+ 279               	/* prologue: Signal */
+ 280               	/* frame size = 0 */
+ 281               	/* epilogue start */
+ 282               	.LM32:
+ 283 0182 0F90      		pop r0
+ 284 0184 0FBE      		out __SREG__,r0
+ 285 0186 0F90      		pop r0
+ 286 0188 1F90      		pop __zero_reg__
+ 287 018a 1895      		reti
+ 288               	.LFE22:
+ 290               	.global	can_init
+ 292               	can_init:
+ 293               	.LFB20:
+ 294               	.LM33:
+ 295               	.LVL21:
+ 296               	/* prologue: function */
+ 297               	/* frame size = 0 */
+ 298 018c 982F      		mov r25,r24
+ 299               	.LM34:
+ 300 018e 8830      		cpi r24,lo8(8)
+ 301 0190 00F0      		brlo .L29
+ 302 0192 80E0      		ldi r24,lo8(0)
+ 303               	.LVL22:
+ 304 0194 0895      		ret
+ 305               	.LVL23:
+ 306               	.L29:
+ 307               	.LM35:
+ 308 0196 8091 D800 		lds r24,216
+ 309               	.LVL24:
+ 310 019a 8160      		ori r24,lo8(1)
+ 311 019c 8093 D800 		sts 216,r24
+ 312               	.LBB2:
+ 313               	.LM36:
+ 314 01a0 E3E0      		ldi r30,lo8(3)
+ 315 01a2 9E9F      		mul r25,r30
+ 316 01a4 C001      		movw r24,r0
+ 317 01a6 1124      		clr r1
+ 318 01a8 FC01      		movw r30,r24
+ 319 01aa E050      		subi r30,lo8(-(_at90can_cnf))
+ 320 01ac F040      		sbci r31,hi8(-(_at90can_cnf))
+ 321               	/* #APP */
+ 322               	 ;  161 "at90can.c" 1
+ 323 01ae E491      		lpm r30, Z
+ 324               		
+ 325               	 ;  0 "" 2
+ 326               	.LVL25:
+ 327               	/* #NOAPP */
+ 328               	.LBE2:
+ 329 01b0 E093 E200 		sts 226,r30
+ 330               	.LBB3:
+ 331               	.LM37:
+ 332 01b4 FC01      		movw r30,r24
+ 333               	.LVL26:
+ 334 01b6 E050      		subi r30,lo8(-(_at90can_cnf+1))
+ 335 01b8 F040      		sbci r31,hi8(-(_at90can_cnf+1))
+ 336               	/* #APP */
+ 337               	 ;  162 "at90can.c" 1
+ 338 01ba E491      		lpm r30, Z
+ 339               		
+ 340               	 ;  0 "" 2
+ 341               	.LVL27:
+ 342               	/* #NOAPP */
+ 343               	.LBE3:
+ 344 01bc E093 E300 		sts 227,r30
+ 345               	.LBB4:
+ 346               	.LM38:
+ 347 01c0 8050      		subi r24,lo8(-(_at90can_cnf+2))
+ 348 01c2 9040      		sbci r25,hi8(-(_at90can_cnf+2))
+ 349 01c4 FC01      		movw r30,r24
+ 350               	.LVL28:
+ 351               	/* #APP */
+ 352               	 ;  163 "at90can.c" 1
+ 353 01c6 8491      		lpm r24, Z
+ 354               		
+ 355               	 ;  0 "" 2
+ 356               	.LVL29:
+ 357               	/* #NOAPP */
+ 358               	.LBE4:
+ 359 01c8 8093 E400 		sts 228,r24
+ 360               	.LM39:
+ 361 01cc 1092 DA00 		sts 218,__zero_reg__
+ 362               	.LM40:
+ 363 01d0 80EB      		ldi r24,lo8(-80)
+ 364               	.LVL30:
+ 365 01d2 8093 DB00 		sts 219,r24
+ 366               	.LM41:
+ 367 01d6 87EC      		ldi r24,lo8(-57)
+ 368 01d8 8093 E500 		sts 229,r24
+ 369               	.LM42:
+ 370 01dc 8FEF      		ldi r24,lo8(-1)
+ 371 01de 0E94 0000 		call can_disable_filter
+ 372               	.LVL31:
+ 373               	.LM43:
+ 374 01e2 82E0      		ldi r24,lo8(2)
+ 375 01e4 8093 D800 		sts 216,r24
+ 376 01e8 81E0      		ldi r24,lo8(1)
+ 377               	.LM44:
+ 378 01ea 0895      		ret
+ 379               	.LFE20:
+ 381               	.global	_at90can_cnf
+ 382               		.section	.progmem.data,"a",@progbits
+ 385               	_at90can_cnf:
+ 386 0000 7E        		.byte	126
+ 387 0001 6E        		.byte	110
+ 388 0002 7F        		.byte	127
+ 389 0003 62        		.byte	98
+ 390 0004 0C        		.byte	12
+ 391 0005 37        		.byte	55
+ 392 0006 26        		.byte	38
+ 393 0007 0C        		.byte	12
+ 394 0008 37        		.byte	55
+ 395 0009 12        		.byte	18
+ 396 000a 0C        		.byte	12
+ 397 000b 37        		.byte	55
+ 398 000c 0E        		.byte	14
+ 399 000d 0C        		.byte	12
+ 400 000e 37        		.byte	55
+ 401 000f 06        		.byte	6
+ 402 0010 0C        		.byte	12
+ 403 0011 37        		.byte	55
+ 404 0012 02        		.byte	2
+ 405 0013 0C        		.byte	12
+ 406 0014 37        		.byte	55
+ 407 0015 00        		.byte	0
+ 408 0016 0C        		.byte	12
+ 409 0017 36        		.byte	54
+ 410               		.comm _messages_waiting,1,1
+ 411               		.comm _free_buffer,1,1
+ 476               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 at90can.c
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccy0Xhzd.s:2      *ABS*:0000003f __SREG__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccy0Xhzd.s:3      *ABS*:0000003e __SP_H__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccy0Xhzd.s:4      *ABS*:0000003d __SP_L__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccy0Xhzd.s:5      *ABS*:00000034 __CCP__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccy0Xhzd.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccy0Xhzd.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccy0Xhzd.s:18     .text:00000000 _find_free_mob
+                            *COM*:00000001 _free_buffer
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccy0Xhzd.s:54     .text:00000028 _disable_mob_interrupt
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccy0Xhzd.s:103    .text:0000006e _enable_mob_interrupt
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccy0Xhzd.s:150    .text:000000b0 __vector_18
+                            *COM*:00000001 _messages_waiting
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccy0Xhzd.s:271    .text:00000178 __vector_19
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccy0Xhzd.s:292    .text:0000018c can_init
+C:\Users\SEXPAN~1\AppData\Local\Temp/ccy0Xhzd.s:385    .progmem.data:00000000 _at90can_cnf
+
+UNDEFINED SYMBOLS
+can_disable_filter
+__do_clear_bss

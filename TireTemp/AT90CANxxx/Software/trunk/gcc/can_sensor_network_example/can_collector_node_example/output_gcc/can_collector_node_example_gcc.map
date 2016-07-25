@@ -1,0 +1,503 @@
+Archive member included because of file (symbol)
+
+d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_udivmodhi4.o)
+                              uart_lib.o (__udivmodhi4)
+d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_divmodhi4.o)
+                              uart_lib.o (__divmodhi4)
+d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_udivmodsi4.o)
+                              uart_lib.o (__udivmodsi4)
+d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_divmodsi4.o)
+                              uart_lib.o (__divmodsi4)
+d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_clear_bss.o)
+                              main_collector_node_example.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+rtc_minutes         0x1               rtc_drv.o
+rtc_days            0x1               rtc_drv.o
+rtc_milliseconds    0x2               rtc_drv.o
+rtc_tics            0x4               rtc_drv.o
+rtc_hours           0x1               rtc_drv.o
+rtc_seconds         0x1               rtc_drv.o
+
+Discarded input sections
+
+ .stabstr       0x00000000        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/../../../../avr/lib/avr5/crtcan128.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/../../../../avr/lib/avr5/crtcan128.o
+LOAD main_collector_node_example.o
+LOAD can_drv.o
+LOAD can_lib.o
+LOAD led_drv.o
+LOAD rtc_drv.o
+LOAD uart_drv.o
+LOAD uart_lib.o
+LOAD d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a
+LOAD d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/../../../../avr/lib/avr5\libc.a
+LOAD d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x2f40
+ *(.vectors)
+ .vectors       0x00000000       0x94 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/../../../../avr/lib/avr5/crtcan128.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x00000094                . = ALIGN (0x2)
+                0x00000094                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000094        0x0 linker stubs
+ *(.trampolines*)
+                0x00000094                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000094                __ctors_start = .
+ *(.ctors)
+                0x00000094                __ctors_end = .
+                0x00000094                __dtors_start = .
+ *(.dtors)
+                0x00000094                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000094        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/../../../../avr/lib/avr5/crtcan128.o
+                0x00000094                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000094        0xc d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/../../../../avr/lib/avr5/crtcan128.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x000000a0       0x1a d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/../../../../avr/lib/avr5/crtcan128.o
+                0x000000a0                __do_copy_data
+ .init4         0x000000ba       0x10 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_clear_bss.o)
+                0x000000ba                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x000000ca        0x4 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/../../../../avr/lib/avr5/crtcan128.o
+ *(.init9)
+ *(.text)
+ .text          0x000000ce        0x4 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/../../../../avr/lib/avr5/crtcan128.o
+                0x000000ce                __vector_22
+                0x000000ce                __vector_28
+                0x000000ce                __vector_1
+                0x000000ce                __vector_32
+                0x000000ce                __vector_34
+                0x000000ce                __vector_24
+                0x000000ce                __vector_12
+                0x000000ce                __bad_interrupt
+                0x000000ce                __vector_6
+                0x000000ce                __vector_31
+                0x000000ce                __vector_35
+                0x000000ce                __vector_3
+                0x000000ce                __vector_23
+                0x000000ce                __vector_30
+                0x000000ce                __vector_25
+                0x000000ce                __vector_11
+                0x000000ce                __vector_13
+                0x000000ce                __vector_17
+                0x000000ce                __vector_19
+                0x000000ce                __vector_7
+                0x000000ce                __vector_27
+                0x000000ce                __vector_5
+                0x000000ce                __vector_33
+                0x000000ce                __vector_4
+                0x000000ce                __vector_2
+                0x000000ce                __vector_21
+                0x000000ce                __vector_15
+                0x000000ce                __vector_36
+                0x000000ce                __vector_29
+                0x000000ce                __vector_8
+                0x000000ce                __vector_26
+                0x000000ce                __vector_14
+                0x000000ce                __vector_10
+                0x000000ce                __vector_16
+                0x000000ce                __vector_18
+                0x000000ce                __vector_20
+ .text          0x000000d2      0x228 main_collector_node_example.o
+                0x00000142                display_sensor_values
+                0x000000d2                main
+ .text          0x000002fa      0x6a8 can_drv.o
+                0x00000360                can_get_mob_free
+                0x000003e2                can_get_mob_status
+                0x00000470                can_get_data
+                0x000002fa                can_clear_all_mob
+                0x000004d4                can_auto_baudrate
+                0x00000956                can_fixed_baudrate
+ .text          0x000009a2     0x153a can_lib.o
+                0x000009a2                can_init
+                0x00001c8c                can_get_status
+                0x000009f8                can_cmd
+ .text          0x00001edc      0x12e led_drv.o
+                0x00001f28                swap_nibble_led
+                0x00001ef8                write_led
+                0x00001f5e                toggle_led
+                0x00001edc                led_init
+                0x00001f74                write_led_number
+ .text          0x0000200a      0x2e0 rtc_drv.o
+                0x00002106                rtc_int_init
+                0x0000200a                wait_for
+                0x0000221a                __vector_9
+ .text          0x000022ea       0x7c uart_drv.o
+                0x000022ea                uart_rx_get_3_data
+                0x00002330                uart_rx_get_data
+ .text          0x00002366      0xb12 uart_lib.o
+                0x0000256e                uart_mini_printf
+                0x000024d8                uart_getchar
+                0x00002366                uart_init
+                0x00002cae                uart_get_editedline
+                0x00002522                uart_put_string
+                0x0000245c                uart_test_hit
+                0x00002480                uart_putchar
+ .text          0x00002e78        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_udivmodhi4.o)
+ .text          0x00002e78        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_divmodhi4.o)
+ .text          0x00002e78        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_udivmodsi4.o)
+ .text          0x00002e78        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_divmodsi4.o)
+ .text          0x00002e78        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_clear_bss.o)
+                0x00002e78                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00002e78       0x28 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_udivmodhi4.o)
+                0x00002e78                __udivmodhi4
+ .text.libgcc   0x00002ea0       0x26 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_divmodhi4.o)
+                0x00002ea0                __divmodhi4
+                0x00002ea0                _div
+ .text.libgcc   0x00002ec6       0x44 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_udivmodsi4.o)
+                0x00002ec6                __udivmodsi4
+ .text.libgcc   0x00002f0a       0x36 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_divmodsi4.o)
+                0x00002f0a                __divmodsi4
+ .text.libgcc   0x00002f40        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_clear_bss.o)
+                0x00002f40                . = ALIGN (0x2)
+ *(.fini9)
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ *(.fini0)
+                0x00002f40                _etext = .
+
+.data           0x00800100      0x274 load address 0x00002f40
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800100        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/../../../../avr/lib/avr5/crtcan128.o
+ .data          0x00800100       0x9a main_collector_node_example.o
+ .data          0x0080019a        0x0 can_drv.o
+ .data          0x0080019a        0x0 can_lib.o
+ .data          0x0080019a        0x0 led_drv.o
+ .data          0x0080019a        0x0 rtc_drv.o
+ .data          0x0080019a        0x0 uart_drv.o
+ .data          0x0080019a      0x1d9 uart_lib.o
+                0x0080034a                txt_small_logo_atmel
+                0x0080019a                txt_logo_atmel
+ .data          0x00800373        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_udivmodhi4.o)
+ .data          0x00800373        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_divmodhi4.o)
+ .data          0x00800373        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x00800373        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_divmodsi4.o)
+ .data          0x00800373        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_clear_bss.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800374                . = ALIGN (0x2)
+ *fill*         0x00800373        0x1 00
+                0x00800374                _edata = .
+                0x00800374                PROVIDE (__data_end, .)
+
+.bss            0x00800374        0xb
+                0x00800374                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800374        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/../../../../avr/lib/avr5/crtcan128.o
+ .bss           0x00800374        0x0 main_collector_node_example.o
+ .bss           0x00800374        0x0 can_drv.o
+ .bss           0x00800374        0x0 can_lib.o
+ .bss           0x00800374        0x0 led_drv.o
+ .bss           0x00800374        0x1 rtc_drv.o
+                0x00800374                rtc_running
+ .bss           0x00800375        0x0 uart_drv.o
+ .bss           0x00800375        0x0 uart_lib.o
+ .bss           0x00800375        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_udivmodhi4.o)
+ .bss           0x00800375        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_divmodhi4.o)
+ .bss           0x00800375        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x00800375        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_divmodsi4.o)
+ .bss           0x00800375        0x0 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/avr5\libgcc.a(_clear_bss.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x00800375        0xa rtc_drv.o
+                0x00800375                rtc_minutes
+                0x00800376                rtc_days
+                0x00800377                rtc_milliseconds
+                0x00800379                rtc_tics
+                0x0080037d                rtc_hours
+                0x0080037e                rtc_seconds
+                0x0080037f                PROVIDE (__bss_end, .)
+                0x00002f40                __data_load_start = LOADADDR (.data)
+                0x000031b4                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0080037f        0x0
+                0x0080037f                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x0080037f                PROVIDE (__noinit_end, .)
+                0x0080037f                _end = .
+                0x0080037f                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.stab           0x00000000      0x408
+ *(.stab)
+ .stab          0x00000000      0x408 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/../../../../avr/lib/avr5/crtcan128.o
+
+.stabstr        0x00000000       0x84
+ *(.stabstr)
+ .stabstr       0x00000000       0x84 d:/my_pgm/winavr/winavr20070122/bin/../lib/gcc/avr/4.1.1/../../../../avr/lib/avr5/crtcan128.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0xe0
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 main_collector_node_example.o
+ .debug_aranges
+                0x00000020       0x20 can_drv.o
+ .debug_aranges
+                0x00000040       0x20 can_lib.o
+ .debug_aranges
+                0x00000060       0x20 led_drv.o
+ .debug_aranges
+                0x00000080       0x20 rtc_drv.o
+ .debug_aranges
+                0x000000a0       0x20 uart_drv.o
+ .debug_aranges
+                0x000000c0       0x20 uart_lib.o
+
+.debug_pubnames
+                0x00000000      0x315
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x35 main_collector_node_example.o
+ .debug_pubnames
+                0x00000035       0x92 can_drv.o
+ .debug_pubnames
+                0x000000c7       0x3e can_lib.o
+ .debug_pubnames
+                0x00000105       0x65 led_drv.o
+ .debug_pubnames
+                0x0000016a       0xac rtc_drv.o
+ .debug_pubnames
+                0x00000216       0x3e uart_drv.o
+ .debug_pubnames
+                0x00000254       0xc1 uart_lib.o
+
+.debug_info     0x00000000     0x1a7d
+ *(.debug_info)
+ .debug_info    0x00000000      0x487 main_collector_node_example.o
+ .debug_info    0x00000487      0x478 can_drv.o
+ .debug_info    0x000008ff      0x4a4 can_lib.o
+ .debug_info    0x00000da3      0x281 led_drv.o
+ .debug_info    0x00001024      0x318 rtc_drv.o
+ .debug_info    0x0000133c      0x20c uart_drv.o
+ .debug_info    0x00001548      0x535 uart_lib.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x597
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0xf1 main_collector_node_example.o
+ .debug_abbrev  0x000000f1       0xd3 can_drv.o
+ .debug_abbrev  0x000001c4       0xfc can_lib.o
+ .debug_abbrev  0x000002c0       0x98 led_drv.o
+ .debug_abbrev  0x00000358       0x99 rtc_drv.o
+ .debug_abbrev  0x000003f1       0x76 uart_drv.o
+ .debug_abbrev  0x00000467      0x130 uart_lib.o
+
+.debug_line     0x00000000     0x1dd5
+ *(.debug_line)
+ .debug_line    0x00000000      0x3a5 main_collector_node_example.o
+ .debug_line    0x000003a5      0x55b can_drv.o
+ .debug_line    0x00000900      0x5cf can_lib.o
+ .debug_line    0x00000ecf      0x1e7 led_drv.o
+ .debug_line    0x000010b6      0x2ef rtc_drv.o
+ .debug_line    0x000013a5      0x192 uart_drv.o
+ .debug_line    0x00001537      0x89e uart_lib.o
+
+.debug_frame    0x00000000      0x230
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x30 main_collector_node_example.o
+ .debug_frame   0x00000030       0x70 can_drv.o
+ .debug_frame   0x000000a0       0x40 can_lib.o
+ .debug_frame   0x000000e0       0x60 led_drv.o
+ .debug_frame   0x00000140       0x40 rtc_drv.o
+ .debug_frame   0x00000180       0x30 uart_drv.o
+ .debug_frame   0x000001b0       0x80 uart_lib.o
+
+.debug_str      0x00000000       0x72
+ *(.debug_str)
+ .debug_str     0x00000000        0xd main_collector_node_example.o
+ .debug_str     0x0000000d       0x18 can_drv.o
+ .debug_str     0x00000025        0xd can_lib.o
+ .debug_str     0x00000032        0xd led_drv.o
+ .debug_str     0x0000003f        0xd rtc_drv.o
+ .debug_str     0x0000004c        0xd uart_drv.o
+ .debug_str     0x00000059       0x19 uart_lib.o
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(can_collector_node_example_gcc.elf elf32-avr)
+LOAD linker stubs
