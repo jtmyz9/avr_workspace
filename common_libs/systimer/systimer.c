@@ -8,11 +8,12 @@
 
 uint32_t systimer_10ms = 0;
 
+//TODO: Appears to be correct code, but commentless
 void systimer_10ms_restart(uint8_t offset)
 {
 	//Clear counter
 	TCNT1 = 0;
-	// Set for slot delay (using OCRnB)
+	// Set for slot delay (using OCRnA)
 	if(offset != 0)
 	{
 		OCR1A = 250 * offset; //1ms*offset

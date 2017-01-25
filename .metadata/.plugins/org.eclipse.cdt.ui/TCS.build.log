@@ -1,0 +1,35 @@
+
+**** Build of configuration Debug for project TCS ****
+
+make all 
+Building file: C:/Users/Mark/Dropbox/Electronics/Software/avr_workspace/libs/systimer.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\Users\Mark\Dropbox\Electronics\Software\avr_workspace\libs\include" -I"C:\WinAVR-20100110\avr\include" -I"C:\WinAVR-20100110\lib\gcc\avr\4.3.3\include" -I"C:\WinAVR-20100110\lib\gcc\avr\4.3.3\include-fixed" -Wall -g2 -gstabs -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=at90can128 -DF_CPU=16000000UL -MMD -MP -MF"systimer.d" -MT"systimer.d" -c -o "systimer.o" "C:/Users/Mark/Dropbox/Electronics/Software/avr_workspace/libs/systimer.c"
+Finished building: C:/Users/Mark/Dropbox/Electronics/Software/avr_workspace/libs/systimer.c
+ 
+Building target: TCS.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TCS.map -mmcu=at90can128 -o "TCS.elf"  ./TCS.o ./can.o ./dac.o ./systimer.o ./twimaster.o ./uart.o   
+Finished building target: TCS.elf
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex TCS.elf  "TCS.hex"
+Finished building: TCS.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=at90can128 TCS.elf
+AVR Memory Usage
+----------------
+Device: at90can128
+
+Program:    4578 bytes (3.5% Full)
+(.text + .data + .bootloader)
+
+Data:        237 bytes (5.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

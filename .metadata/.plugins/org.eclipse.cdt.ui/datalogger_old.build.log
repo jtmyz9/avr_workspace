@@ -1,0 +1,19 @@
+
+**** Build of configuration Debug for project datalogger_old ****
+
+make all 
+Building file: C:/Users/Mark/Dropbox/Electronics/Software/avr_workspace/common_libs/fat/fat.c
+Invoking: AVR Compiler
+avr-gcc -IC:/WinAVR-20100110/avr/include -I"C:\Users\Mark\Dropbox\Electronics\Software\avr_workspace\common_libs\include" -IC:/WinAVR-20100110/lib/gcc/avr/4.3.3/include -IC:/WinAVR-20100110/lib/gcc/avr/4.3.3/include-fixed -IC:/Users/Administrator/Dropbox/Electronics/Software/avr_workspace/common_libs/include -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=at90can128 -DF_CPU=16000000UL -MMD -MP -MF"common_libs/fat/fat.d" -MT"common_libs/fat/fat.d" -c -o "common_libs/fat/fat.o" "C:/Users/Mark/Dropbox/Electronics/Software/avr_workspace/common_libs/fat/fat.c"
+In file included from C:/Users/Mark/Dropbox/Electronics/Software/avr_workspace/common_libs/fat/fat.c:13:
+C:/Users/Mark/Dropbox/Electronics/Software/avr_workspace/common_libs/fat/include/fat.h:96: error: field 'dir_entry' has incomplete type
+C:/Users/Mark/Dropbox/Electronics/Software/avr_workspace/common_libs/fat/include/fat.h:104: error: field 'dir_entry' has incomplete type
+C:/Users/Mark/Dropbox/Electronics/Software/avr_workspace/common_libs/fat/fat.c:138: error: redefinition of 'struct fat_header_struct'
+C:/Users/Mark/Dropbox/Electronics/Software/avr_workspace/common_libs/fat/fat.c:156: error: redefinition of 'struct fat_fs_struct'
+C:/Users/Mark/Dropbox/Electronics/Software/avr_workspace/common_libs/fat/fat.c:163: error: redefinition of 'struct fat_file_struct'
+C:/Users/Mark/Dropbox/Electronics/Software/avr_workspace/common_libs/fat/fat.c:171: error: redefinition of 'struct fat_dir_struct'
+C:/Users/Mark/Dropbox/Electronics/Software/avr_workspace/common_libs/fat/fat.c:179: error: redefinition of 'struct fat_read_dir_callback_arg'
+C:/Users/Mark/Dropbox/Electronics/Software/avr_workspace/common_libs/fat/fat.c:189: error: redefinition of 'struct fat_usage_count_callback_arg'
+make: *** [common_libs/fat/fat.o] Error 1
+
+**** Build Finished ****

@@ -1,0 +1,21 @@
+
+**** Build of configuration Debug for project sd_test ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=at90can128 sd_test.elf
+AVR Memory Usage
+----------------
+Device: at90can128
+
+Program:   28508 bytes (21.7% Full)
+(.text + .data + .bootloader)
+
+Data:        782 bytes (19.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

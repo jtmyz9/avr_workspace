@@ -1,0 +1,42 @@
+
+**** Build of configuration Debug for project IMU ****
+
+make all 
+Building file: ../IMU.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\Users\Mark\Dropbox\Electronics\Software\avr_workspace\libs\include" -I"C:\WinAVR-20100110\avr\include" -I"C:\WinAVR-20100110\lib\gcc\avr\4.3.3\include" -I"C:\WinAVR-20100110\lib\gcc\avr\4.3.3\include-fixed" -Wall -g2 -gstabs -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=at90can128 -DF_CPU=16000000UL -MMD -MP -MF"IMU.d" -MT"IMU.d" -c -o "IMU.o" "../IMU.c"
+../IMU.c: In function 'main':
+../IMU.c:45: warning: unused variable 'id2'
+../IMU.c:45: warning: unused variable 'id1'
+Finished building: ../IMU.c
+ 
+Building target: IMU.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,IMU.map -mmcu=at90can128 -o "IMU.elf"  ./IMU.o ./acl.o ./can.o ./tmp_sensor.o ./twimaster.o ./uart.o   
+Finished building target: IMU.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S IMU.elf  >"IMU.lss"
+Finished building: IMU.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex IMU.elf  "IMU.hex"
+Finished building: IMU.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=at90can128 IMU.elf
+AVR Memory Usage
+----------------
+Device: at90can128
+
+Program:    4396 bytes (3.4% Full)
+(.text + .data + .bootloader)
+
+Data:        371 bytes (9.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

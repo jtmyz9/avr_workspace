@@ -32,6 +32,17 @@
 #define GYRO_ZOUT_L		0x22
 #define GYRO_PWR_MGM	0x3E
 
+//definitions for filter and sample rate config
+#define FILTER_256_RATE_8	0x18
+#define FILTER_188_RATE_1	0x19
+#define FILTER_98_RATE_1	0x1A
+#define FILTER_42_RATE_1	0x1B
+#define FILTER_20_RATE_1	0x1C
+#define FILTER_10_RATE_1	0x1D
+#define FILTER_5_RATE_1		0x1E
+
+
+
 extern int16_t gyro_x,gyro_y,gyro_z;
 
 uint8_t gyro_init(void);

@@ -1,0 +1,8 @@
+
+**** Clean-only build of configuration Debug for project WRL ****
+
+make clean 
+rm -rf  ./WRL.o ./uart.o  ./WRL.d ./uart.d  WRL.hex  WRL.lss  sizedummy  WRL.elf
+ 
+
+**** Build Finished ****

@@ -1,0 +1,39 @@
+
+**** Build of configuration Debug for project STS_interface ****
+
+make all 
+Building file: ../STS_interface.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\WinAVR-20100110\avr\include" -I"C:\WinAVR-20100110\lib\gcc\avr\4.3.3\include" -I"C:\WinAVR-20100110\lib\gcc\avr\4.3.3\include-fixed" -Wall -g2 -gstabs -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=8000000UL -MMD -MP -MF"STS_interface.d" -MT"STS_interface.d" -c -o "STS_interface.o" "../STS_interface.c"
+Finished building: ../STS_interface.c
+ 
+Building target: STS_interface.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,STS_interface.map -mmcu=atmega644p -o "STS_interface.elf"  ./CRC8.o ./STS_interface.o ./tmp_sensor.o ./twimaster.o ./uart.o   
+Finished building target: STS_interface.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S STS_interface.elf  >"STS_interface.lss"
+Finished building: STS_interface.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex STS_interface.elf  "STS_interface.hex"
+Finished building: STS_interface.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega644p STS_interface.elf
+AVR Memory Usage
+----------------
+Device: atmega644p
+
+Program:    7726 bytes (11.8% Full)
+(.text + .data + .bootloader)
+
+Data:        470 bytes (11.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

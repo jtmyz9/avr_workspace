@@ -1,0 +1,47 @@
+
+**** Build of configuration Debug for project DLGR ****
+
+make all 
+Building file: ../datalogger.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\WinAVR-20100110\lib\gcc\avr\4.3.3\include" -I"C:\Users\Mark\Dropbox\Electronics\Software\avr_workspace\libs\include" -I"C:\WinAVR-20100110\avr\include" -I"C:\WinAVR-20100110\lib\gcc\avr\4.3.3\include-fixed" -Wall -g2 -gstabs -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=at90can128 -DF_CPU=16000000UL -MMD -MP -MF"datalogger.d" -MT"datalogger.d" -c -o "datalogger.o" "../datalogger.c"
+In file included from ../datalogger.c:9:
+../gps.h:60: warning: useless storage class specifier in empty declaration
+../datalogger.c: In function 'main':
+../datalogger.c:62: warning: unused variable 'out_str'
+../datalogger.c: In function 'ProcessCanMsg':
+../datalogger.c:851: warning: unused variable 'i'
+../datalogger.c: At top level:
+../datalogger.c:1040: warning: 'print_disk_info' defined but not used
+Finished building: ../datalogger.c
+ 
+Building target: DLGR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DLGR.map -mmcu=at90can128 -o "DLGR.elf"  ./fat/byteordering.o ./fat/fat.o ./fat/partition.o ./fat/sd_raw.o ./fat/uart.o  ./can.o ./datalogger.o ./gps.o ./log.o ./systimer.o   
+Finished building target: DLGR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DLGR.elf  >"DLGR.lss"
+Finished building: DLGR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex DLGR.elf  "DLGR.hex"
+Finished building: DLGR.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=at90can128 DLGR.elf
+AVR Memory Usage
+----------------
+Device: at90can128
+
+Program:   37004 bytes (28.2% Full)
+(.text + .data + .bootloader)
+
+Data:       1911 bytes (46.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

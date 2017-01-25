@@ -1,0 +1,15 @@
+
+**** Build of configuration Debug for project ThermopileConfig ****
+
+make all 
+Building file: ../mlx90614.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=8000000UL -MMD -MP -MF"mlx90614.d" -MT"mlx90614.d" -c -o "mlx90614.o" "../mlx90614.c"
+../mlx90614.c:10:63: error: CRC8.h: No such file or directory
+In file included from ../mlx90614.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../mlx90614.c: In function 'mlx_write':
+../mlx90614.c:52: warning: implicit declaration of function 'PEC_calculation'
+make: *** [mlx90614.o] Error 1
+
+**** Build Finished ****

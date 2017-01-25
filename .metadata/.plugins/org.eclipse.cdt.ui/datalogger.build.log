@@ -1,0 +1,58 @@
+
+**** Build of configuration Debug for project datalogger ****
+
+make all 
+Building file: ../datalogger.c
+Invoking: AVR Compiler
+avr-gcc -IC:/WinAVR-20100110/avr/include -I"C:\Users\Mark\Dropbox\Electronics\Software\avr_workspace\common_libs\include" -IC:/WinAVR-20100110/lib/gcc/avr/4.3.3/include -IC:/WinAVR-20100110/lib/gcc/avr/4.3.3/include-fixed -IC:/Users/Administrator/Dropbox/Electronics/Software/avr_workspace/common_libs/include -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=at90can128 -DF_CPU=16000000UL -MMD -MP -MF"datalogger.d" -MT"datalogger.d" -c -o "datalogger.o" "../datalogger.c"
+In file included from ../datalogger.h:12,
+                 from ../datalogger.c:8:
+C:/WinAVR-20100110/avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../datalogger.c:8:
+../datalogger.h:14:18: warning: uart.h: No such file or directory
+../datalogger.h:15:17: warning: fat.h: No such file or directory
+../datalogger.h:16:24: warning: missing terminating " character
+../datalogger.h:16:24: warning: extra tokens at end of #include directive
+../datalogger.h:16:25: warning: fat_config.h: No such file or directory
+../datalogger.h:17:23: warning: partition.h: No such file or directory
+../datalogger.h:18:20: warning: sd_raw.h: No such file or directory
+../datalogger.h:19:24: warning: raw_config.h: No such file or directory
+../datalogger.c:10: warning: 'struct fat_fs_struct' declared inside parameter list
+../datalogger.c:10: warning: its scope is only this definition or declaration, which is probably not what you want
+../datalogger.c: In function 'fat_init':
+../datalogger.c:19: warning: implicit declaration of function 'sd_raw_init'
+../datalogger.c:20: warning: implicit declaration of function 'partition_open'
+../datalogger.c:20: error: 'sd_raw_read' undeclared (first use in this function)
+../datalogger.c:20: error: (Each undeclared identifier is reported only once
+../datalogger.c:20: error: for each function it appears in.)
+../datalogger.c:20: error: 'sd_raw_read_interval' undeclared (first use in this function)
+../datalogger.c:20: error: 'sd_raw_write' undeclared (first use in this function)
+../datalogger.c:20: error: 'sd_raw_write_interval' undeclared (first use in this function)
+../datalogger.c:20: warning: assignment makes pointer from integer without a cast
+../datalogger.c:24: warning: assignment makes pointer from integer without a cast
+../datalogger.c:28: warning: implicit declaration of function 'fat_open'
+../datalogger.c:28: warning: assignment makes pointer from integer without a cast
+../datalogger.c:32: warning: implicit declaration of function 'fat_open_dir'
+../datalogger.c:32: warning: assignment makes pointer from integer without a cast
+../datalogger.c: In function 'main':
+../datalogger.c:44: warning: implicit declaration of function 'uart_init'
+../datalogger.c:46: warning: implicit declaration of function 'uart_puts_p'
+../datalogger.c:46: warning: implicit declaration of function 'PSTR'
+../datalogger.c:42: warning: unused variable 'f'
+../datalogger.c: At top level:
+../datalogger.c:60: error: conflicting types for 'print_disk_info'
+../datalogger.c:10: error: previous declaration of 'print_disk_info' was here
+../datalogger.c: In function 'print_disk_info':
+../datalogger.c:65: error: storage size of 'disk_info' isn't known
+../datalogger.c:66: warning: implicit declaration of function 'sd_raw_get_info'
+../datalogger.c:69: warning: implicit declaration of function 'uart_putc_hex'
+../datalogger.c:69: warning: implicit declaration of function 'uart_putc'
+../datalogger.c:69:87: warning: multi-character character constant
+../datalogger.c:70: warning: implicit declaration of function 'uart_puts'
+../datalogger.c:73: warning: implicit declaration of function 'uart_putdw_hex'
+../datalogger.c:74: warning: implicit declaration of function 'uart_putw_dec'
+../datalogger.c:76: warning: implicit declaration of function 'uart_putdw_dec'
+../datalogger.c:65: warning: unused variable 'disk_info'
+make: *** [datalogger.o] Error 1
+
+**** Build Finished ****

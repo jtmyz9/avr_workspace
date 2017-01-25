@@ -1,0 +1,143 @@
+
+**** Build of configuration Debug for project fat_sd_test ****
+
+make all 
+Building file: ../FAT32.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=at90can128 -DF_CPU=16000000UL -MMD -MP -MF"FAT32.d" -MT"FAT32.d" -c -o "FAT32.o" "../FAT32.c"
+In file included from ../includes.h:14,
+                 from ../FAT32.c:7:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../FAT32.c
+ 
+Building file: ../FAT32_AppIF.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=at90can128 -DF_CPU=16000000UL -MMD -MP -MF"FAT32_AppIF.d" -MT"FAT32_AppIF.d" -c -o "FAT32_AppIF.o" "../FAT32_AppIF.c"
+In file included from ../includes.h:14,
+                 from ../FAT32_AppIF.c:6:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../FAT32_AppIF.c: In function 'fat_file_read':
+../FAT32_AppIF.c:139: warning: implicit declaration of function 'chain_rw'
+../FAT32_AppIF.c:139: error: 'FAT_READ' undeclared (first use in this function)
+../FAT32_AppIF.c:139: error: (Each undeclared identifier is reported only once
+../FAT32_AppIF.c:139: error: for each function it appears in.)
+../FAT32_AppIF.c: In function 'fat_file_write':
+../FAT32_AppIF.c:145: error: 'FAT_WRITE' undeclared (first use in this function)
+../FAT32_AppIF.c:146: warning: implicit declaration of function 'fatcache_clean'
+../FAT32_AppIF.c: In function 'fat_file_append':
+../FAT32_AppIF.c:165: warning: implicit declaration of function 'clusters_to_hold_bytes'
+../FAT32_AppIF.c:169: warning: implicit declaration of function 'chain_extend_to'
+../FAT32_AppIF.c:172: warning: implicit declaration of function 'chain_create'
+../FAT32_AppIF.c:181: warning: implicit declaration of function 'dir_entry_get_ptr'
+../FAT32_AppIF.c:181: warning: assignment makes pointer from integer without a cast
+../FAT32_AppIF.c:187: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:187: warning: implicit declaration of function 'LEND_UINT_WRITE'
+../FAT32_AppIF.c:188: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:189: warning: implicit declaration of function 'chain_init'
+../FAT32_AppIF.c:193: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:193: warning: implicit declaration of function 'LEND_ULONG_WRITE'
+../FAT32_AppIF.c:196: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:196: warning: implicit declaration of function 'dir_time_entry'
+../FAT32_AppIF.c:197: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:197: warning: implicit declaration of function 'dir_date_entry'
+../FAT32_AppIF.c:198: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:198: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:200: warning: implicit declaration of function 'fatcache_dirty'
+../FAT32_AppIF.c:203: error: 'FAT_WRITE' undeclared (first use in this function)
+../FAT32_AppIF.c: In function 'fat_file_locate':
+../FAT32_AppIF.c:222: warning: implicit declaration of function 'dir_search_name'
+../FAT32_AppIF.c:225: warning: assignment makes pointer from integer without a cast
+../FAT32_AppIF.c:228: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:228: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:232: warning: implicit declaration of function 'LEND_UINT_READ'
+../FAT32_AppIF.c:232: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:234: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:238: warning: implicit declaration of function 'LEND_ULONG_READ'
+../FAT32_AppIF.c:238: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:240: warning: implicit declaration of function 'DEBUG_P'
+../FAT32_AppIF.c:241: warning: implicit declaration of function 'DEBUG_ULONG'
+../FAT32_AppIF.c: In function 'fat_directory_change':
+../FAT32_AppIF.c:269: warning: assignment makes pointer from integer without a cast
+../FAT32_AppIF.c:272: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:275: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:275: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c: In function 'fat_directory_delete':
+../FAT32_AppIF.c:311: warning: assignment makes pointer from integer without a cast
+../FAT32_AppIF.c:319: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:320: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:320: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:328: warning: implicit declaration of function 'chain_length'
+../FAT32_AppIF.c:328: error: 'sectors_per_cluster_power' undeclared (first use in this function)
+../FAT32_AppIF.c:341: warning: assignment makes pointer from integer without a cast
+../FAT32_AppIF.c:344: warning: implicit declaration of function 'dir_type'
+../FAT32_AppIF.c:347: error: 'DIR_TYPE_USED' undeclared (first use in this function)
+../FAT32_AppIF.c:347: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:352: error: 'DIR_TYPE_UNUSED' undeclared (first use in this function)
+../FAT32_AppIF.c:371: warning: assignment makes pointer from integer without a cast
+../FAT32_AppIF.c:376: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:386: warning: assignment makes pointer from integer without a cast
+../FAT32_AppIF.c:389: error: 'DIR_TYPE_LFN' undeclared (first use in this function)
+../FAT32_AppIF.c:391: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:412: warning: implicit declaration of function 'chain_erase'
+../FAT32_AppIF.c: In function 'fat_file_create':
+../FAT32_AppIF.c:432: warning: implicit declaration of function 'dir_name_add'
+../FAT32_AppIF.c:450: warning: assignment makes pointer from integer without a cast
+../FAT32_AppIF.c:452: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:453: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:454: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:455: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c: In function 'fat_file_delete':
+../FAT32_AppIF.c:485: warning: assignment makes pointer from integer without a cast
+../FAT32_AppIF.c:490: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:500: warning: assignment makes pointer from integer without a cast
+../FAT32_AppIF.c:503: error: 'DIR_TYPE_LFN' undeclared (first use in this function)
+../FAT32_AppIF.c:505: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c: In function 'fat_directory_create':
+../FAT32_AppIF.c:567: error: 'dir_chain_nav' undeclared (first use in this function)
+../FAT32_AppIF.c:568: error: 'sectors_per_cluster' undeclared (first use in this function)
+../FAT32_AppIF.c:568: error: 'FAT_ERASE' undeclared (first use in this function)
+../FAT32_AppIF.c:575: warning: assignment makes pointer from integer without a cast
+../FAT32_AppIF.c:585: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:586: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:587: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:588: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:599: warning: assignment makes pointer from integer without a cast
+../FAT32_AppIF.c:609: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:610: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:611: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:612: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:623: warning: assignment makes pointer from integer without a cast
+../FAT32_AppIF.c:632: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:633: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:636: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:637: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:641: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:642: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c: In function 'fat_directory_list':
+../FAT32_AppIF.c:663: warning: implicit declaration of function 'DIRTXT_P'
+../FAT32_AppIF.c:663: warning: implicit declaration of function 'DIRTXT_ULONG'
+../FAT32_AppIF.c:666: error: 'sectors_per_cluster_power' undeclared (first use in this function)
+../FAT32_AppIF.c:669: error: 'long_file_name' undeclared (first use in this function)
+../FAT32_AppIF.c:672: warning: assignment makes pointer from integer without a cast
+../FAT32_AppIF.c:676: error: 'DIR_TYPE_USED' undeclared (first use in this function)
+../FAT32_AppIF.c:678: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:683: warning: implicit declaration of function 'DIRTXT'
+../FAT32_AppIF.c:683: warning: implicit declaration of function 'dir_name_short'
+../FAT32_AppIF.c:683: error: 'text' undeclared (first use in this function)
+../FAT32_AppIF.c:685: warning: implicit declaration of function 'DIRTXT_ULONG_FIXED'
+../FAT32_AppIF.c:685: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:685: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:687: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:692: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:697: warning: implicit declaration of function 'dir_lfn_checksum'
+../FAT32_AppIF.c:706: error: 'DIR_TYPE_LFN' undeclared (first use in this function)
+../FAT32_AppIF.c:710: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:713: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:714: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:717: warning: implicit declaration of function 'dir_lfn_text_get'
+../FAT32_AppIF.c:720: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:720: error: dereferencing pointer to incomplete type
+../FAT32_AppIF.c:731: error: 'DIR_TYPE_UNUSED' undeclared (first use in this function)
+make: *** [FAT32_AppIF.o] Error 1
+
+**** Build Finished ****

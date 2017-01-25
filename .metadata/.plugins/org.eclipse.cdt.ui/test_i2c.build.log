@@ -1,0 +1,21 @@
+
+**** Build of configuration Debug for project test_i2c ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=at90can128 test_i2c.elf
+AVR Memory Usage
+----------------
+Device: at90can128
+
+Program:    4954 bytes (3.8% Full)
+(.text + .data + .bootloader)
+
+Data:         25 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

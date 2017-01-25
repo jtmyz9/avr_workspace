@@ -1,0 +1,21 @@
+
+**** Build of configuration Debug for project dac ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega644p dac.elf
+AVR Memory Usage
+----------------
+Device: atmega644p
+
+Program:    2954 bytes (4.5% Full)
+(.text + .data + .bootloader)
+
+Data:        186 bytes (4.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

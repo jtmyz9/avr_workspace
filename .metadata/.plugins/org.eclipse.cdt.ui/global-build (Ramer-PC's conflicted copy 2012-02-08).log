@@ -1,0 +1,35 @@
+
+**** Build of configuration Debug for project SW ****
+
+make all 
+Building file: ../ui.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\WinAVR-20100110\avr\include" -I"C:\WinAVR-20100110\lib\gcc\avr\4.3.3\include" -I"C:\WinAVR-20100110\lib\gcc\avr\4.3.3\include-fixed" -Wall -g2 -gstabs -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=at90can128 -DF_CPU=16000000UL -MMD -MP -MF"ui.d" -MT"ui.d" -c -o "ui.o" "../ui.c"
+Finished building: ../ui.c
+ 
+Building target: SW.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,SW.map -mmcu=at90can128 -o "SW.elf"  ./SW.o ./can.o ./glcd.o ./svn_seg.o ./tach.o ./uart.o ./ui.o ./ui_pages.o   
+Finished building target: SW.elf
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex SW.elf  "SW.hex"
+Finished building: SW.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=at90can128 SW.elf
+AVR Memory Usage
+----------------
+Device: at90can128
+
+Program:   10348 bytes (7.9% Full)
+(.text + .data + .bootloader)
+
+Data:        463 bytes (11.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

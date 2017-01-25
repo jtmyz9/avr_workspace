@@ -14,19 +14,15 @@
 #include <util/delay.h>
 #include <stdio.h>
 
-#include "uart.h"
+//#include "uart.h"
 #include "acl.h"
-#include "ZOUnet.h"
-#include "can.h"
+//#include "ZOUnet.h"			//think i dont need this
+//#include "can.h"
 #include "systimer.h"
 #include "tmp_sensor.h"
 #include "sts.h"
-//#include "gyro.h"
-
-#define FL_SUSP_TRVL 2
-#define FR_SUSP_TRVL 4
-#define RL_SUSP_TRVL 3
-#define RR_SUSP_TRVL 1
+#include "gyro.h"
+#include "can_lib.h"
 
 #define UART1_BAUD 115200
 FILE uart_str = FDEV_SETUP_STREAM(uart_putchar, uart_getchar, _FDEV_SETUP_RW);
@@ -39,10 +35,10 @@ FILE uart_str = FDEV_SETUP_STREAM(uart_putchar, uart_getchar, _FDEV_SETUP_RW);
 								(((uint32_t)(b2) & 0x000000FF) << 16) +\
 								(((uint32_t)(b1) & 0x000000FF) << 8) + b0)
 
-uint8_t ProcessCanMsg(CAN_packet *pkt);
-void InitCanMsgs(void);
+//uint8_t ProcessCanMsg(CAN_packet *pkt);
+//void InitCanMsgs(void);
 void handle_10ms_tick(void);
-volatile CAN_packet imu2,sts3,sts4,sts5,sts2;
+//volatile CAN_packet imu2,sts3,sts4,sts5,sts2;
 
 
 

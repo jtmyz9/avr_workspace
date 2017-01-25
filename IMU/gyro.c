@@ -13,17 +13,34 @@ int16_t gyro_y = 0;
 int16_t gyro_z = 0;
 
 uint8_t gyro_init(void)
-{
-	if(gyro_write(GYRO_DLPF_FS,0x19))
+{	
+
+	gyro_write(GYRO_PWR_MGM, 0x80);		// reset gyro for init
+	gyro_write(GYRO_SMPLRT_DIV, 0x00);		// set sample rate divider to 0
+	gyro_write(GYRO_INT_CFG, 0x00);		// set interrupt configuration
+
+	/*
+	*	Set Digital Low Pass Filter and Sample Rate
+	*	DLPF and Sample rate must be set for proper operation
+	*/
+	if(gyro_write(GYRO_DLPF_FS,FILTER_188_RATE_1))
 	{
 		return 1;
 	}
 
+	//if unable to write sample rate, init fail
 	return 0;
 }
 
+/*
+* Function to Write data to Gyro
+* Reg: register address to be written to 
+* Val: Value to be written to register
+*/
 uint8_t gyro_write(uint8_t reg,uint8_t val)
-{
+{	
+	//Write sequence start+write, Register address,data, stop
+
 	if(i2c_start(GYRO_ADDR+I2C_WRITE))
 	{
 		i2c_stop();
@@ -37,6 +54,13 @@ uint8_t gyro_write(uint8_t reg,uint8_t val)
 	return 0;
 }
 
+/*
+* Read information from Gyro
+* start_reg: register address to start read from
+* buf: pointer to buffer to store data 
+* num: number of bytes to read
+* Return: 0 on success
+*/
 uint8_t gyro_read(uint8_t start_reg,uint8_t *buf,uint8_t num)
 {
 	uint8_t i;
@@ -64,12 +88,18 @@ uint8_t gyro_read(uint8_t start_reg,uint8_t *buf,uint8_t num)
 	return 0;
 }
 
+/*
+* Retrieve Values from Gyro
+* Scales value to degrees/sec, 14.375 degrees/sec per LSB
+* Input: Void
+* Return: Void
+*/
 void gyro_get_values(void)
 {
 	uint8_t data[7];
 	int32_t x,y,z;
 
-	gyro_read(GYRO_XOUT_H,data,7);
+	gyro_read(GYRO_XOUT_H,&data,7);
 
 	x = ((((int16_t)(data[0])) << 8) &0xFF00) + (((int16_t)data[1]) & 0x00FF);
 	y = ((((int16_t)(data[2])) << 8) &0xFF00) + (((int16_t)data[3]) & 0x00FF);
@@ -86,9 +116,6 @@ void gyro_get_values(void)
 		gyro_y = y;
 		gyro_z = z;
 	}
-
-
-
 
 }
 
